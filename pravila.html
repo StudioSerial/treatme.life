@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="hr" data-lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pravila privatnosti — treatme.life</title>
+<meta name="description" content="Pravila privatnosti i zaštita osobnih podataka na treatme.life.">
+<meta name="theme-color" content="#08272D">
+<meta property="og:title" content="Pravila privatnosti — treatme.life">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="canonical" href="https://treatme.life/pravila">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:      #E8E1D2; --cream-soft: #FAF6EC; --cream-warm: #DDD4C0;
+  --cream-line: #D2C8B0; --ink: #08272D; --ink-soft: #1A3D32;
+  --ink-muted:  #5A5546; --mint: #C7E6D9; --sage: #9BCBB8; --lime: #D9F100;
+  --serif: 'Fraunces', Georgia, serif;
+  --body:  'Inter', system-ui, sans-serif;
+  --mono:  'JetBrains Mono', 'Courier New', monospace;
+  --gutter: clamp(20px, 4vw, 52px); --max-w: 860px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--cream); color: var(--ink); line-height: 1.6; font-size: 16px; -webkit-font-smoothing: antialiased; padding-bottom: 80px; }
+a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+[data-lang="hr"] [lang="en"] { display: none !important; }
+[data-lang="en"] [lang="hr"] { display: none !important; }
+
+.header { position: sticky; top: 0; z-index: 50; background: rgba(232,225,210,0.92); border-bottom: 0.5px solid var(--cream-line); backdrop-filter: blur(14px); }
+.header-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px var(--gutter); display: flex; justify-content: space-between; align-items: center; }
+.brand-mark { font-family: var(--serif); font-size: 18px; font-weight: 400; letter-spacing: -0.03em; color: var(--ink); text-decoration: none; }
+.brand-mark em { font-style: italic; font-weight: 300; }
+.lang-switcher { display: flex; align-items: center; background: rgba(8,39,45,0.07); border-radius: 999px; padding: 3px; }
+.lang-btn { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; padding: 5px 10px; border-radius: 999px; color: var(--ink-muted); transition: background 0.18s, color 0.18s; cursor: pointer; border: none; background: none; }
+.lang-btn.active { background: var(--ink); color: var(--cream-soft); }
+
+.content { max-width: var(--max-w); margin: 0 auto; padding: clamp(48px,7vw,88px) var(--gutter); }
+.page-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 20px; }
+.page-title { font-family: var(--serif); font-size: clamp(32px, 5vw, 52px); font-weight: 300; letter-spacing: -0.025em; line-height: 1.05; margin-bottom: 12px; }
+.page-title em { font-style: italic; }
+.page-date { font-family: var(--mono); font-size: 12px; color: var(--ink-muted); margin-bottom: 48px; border-bottom: 0.5px solid var(--cream-line); padding-bottom: 28px; }
+
+.prose h2 { font-family: var(--serif); font-size: clamp(20px, 3vw, 28px); font-weight: 300; letter-spacing: -0.02em; margin: 40px 0 14px; color: var(--ink); }
+.prose p { font-size: 15px; line-height: 1.72; color: var(--ink-muted); margin-bottom: 18px; max-width: 70ch; }
+.prose ul { padding-left: 24px; margin-bottom: 18px; }
+.prose li { font-size: 15px; line-height: 1.72; color: var(--ink-muted); margin-bottom: 8px; }
+.prose a { color: var(--ink); }
+.contact-box { margin-top: 48px; padding: 28px 32px; background: var(--cream-warm); border-radius: 14px; }
+.contact-box p { margin: 0; }
+.contact-box strong { font-weight: 600; color: var(--ink); }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 20px; }
+.cookie-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 520px; }
+
+.footer { background: var(--ink); color: rgba(199,230,217,0.6); padding: 32px var(--gutter); margin-top: 60px; }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-family: var(--mono); font-size: 11px; }
+.footer a { color: rgba(199,230,217,0.6); text-decoration: none; }
+.footer a:hover { color: var(--cream-soft); }
+
+/* ── MOBILE NAV ─────────────────────────────────────────────── */
+.hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; padding: 8px 4px; cursor: pointer; background: none; border: none; z-index: 60; flex-shrink: 0; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); border-radius: 2px; transition: transform 0.28s cubic-bezier(0.2,0.8,0.2,1), opacity 0.2s; transform-origin: center; }
+@media (max-width: 879px) { .hamburger { display: flex; } }
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.mobile-nav { display: none; position: fixed; inset: 0; background: var(--ink); z-index: 49; padding: 88px var(--gutter) 48px; flex-direction: column; gap: 0; overflow-y: auto; }
+.mobile-nav.open { display: flex; animation: mnavIn 0.28s cubic-bezier(0.2,0.8,0.2,1); }
+@keyframes mnavIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.mobile-nav a.mnav-link { font-family: var(--serif); font-size: clamp(26px,7vw,40px); font-weight: 300; letter-spacing: -0.02em; color: rgba(199,230,217,0.65); padding: 16px 0; border-bottom: 0.5px solid rgba(199,230,217,0.1); text-decoration: none; transition: color 0.2s; display: block; }
+.mobile-nav a.mnav-link:hover, .mobile-nav a.mnav-link.active { color: var(--lime); }
+.mobile-nav-bottom { margin-top: auto; padding-top: 36px; display: flex; flex-direction: column; gap: 12px; }
+.mobile-nav-cta-btn { background: var(--lime); color: var(--ink); padding: 16px 24px; border-radius: 999px; font-size: 16px; font-weight: 600; display: block; text-align: center; text-decoration: none; transition: transform 0.2s; }
+.mobile-nav-cta-btn:hover { transform: translateY(-1px); }
+.mobile-nav-email { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(199,230,217,0.3); text-align: center; text-decoration: none; }
+@media (min-width: 880px) { .mobile-nav { display: none !important; } .hamburger { display: none !important; } }
+</style>
+<script src="/cookie-consent.js"></script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WJFPLL73');</script>
+<!-- End Google Tag Manager -->
+</head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJFPLL73"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="brand-mark">treatme<em>.life</em></a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="hr" onclick="setLang('hr')">HR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+
+      <button class="hamburger" id="hamburger" aria-label="Izbornik" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ── MOBILE NAV OVERLAY ──────────────────────────── -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="/" class="mnav-link">Home</a>
+  <a href="/retreati" class="mnav-link"><span lang="hr">Retreati</span><span lang="en">Retreats</span></a>
+  <a href="/yoga-sati" class="mnav-link"><span lang="hr">Yoga sati</span><span lang="en">Yoga classes</span></a>
+  <a href="/iskustva" class="mnav-link"><span lang="hr">Iskustva</span><span lang="en">Experiences</span></a>
+  <a href="/journal" class="mnav-link">Journal</a>
+  <a href="/o-nama" class="mnav-link"><span lang="hr">O nama</span><span lang="en">About</span></a>
+  <a href="/b2b" class="mnav-link">B2B</a>
+  <div class="mobile-nav-bottom">
+    <a href="/retreati" class="mobile-nav-cta-btn">
+      <span lang="hr">Prijavi se na retreat →</span>
+      <span lang="en">Join a retreat →</span>
+    </a>
+    <a href="mailto:hello@treatme.life" class="mobile-nav-email">hello@treatme.life</a>
+  </div>
+</div>
+
+
+<div class="content">
+  <div class="page-eyebrow"><span lang="hr">Pravna napomena</span><span lang="en">Legal notice</span></div>
+  <h1 class="page-title">
+    <span lang="hr">Pravila <em>privatnosti.</em></span>
+    <span lang="en">Privacy <em>policy.</em></span>
+  </h1>
+  <div class="page-date">
+    <span lang="hr">Zadnje ažuriranje: lipanj 2026.</span>
+    <span lang="en">Last updated: June 2026.</span>
+  </div>
+
+  <div class="prose">
+
+    <h2><span lang="hr">Tko smo</span><span lang="en">Who we are</span></h2>
+    <p lang="hr">treatme.life je wellness i retreat brand. Operativno se vodi kroz kontakt adresu <a href="mailto:hello@treatme.life">hello@treatme.life</a>. Ova pravila opisuju kako prikupljamo i koristimo osobne podatke posjetitelja ovog web-mjesta.</p>
+    <p lang="en">treatme.life is a wellness and retreat brand. Operated through the contact address <a href="mailto:hello@treatme.life">hello@treatme.life</a>. This policy describes how we collect and use personal data from visitors to this website.</p>
+
+    <h2><span lang="hr">Koji podatci se prikupljaju</span><span lang="en">What data we collect</span></h2>
+    <p lang="hr">Prikupljamo samo podatke koje nam dobrovoljno pružiš:</p>
+    <p lang="en">We only collect data you voluntarily provide to us:</p>
+    <ul>
+      <li lang="hr"><strong>Email adresa</strong> — kada se prijaviš na naš newsletter ili pošalješ upit.</li>
+      <li lang="en"><strong>Email address</strong> — when you subscribe to our newsletter or submit an enquiry.</li>
+      <li lang="hr"><strong>Ime i prezime</strong> — kada pošalješ rezervacijski upit za retreat.</li>
+      <li lang="en"><strong>Name and surname</strong> — when you submit a retreat booking enquiry.</li>
+      <li lang="hr"><strong>Poruka</strong> — sadržaj upita koji pošalješ putem emaila.</li>
+      <li lang="en"><strong>Message content</strong> — the content of any enquiry you send via email.</li>
+    </ul>
+
+    <h2><span lang="hr">Kako koristimo tvoje podatke</span><span lang="en">How we use your data</span></h2>
+    <ul>
+      <li lang="hr">Slanje newslettera (jednom mjesečno, bez spama)</li>
+      <li lang="en">Sending our newsletter (once a month, no spam)</li>
+      <li lang="hr">Odgovaranje na rezervacijske upite i komunikacija vezana uz retreat</li>
+      <li lang="en">Responding to booking enquiries and retreat-related communication</li>
+      <li lang="hr">Poboljšanje naše usluge i sadržaja</li>
+      <li lang="en">Improving our service and content</li>
+    </ul>
+    <p lang="hr">Nikad ne prodajemo, ne iznajmljujemo niti dijelimo tvoje podatke s trećim stranama bez tvoje privole.</p>
+    <p lang="en">We never sell, rent, or share your data with third parties without your consent.</p>
+
+    <h2 id="cookies"><span lang="hr">Politika kolačića</span><span lang="en">Cookie policy</span></h2>
+    <p lang="hr">Koristimo tri vrste kolačića / lokalnog pohrana:</p>
+    <p lang="en">We use three types of cookies / local storage:</p>
+
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;"><table lang="hr" style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:0;min-width:480px;">
+      <thead>
+        <tr style="border-bottom:1.5px solid var(--cream-line);">
+          <th style="text-align:left;padding:8px 6px 10px;font-weight:600;color:var(--ink);">Naziv</th>
+          <th style="text-align:left;padding:8px 6px 10px;font-weight:600;color:var(--ink);">Vrsta</th>
+          <th style="text-align:left;padding:8px 6px 10px;font-weight:600;color:var(--ink);">Svrha</th>
+          <th style="text-align:left;padding:8px 6px 10px;font-weight:600;color:var(--ink);">Trajanje</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:0.5px solid var(--cream-line);">
+          <td style="padding:8px 6px;color:var(--ink-muted);font-family:var(--mono);font-size:12px;">tm-lang</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">Nužni</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">Pamti odabir jezika (HR/EN)</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">localStorage (bez isteka)</td>
+        </tr>
+        <tr style="border-bottom:0.5px solid var(--cream-line);">
+          <td style="padding:8px 6px;color:var(--ink-muted);font-family:var(--mono);font-size:12px;">tm-cookie-consent</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">Nužni</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">Pamti tvoj odabir pristanka za kolačiće</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">localStorage (bez isteka)</td>
+        </tr>
+        <tr style="border-bottom:0.5px solid var(--cream-line);">
+          <td style="padding:8px 6px;color:var(--ink-muted);font-family:var(--mono);font-size:12px;">_ga, _ga_*</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">Analitički</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">Google Analytics 4 — anonimni posjetiteljski statistika (samo uz pristanak)</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">2 godine</td>
+        </tr>
+      </tbody>
+    </table></div>
+
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;"><table lang="en" style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:0;min-width:480px;">
+      <thead>
+        <tr style="border-bottom:1.5px solid var(--cream-line);">
+          <th style="text-align:left;padding:8px 6px 10px;font-weight:600;color:var(--ink);">Name</th>
+          <th style="text-align:left;padding:8px 6px 10px;font-weight:600;color:var(--ink);">Type</th>
+          <th style="text-align:left;padding:8px 6px 10px;font-weight:600;color:var(--ink);">Purpose</th>
+          <th style="text-align:left;padding:8px 6px 10px;font-weight:600;color:var(--ink);">Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:0.5px solid var(--cream-line);">
+          <td style="padding:8px 6px;color:var(--ink-muted);font-family:var(--mono);font-size:12px;">tm-lang</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">Essential</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">Stores language preference (HR/EN)</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">localStorage (no expiry)</td>
+        </tr>
+        <tr style="border-bottom:0.5px solid var(--cream-line);">
+          <td style="padding:8px 6px;color:var(--ink-muted);font-family:var(--mono);font-size:12px;">tm-cookie-consent</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">Essential</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">Stores your cookie consent choice</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">localStorage (no expiry)</td>
+        </tr>
+        <tr style="border-bottom:0.5px solid var(--cream-line);">
+          <td style="padding:8px 6px;color:var(--ink-muted);font-family:var(--mono);font-size:12px;">_ga, _ga_*</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">Analytics</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">Google Analytics 4 — anonymous visitor statistics (only with consent)</td>
+          <td style="padding:8px 6px;color:var(--ink-muted);">2 years</td>
+        </tr>
+      </tbody>
+    </table></div>
+
+    <p lang="hr">Google Analytics koristimo isključivo uz tvoj pristanak. Svi podaci šalju se Googleu i obrađuju u skladu s <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Googleovom politikom privatnosti</a>. IP adresa se anonimizira.</p>
+    <p lang="en">We use Google Analytics only with your consent. All data is sent to Google and processed in accordance with <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>. IP addresses are anonymised.</p>
+
+    <div style="margin:24px 0 32px;">
+      <button onclick="window.tmResetConsent && window.tmResetConsent()" style="padding:10px 22px;border-radius:999px;font-size:13px;font-weight:500;cursor:pointer;background:transparent;border:1.5px solid var(--cream-line);color:var(--ink-muted);font-family:var(--body);transition:border-color .2s,color .2s;" onmouseover="this.style.borderColor='var(--ink)';this.style.color='var(--ink)'" onmouseout="this.style.borderColor='var(--cream-line)';this.style.color='var(--ink-muted)'">
+        <span lang="hr">↺ Promijeni postavke kolačića</span>
+        <span lang="en">↺ Change cookie preferences</span>
+      </button>
+    </div>
+
+    <h2><span lang="hr">Osnova za obradu (GDPR)</span><span lang="en">Legal basis (GDPR)</span></h2>
+    <p lang="hr">Kao stanovnik EU-a imaš sljedeća prava: pristup podatcima, ispravak, brisanje, ograničenje obrade i prigovor na obradu. Za sve zahtjeve piši na <a href="mailto:hello@treatme.life">hello@treatme.life</a>.</p>
+    <p lang="en">As an EU resident, you have the following rights: access, rectification, erasure, restriction of processing, and objection. For all requests, write to <a href="mailto:hello@treatme.life">hello@treatme.life</a>.</p>
+
+    <h2><span lang="hr">Newsletter odjava</span><span lang="en">Newsletter unsubscribe</span></h2>
+    <p lang="hr">Možeš se odjaviti u bilo trenutku klikom na link u emailu ili direktnim upitom na hello@treatme.life.</p>
+    <p lang="en">You can unsubscribe at any time by clicking the link in any email or by contacting us directly at hello@treatme.life.</p>
+
+    <h2><span lang="hr">Promjene pravila</span><span lang="en">Changes to this policy</span></h2>
+    <p lang="hr">Zadržavamo pravo izmjene ovih pravila. O značajnim promjenama obavijestit ćemo newsletter pretplatnike. Preporučujemo periodičnu provjeru ove stranice.</p>
+    <p lang="en">We reserve the right to update this policy. We will notify newsletter subscribers of significant changes. We recommend periodically reviewing this page.</p>
+
+    <div class="contact-box">
+      <p><strong>treatme.life</strong><br>
+      <a href="mailto:hello@treatme.life">hello@treatme.life</a></p>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© 2026 treatme.life</span>
+    <div style="display:flex;gap:20px;">
+      <a href="/"><span lang="hr">Početna</span><span lang="en">Home</span></a>
+      <a href="/retreati"><span lang="hr">Retreati</span><span lang="en">Retreats</span></a>
+      <a href="mailto:hello@treatme.life">hello@treatme.life</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.setAttribute('lang', lang);
+  localStorage.setItem('tm-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+}
+(function(){ const s = localStorage.getItem('tm-lang') || 'hr'; if(s !== 'hr') setLang(s); })();
+
+/* ── MOBILE NAV TOGGLE ─── */
+function toggleMobileNav() {
+  var nav = document.getElementById('mobile-nav');
+  var btn = document.getElementById('hamburger');
+  var isOpen = nav.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var nav = document.getElementById('mobile-nav');
+    var btn = document.getElementById('hamburger');
+    if (nav) { nav.classList.remove('open'); }
+    if (btn) { btn.classList.remove('open'); }
+    document.body.style.overflow = '';
+  }
+});
+</script>
+</body>
+</html>

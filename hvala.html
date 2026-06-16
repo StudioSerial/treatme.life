@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="hr" data-lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hvala na upitu · treatme.life</title>
+<meta name="description" content="Hvala na upitu. Odgovaramo unutar 24 sata.">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- GTM Data Layer — mora biti PRIJE GTM snippeta -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+</script>
+
+<!-- Google Tag Manager — zamijeniti GTM-XXXXXXX s pravim ID-em kad se instalira -->
+
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="/cookie-consent.js"></script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WJFPLL73');</script>
+<!-- End Google Tag Manager -->
+
+<style>
+/* ─── TOKENS ────────────────────────────────────────────── */
+:root {
+  --cream:       #E8E1D2;
+  --cream-soft:  #FAF6EC;
+  --cream-warm:  #DDD4C0;
+  --cream-line:  #D2C8B0;
+  --ink:         #08272D;
+  --ink-soft:    #1A3D32;
+  --ink-muted:   #5A5546;
+  --mint:        #C7E6D9;
+  --mint-deep:   #6BAFA0;
+  --lime:        #D9F100;
+  --serif:  'Fraunces', Georgia, serif;
+  --body:   'Inter', system-ui, sans-serif;
+  --mono:   'JetBrains Mono', 'Courier New', monospace;
+  --gutter: clamp(20px, 4vw, 52px);
+  --max-w:  1280px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--cream); color: var(--ink); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ─── LANGUAGE ──────────────────────────────────────────── */
+[data-lang="hr"] [lang="en"] { display: none !important; }
+[data-lang="en"] [lang="hr"] { display: none !important; }
+
+/* ─── HEADER ────────────────────────────────────────────── */
+.header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(232,225,210,0.88);
+  border-bottom: 0.5px solid var(--cream-line);
+  backdrop-filter: blur(14px);
+}
+.header-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 14px var(--gutter);
+  display: flex; justify-content: space-between; align-items: center; gap: 20px;
+}
+.brand { display: flex; flex-direction: column; gap: 1px; flex-shrink: 0; }
+.brand-mark { font-family: var(--serif); font-size: 20px; font-weight: 400; letter-spacing: -0.03em; color: var(--ink); line-height: 1; }
+.brand-mark .life { font-style: italic; font-weight: 300; }
+.nav { display: none; gap: 28px; align-items: center; }
+.nav a { font-size: 13px; color: var(--ink-muted); transition: color 0.2s; }
+.nav a:hover { color: var(--ink); }
+@media (min-width: 880px) { .nav { display: flex; } }
+.header-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.lang-switcher { display: flex; align-items: center; background: rgba(8,39,45,0.07); border-radius: 999px; padding: 3px; }
+.lang-btn { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; padding: 5px 10px; border-radius: 999px; color: var(--ink-muted); transition: background 0.18s, color 0.18s; cursor: pointer; border: none; background: none; }
+.lang-btn.active { background: var(--ink); color: var(--cream-soft); }
+
+/* ── MOBILE NAV ─────────────────────────────────────────── */
+.hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; padding: 8px 4px; cursor: pointer; background: none; border: none; z-index: 60; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); border-radius: 2px; transition: transform 0.28s cubic-bezier(0.2,0.8,0.2,1), opacity 0.2s; }
+@media (max-width: 879px) { .hamburger { display: flex; } }
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.mobile-nav { display: none; position: fixed; inset: 0; background: var(--ink); z-index: 49; padding: 88px var(--gutter) 48px; flex-direction: column; gap: 0; overflow-y: auto; }
+.mobile-nav.open { display: flex; animation: mnavIn 0.28s cubic-bezier(0.2,0.8,0.2,1); }
+@keyframes mnavIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.mobile-nav a.mnav-link { font-family: var(--serif); font-size: clamp(26px,7vw,40px); font-weight: 300; letter-spacing: -0.02em; color: rgba(199,230,217,0.65); padding: 16px 0; border-bottom: 0.5px solid rgba(199,230,217,0.1); text-decoration: none; transition: color 0.2s; display: block; }
+.mobile-nav a.mnav-link:hover { color: var(--lime); }
+.mobile-nav-bottom { margin-top: auto; padding-top: 36px; display: flex; flex-direction: column; gap: 12px; }
+.mobile-nav-cta-btn { background: var(--lime); color: var(--ink); padding: 16px 24px; border-radius: 999px; font-size: 16px; font-weight: 600; display: block; text-align: center; }
+.mobile-nav-email { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(199,230,217,0.3); text-align: center; }
+@media (min-width: 880px) { .mobile-nav { display: none !important; } .hamburger { display: none !important; } }
+
+/* ─── HERO ──────────────────────────────────────────────── */
+.ty-hero {
+  background: var(--ink);
+  min-height: 70svh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  padding: clamp(60px,10vw,120px) var(--gutter);
+  position: relative; overflow: hidden;
+}
+.ty-hero-art {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: clamp(200px,40vw,520px); letter-spacing: -0.06em; line-height: 0.85;
+  color: rgba(199,230,217,0.04); pointer-events: none; user-select: none;
+}
+.ty-hero-inner { position: relative; z-index: 1; max-width: 680px; }
+.ty-check {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--lime); display: flex; align-items: center; justify-content: center;
+  font-size: 24px; margin: 0 auto 28px;
+}
+.ty-eyebrow {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: rgba(232,225,210,0.4);
+  margin-bottom: 20px;
+}
+.ty-title {
+  font-family: var(--serif); font-size: clamp(40px,7vw,80px);
+  font-weight: 300; letter-spacing: -0.04em; line-height: 0.95;
+  color: var(--cream); margin-bottom: 24px;
+}
+.ty-title em { font-style: italic; color: var(--mint); }
+.ty-subtitle {
+  font-size: clamp(15px,2vw,18px); color: rgba(232,225,210,0.6);
+  line-height: 1.65; max-width: 46ch; margin: 0 auto 40px;
+}
+.ty-subtitle strong { color: var(--cream); font-weight: 500; }
+.ty-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-lime {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--lime); color: var(--ink);
+  padding: 15px 30px; border-radius: 999px;
+  font-size: 15px; font-weight: 500;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.btn-lime:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-ghost-light {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(232,225,210,0.7);
+  padding: 15px 30px; border-radius: 999px;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+.btn-ghost-light:hover { background: rgba(255,255,255,0.13); }
+
+/* ─── NEXT STEPS ────────────────────────────────────────── */
+.next-section {
+  max-width: 860px; margin: 0 auto;
+  padding: clamp(56px,8vw,96px) var(--gutter);
+}
+.next-title {
+  font-family: var(--serif); font-size: clamp(22px,3vw,32px);
+  font-weight: 300; letter-spacing: -0.025em; color: var(--ink);
+  margin-bottom: 40px; text-align: center;
+}
+.next-title em { font-style: italic; }
+.steps { display: flex; flex-direction: column; gap: 0; }
+.step {
+  display: grid; grid-template-columns: 48px 1fr;
+  gap: 20px; padding: 24px 0;
+  border-bottom: 1px solid var(--cream-line);
+}
+.step:first-child { border-top: 1px solid var(--cream-line); }
+.step-num {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--mint); display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  color: var(--ink); flex-shrink: 0;
+}
+.step-content {}
+.step-head { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+.step-body { font-size: 14px; color: var(--ink-muted); line-height: 1.65; }
+
+/* ─── RETREAT CARD ──────────────────────────────────────── */
+.retreat-reminder {
+  background: var(--ink-soft);
+  padding: clamp(40px,6vw,64px) var(--gutter);
+}
+.retreat-reminder-inner {
+  max-width: 680px; margin: 0 auto; text-align: center;
+}
+.reminder-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: rgba(199,230,217,0.4);
+  margin-bottom: 16px;
+}
+.reminder-title {
+  font-family: var(--serif); font-size: clamp(24px,4vw,40px);
+  font-weight: 300; letter-spacing: -0.025em; color: var(--cream);
+  line-height: 1.15; margin-bottom: 20px;
+}
+.reminder-title em { font-style: italic; color: var(--mint); }
+.reminder-meta {
+  display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+  color: rgba(199,230,217,0.45); text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+/* ─── FOOTER ────────────────────────────────────────────── */
+.footer { background: var(--ink-soft); color: var(--cream); padding: clamp(48px,7vw,80px) var(--gutter) 32px; }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; }
+.footer-top { display: grid; gap: 40px; grid-template-columns: 1fr; margin-bottom: 48px; }
+@media (min-width: 720px) { .footer-top { grid-template-columns: 1.4fr 1fr 1fr; } }
+.footer-brand-mark { font-family: var(--serif); font-size: 28px; font-weight: 300; letter-spacing: -0.03em; color: var(--cream); margin-bottom: 10px; }
+.footer-brand-mark em { font-style: italic; }
+.footer-tagline { font-size: 14px; opacity: 0.5; line-height: 1.6; max-width: 32ch; }
+.footer-col-title { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.4; margin-bottom: 16px; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 14px; opacity: 0.65; transition: opacity 0.2s; }
+.footer-links a:hover { opacity: 1; }
+.footer-bottom { border-top: 0.5px solid rgba(232,225,210,0.12); padding-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; }
+.footer-legal { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; opacity: 0.3; }
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ───────────────────────────────────────────── -->
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="brand">
+      <div class="brand-mark">treatme<span class="life">.life</span></div>
+    </a>
+    <nav class="nav">
+      <a href="/">home</a>
+      <a href="/retreati"><span lang="hr">retreati</span><span lang="en">retreats</span></a>
+      <a href="/yoga-sati"><span lang="hr">yoga sati</span><span lang="en">yoga classes</span></a>
+      <a href="/iskustva"><span lang="hr">iskustva</span><span lang="en">experiences</span></a>
+      <a href="/journal">journal</a>
+      <a href="/o-nama"><span lang="hr">o nama</span><span lang="en">about</span></a>
+      <a href="/b2b">B2B</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="hr" onclick="setLang('hr')">HR</button>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Izbornik" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ── MOBILE NAV ────────────────────────────────────────── -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="/" class="mnav-link">Home</a>
+  <a href="/retreati" class="mnav-link"><span lang="hr">Retreati</span><span lang="en">Retreats</span></a>
+  <a href="/yoga-sati" class="mnav-link"><span lang="hr">Yoga sati</span><span lang="en">Yoga classes</span></a>
+  <a href="/iskustva" class="mnav-link"><span lang="hr">Iskustva</span><span lang="en">Experiences</span></a>
+  <a href="/journal" class="mnav-link">Journal</a>
+  <a href="/o-nama" class="mnav-link"><span lang="hr">O nama</span><span lang="en">About</span></a>
+  <a href="/b2b" class="mnav-link">B2B</a>
+  <div class="mobile-nav-bottom">
+    <a href="/retreati" class="mobile-nav-cta-btn">
+      <span lang="hr">Istraži retreate →</span>
+      <span lang="en">Explore retreats →</span>
+    </a>
+    <a href="mailto:hello@treatme.life" class="mobile-nav-email">hello@treatme.life</a>
+  </div>
+</div>
+
+<!-- ─── HERO ─────────────────────────────────────────────── -->
+<section class="ty-hero" id="ty-hero">
+  <div class="ty-hero-art">✓</div>
+  <div class="ty-hero-inner">
+    <div class="ty-check">✓</div>
+    <div class="ty-eyebrow" id="ty-eyebrow">
+      <span lang="hr">Upit primljen</span><span lang="en">Enquiry received</span>
+    </div>
+    <h1 class="ty-title" id="ty-title">
+      <span lang="hr">Hvala.<br><em>Čujemo se uskoro.</em></span>
+      <span lang="en">Thank you.<br><em>We'll be in touch.</em></span>
+    </h1>
+    <p class="ty-subtitle" id="ty-subtitle">
+      <span lang="hr">Tvoja poruka je na putu do nas. <strong>Odgovaramo unutar 24 sata</strong> — obično i brže. Drago nam je što si zainteresiran/a.</span>
+      <span lang="en">Your message is on its way. <strong>We reply within 24 hours</strong> — usually sooner. We're glad you reached out.</span>
+    </p>
+    <div class="ty-actions">
+      <a href="/retreati" class="btn-lime">
+        <span lang="hr">Istraži sve retreate →</span>
+        <span lang="en">Explore all retreats →</span>
+      </a>
+      <a href="/" class="btn-ghost-light">
+        <span lang="hr">← Natrag na home</span>
+        <span lang="en">← Back to home</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NEXT STEPS ────────────────────────────────────────── -->
+<section class="next-section">
+  <h2 class="next-title">
+    <span lang="hr">Što se <em>dogodi sljedeće?</em></span>
+    <span lang="en">What <em>happens next?</em></span>
+  </h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <div class="step-head">
+          <span lang="hr">Provjeri inbox (i spam folder)</span>
+          <span lang="en">Check your inbox (and spam folder)</span>
+        </div>
+        <p class="step-body">
+          <span lang="hr">Potvrda upita je u tvojoj pristigloj pošti. Ako nisi vidio/la mail, provjeri spam — nekad završi tamo.</span>
+          <span lang="en">Your enquiry confirmation is in your inbox. If you haven't seen it, check spam — it sometimes lands there.</span>
+        </p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <div class="step-head">
+          <span lang="hr">Petra ili Ines se javljaju</span>
+          <span lang="en">Petra or Ines will reach out</span>
+        </div>
+        <p class="step-body">
+          <span lang="hr">Unutar 24 sata dobit ćeš osobni odgovor s detaljima, dostupnošću i svim informacijama koje trebaš za rezervaciju.</span>
+          <span lang="en">Within 24 hours you'll receive a personal reply with details, availability and everything you need to know about booking.</span>
+        </p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <div class="step-head">
+          <span lang="hr">Rezervacija uz €200 polog</span>
+          <span lang="en">Reservation with €200 deposit</span>
+        </div>
+        <p class="step-body">
+          <span lang="hr">Kad se dogovorimo, tvoje mjesto se potvrđuje polagom od €200. Ostatak se plaća 30 dana prije retreata. Polog je povratljiv do 45 dana unaprijed.</span>
+          <span lang="en">Once confirmed, your spot is secured with a €200 deposit. The balance is due 30 days before the retreat. The deposit is refundable up to 45 days in advance.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RETREAT REMINDER ──────────────────────────────────── -->
+<div class="retreat-reminder" id="retreat-reminder">
+  <div class="retreat-reminder-inner">
+    <div class="reminder-label" id="reminder-label">
+      <span lang="hr">Tvoj retreat</span><span lang="en">Your retreat</span>
+    </div>
+    <h3 class="reminder-title" id="reminder-title">
+      <span lang="hr">Edition II · <em>Jesenška Istra</em></span>
+      <span lang="en">Edition II · <em>Autumn Istria</em></span>
+    </h3>
+    <div class="reminder-meta" id="reminder-meta">
+      <span><span lang="hr">19—24 rujna 2026</span><span lang="en">19—24 September 2026</span></span>
+      <span>·</span>
+      <span><span lang="hr">8 mjesta</span><span lang="en">8 spots</span></span>
+      <span>·</span>
+      <span><span lang="hr">od €1.500</span><span lang="en">from €1.500</span></span>
+    </div>
+    <a href="/retreat-istra" class="btn-lime" id="reminder-cta">
+      <span lang="hr">Pogledaj retreat →</span>
+      <span lang="en">View retreat →</span>
+    </a>
+  </div>
+</div>
+
+<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-mark">treatme<em>.life</em></div>
+        <p class="footer-tagline">
+          <span lang="hr">Yoga, retreati i svjesno življenje. Studio Serial, Zagreb.</span>
+          <span lang="en">Yoga, retreats and conscious living. Studio Serial, Zagreb.</span>
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-title"><span lang="hr">Stranice</span><span lang="en">Pages</span></div>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/retreati"><span lang="hr">Retreati</span><span lang="en">Retreats</span></a>
+          <a href="/yoga-sati"><span lang="hr">Yoga sati</span><span lang="en">Yoga classes</span></a>
+          <a href="/iskustva"><span lang="hr">Iskustva</span><span lang="en">Experiences</span></a>
+          <a href="/journal">Journal</a>
+          <a href="/o-nama"><span lang="hr">O nama</span><span lang="en">About</span></a>
+          <a href="/b2b">B2B</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title"><span lang="hr">Kontakt</span><span lang="en">Contact</span></div>
+        <div class="footer-links">
+          <a href="mailto:hello@treatme.life">hello@treatme.life</a>
+          <a href="https://www.instagram.com/treatme.life/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/treatme.life" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">© 2026 treatme.life · Studio Serial</div>
+      <div class="footer-legal"><span lang="hr">Privatnost · Uvjeti</span><span lang="en">Privacy · Terms</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── JS ────────────────────────────────────────────────── -->
+<script>
+/* ── LANGUAGE ── */
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.setAttribute('lang', lang);
+  localStorage.setItem('tm-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang)
+  );
+}
+(function() {
+  var s = localStorage.getItem('tm-lang') || 'hr';
+  if (s !== 'hr') setLang(s);
+})();
+
+/* ── MOBILE NAV ── */
+function toggleMobileNav() {
+  var nav = document.getElementById('mobile-nav');
+  var btn = document.getElementById('hamburger');
+  var isOpen = nav.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var nav = document.getElementById('mobile-nav');
+    var btn = document.getElementById('hamburger');
+    if (nav) nav.classList.remove('open');
+    if (btn) btn.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+/* ── READ URL PARAMS & PERSONALISE PAGE ── */
+(function() {
+  var params  = new URLSearchParams(window.location.search);
+  var retreat = (params.get('retreat') || 'istra').toLowerCase();
+  var type    = (params.get('type')    || 'inquiry').toLowerCase();
+  var lang    = document.documentElement.getAttribute('data-lang') || 'hr';
+
+  /* ── update retreat reminder card ── */
+  var reminderTitle = document.getElementById('reminder-title');
+  var reminderMeta  = document.getElementById('reminder-meta');
+  var reminderCta   = document.getElementById('reminder-cta');
+
+  if (retreat === 'maroko' || retreat === 'morocco') {
+    if (reminderTitle) reminderTitle.innerHTML =
+      '<span lang="hr">Edition III · <em>Maroko</em></span>' +
+      '<span lang="en">Edition III · <em>Morocco</em></span>';
+    if (reminderMeta) reminderMeta.innerHTML =
+      '<span><span lang="hr">18—24 listopada 2026</span><span lang="en">18—24 October 2026</span></span>' +
+      '<span>·</span>' +
+      '<span><span lang="hr">12 mjesta</span><span lang="en">12 spots</span></span>' +
+      '<span>·</span>' +
+      '<span><span lang="hr">od €1.300</span><span lang="en">from €1.300</span></span>';
+    if (reminderCta) {
+      reminderCta.href = 'retreat-maroko.html';
+    }
+    // Re-apply lang visibility
+    document.querySelectorAll('[lang="en"]').forEach(function(el) {
+      el.style.display = lang === 'hr' ? 'none' : '';
+    });
+    document.querySelectorAll('[lang="hr"]').forEach(function(el) {
+      el.style.display = lang === 'en' ? 'none' : '';
+    });
+  }
+
+  /* ── GTM DATA LAYER — conversion event ── */
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'retreat_inquiry_complete',
+    retreat_destination: retreat === 'maroko' || retreat === 'morocco' ? 'maroko' : 'istra',
+    lead_type: type,
+    page_location: window.location.href,
+    page_title: document.title,
+    currency: 'EUR',
+    value: retreat === 'maroko' || retreat === 'morocco' ? 1300 : 1500
+  });
+
+  /* ── GA4 direct event (fallback ako GTM još nije instaliran) ── */
+  if (typeof gtag === 'function') {
+    gtag('event', 'retreat_inquiry_complete', {
+      retreat_destination: retreat === 'maroko' || retreat === 'morocco' ? 'maroko' : 'istra',
+      lead_type: type,
+      currency: 'EUR',
+      value: retreat === 'maroko' || retreat === 'morocco' ? 1300 : 1500
+    });
+    // GA4 standard conversion event
+    gtag('event', 'generate_lead', {
+      currency: 'EUR',
+      value: retreat === 'maroko' || retreat === 'morocco' ? 1300 : 1500
+    });
+  }
+
+})();
+</script>
+
+<!-- Google Tag Manager (noscript) — zamijeniti GTM-XXXXXXX -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJFPLL73"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+</body>
+</html>

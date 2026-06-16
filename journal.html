@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="hr" data-lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journal — Yoga, Food & Slow Travel | TreatMe Life</title>
+<meta name="description" content="Tekstovi o pokretu, hrani i mjestima koja ostaju. Bilješke iz Istre i Maroka. Petra, Salem i Ines pišu o onome što se zapravo dogodi na retreatu.">
+<meta property="og:title" content="Journal, treatme.life">
+<meta property="og:description" content="Writing on movement, food and places that stay with you. Notes from Istria and Morocco. Petra, Salem and Ines write about what actually happens on retreat.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="hr_HR">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:image" content="https://treatme.life/fotografije%20homepage/hero%20istra.webp">
+<meta name="theme-color" content="#08272D">
+<link rel="canonical" href="https://treatme.life/journal">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ─── TOKENS ─────────────────────────────────────────────── */
+:root {
+  --cream:        #E8E1D2;
+  --cream-soft:   #FAF6EC;
+  --cream-warm:   #DDD4C0;
+  --cream-line:   #D2C8B0;
+  --ink:          #08272D;
+  --ink-soft:     #1A3D32;
+  --ink-muted:    #5A5546;
+  --mint:         #C7E6D9;
+  --mint-deep:    #6BAFA0;
+  --sage:         #9BCBB8;
+  --lime:         #D9F100;
+  --clay:         #B06A3F;
+  --clay-deep:    #7A4520;
+  --clay-light:   #E8C4A0;
+
+  --serif:   'Fraunces', Georgia, serif;
+  --body:    'Inter', system-ui, sans-serif;
+  --mono:    'JetBrains Mono', 'Courier New', monospace;
+
+  --gutter:     clamp(20px, 4vw, 52px);
+  --max-w:      1280px;
+  --radius-sm:  10px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+}
+
+/* ─── RESET ──────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--body);
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.5;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 80px;
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+img { max-width: 100%; display: block; }
+
+/* ─── LANGUAGE ───────────────────────────────────────────── */
+[data-lang="hr"] [lang="en"] { display: none !important; }
+[data-lang="en"] [lang="hr"] { display: none !important; }
+
+/* ─── HEADER ─────────────────────────────────────────────── */
+.header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(232, 225, 210, 0.88);
+  border-bottom: 0.5px solid var(--cream-line);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.header-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 14px var(--gutter);
+  display: flex; justify-content: space-between; align-items: center; gap: 20px;
+}
+.brand { display: flex; flex-direction: column; gap: 1px; flex-shrink: 0; }
+.brand-mark {
+  font-family: var(--serif); font-size: 20px; font-weight: 400;
+  letter-spacing: -0.03em; color: var(--ink); line-height: 1;
+}
+.brand-mark .life { font-style: italic; font-weight: 300; }
+.brand-sub {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.1em; color: var(--ink-muted); line-height: 1;
+}
+.nav { display: none; gap: 28px; align-items: center; }
+.nav a { font-size: 13px; color: var(--ink-muted); transition: color 0.2s; }
+.nav a:hover, .nav a.active { color: var(--ink); }
+@media (min-width: 880px) { .nav { display: flex; } }
+
+.header-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.lang-switcher {
+  display: flex; align-items: center; gap: 0;
+  background: rgba(8,39,45,0.07); border-radius: 999px; padding: 3px;
+}
+.lang-btn {
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.08em; padding: 5px 10px; border-radius: 999px;
+  color: var(--ink-muted); transition: background 0.18s, color 0.18s;
+  cursor: pointer; border: none; background: none;
+}
+.lang-btn.active { background: var(--ink); color: var(--cream-soft); }
+.cta-pill {
+  background: var(--lime); color: var(--ink);
+  padding: 10px 18px; border-radius: 999px;
+  font-size: 13px; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cta-pill:hover { transform: translateY(-1px); box-shadow: 0 8px 20px -6px rgba(8,39,45,0.35); }
+
+/* ─── BREADCRUMB ─────────────────────────────────────────── */
+.breadcrumb {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 16px var(--gutter) 0;
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.08em; color: var(--ink-muted);
+}
+.breadcrumb a:hover { color: var(--ink); }
+.breadcrumb-sep { opacity: 0.4; }
+.breadcrumb-cur { color: var(--ink); }
+
+/* ─── PAGE HERO ──────────────────────────────────────────── */
+.page-hero {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: clamp(40px, 7vw, 80px) var(--gutter) clamp(28px, 4vw, 48px);
+  display: grid; gap: 40px;
+}
+@media (min-width: 860px) {
+  .page-hero { grid-template-columns: 1fr 1fr; align-items: end; }
+}
+.hero-left {}
+.hero-eyebrow {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.18em; color: var(--ink-muted);
+  text-transform: uppercase; margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-eyebrow::before {
+  content: ''; width: 22px; height: 1px;
+  background: var(--ink-muted); flex-shrink: 0;
+}
+.page-hero h1 {
+  font-family: var(--serif); font-size: clamp(48px, 8vw, 88px);
+  line-height: 0.94; font-weight: 300; letter-spacing: -0.03em; color: var(--ink);
+}
+.page-hero h1 em { font-style: italic; }
+.hero-right {}
+.hero-lede {
+  font-size: clamp(15px, 2vw, 17px); color: var(--ink-muted);
+  line-height: 1.65; margin-bottom: 28px; max-width: 44ch;
+}
+.hero-stats {
+  display: flex; flex-wrap: wrap; gap: 24px;
+}
+.hero-stat {}
+.hero-stat-num {
+  font-family: var(--serif); font-size: 36px; font-weight: 300;
+  letter-spacing: -0.03em; color: var(--ink); line-height: 1;
+}
+.hero-stat-num em { font-style: italic; }
+.hero-stat-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+  color: var(--ink-muted); margin-top: 4px;
+}
+
+/* ─── FILTER BAR ─────────────────────────────────────────── */
+.filter-bar {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 var(--gutter) 40px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  border-top: 1px solid var(--cream-line);
+  padding-top: 24px;
+}
+.filter-label {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.1em; color: var(--ink-muted);
+  text-transform: uppercase; margin-right: 4px;
+}
+.filter-btn {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+  padding: 7px 16px; border-radius: 999px;
+  border: 1px solid var(--cream-line);
+  background: transparent; color: var(--ink-muted);
+  cursor: pointer; transition: all 0.18s;
+}
+.filter-btn:hover { border-color: var(--ink-muted); color: var(--ink); }
+.filter-btn.on { background: var(--ink); border-color: var(--ink); color: var(--cream-soft); }
+
+/* ─── FEATURED ARTICLE ───────────────────────────────────── */
+.featured-wrap {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 var(--gutter) 56px;
+}
+.featured-card {
+  background: var(--ink-soft);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: grid;
+  cursor: pointer;
+  transition: box-shadow 0.25s;
+}
+.featured-card:hover {
+  box-shadow: 0 20px 60px -20px rgba(8,39,45,0.4);
+}
+@media (min-width: 860px) {
+  .featured-card { grid-template-columns: 1fr 0.85fr; }
+}
+.featured-image {
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, #2A4A3E 0%, #1A3D32 40%, #6BAFA0 100%);
+  position: relative; overflow: hidden;
+  display: flex; align-items: flex-end;
+  padding: 32px;
+}
+@media (min-width: 860px) { .featured-image { aspect-ratio: auto; min-height: 400px; } }
+.featured-image-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(8,39,45,0.6) 0%, transparent 60%);
+}
+.featured-image-label {
+  position: relative; z-index: 1;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+  color: rgba(232,225,210,0.55); text-transform: uppercase;
+}
+.featured-image-art {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: clamp(80px, 14vw, 160px);
+  font-weight: 300; font-style: italic;
+  color: rgba(107,175,160,0.2); user-select: none; line-height: 1;
+  letter-spacing: -0.05em;
+}
+.featured-body {
+  padding: clamp(32px, 5vw, 56px);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.featured-cat {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; padding: 5px 12px; border-radius: 999px;
+  display: inline-flex; align-items: center; align-self: flex-start;
+  margin-bottom: 24px;
+}
+.cat-yoga { background: var(--mint); color: var(--ink-soft); }
+.cat-food { background: var(--clay-light); color: var(--clay-deep); }
+.cat-build { background: var(--cream-warm); color: var(--ink); }
+.cat-reflection { background: rgba(255,255,255,0.12); color: rgba(232,225,210,0.7); }
+
+.featured-title {
+  font-family: var(--serif); font-size: clamp(26px, 4vw, 40px);
+  font-weight: 300; letter-spacing: -0.03em; line-height: 1.1;
+  color: var(--cream); margin-bottom: 18px;
+}
+.featured-title em { font-style: italic; }
+.featured-excerpt {
+  font-size: 15px; color: rgba(232,225,210,0.6);
+  line-height: 1.65; margin-bottom: 36px; max-width: 42ch;
+}
+.featured-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+.featured-author {
+  display: flex; align-items: center; gap: 10px;
+}
+.author-dot {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--cream); letter-spacing: 0; flex-shrink: 0;
+}
+.author-info {}
+.author-name {
+  font-size: 13px; font-weight: 500; color: var(--cream); line-height: 1.2;
+}
+.author-meta {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
+  color: rgba(232,225,210,0.45); margin-top: 2px;
+}
+.featured-read-link {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em;
+  color: var(--lime); display: flex; align-items: center; gap: 6px;
+  transition: gap 0.2s;
+}
+.featured-card:hover .featured-read-link { gap: 10px; }
+
+/* ─── ARTICLES GRID ──────────────────────────────────────── */
+.grid-section {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 var(--gutter) 80px;
+}
+.grid-header {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 28px; gap: 16px;
+}
+.grid-title {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+  color: var(--ink-muted); text-transform: uppercase;
+  display: flex; align-items: center; gap: 10px;
+}
+.grid-title::before {
+  content: ''; width: 22px; height: 1px; background: var(--ink-muted);
+}
+.grid-count {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+.articles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 600px) {
+  .articles-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 960px) {
+  .articles-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+/* ─── ARTICLE CARD ───────────────────────────────────────── */
+.article-card {
+  background: var(--cream-soft);
+  border-radius: var(--radius-md);
+  padding: 28px 26px 24px;
+  display: flex; flex-direction: column;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  position: relative; overflow: hidden;
+  text-decoration: none; color: inherit;
+}
+a.featured-card { display: grid; text-decoration: none; color: inherit; }
+.article-card:hover {
+  border-color: var(--cream-line);
+  box-shadow: 0 8px 32px -12px rgba(8,39,45,0.16);
+  transform: translateY(-2px);
+}
+.article-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  opacity: 0; transition: opacity 0.2s;
+}
+.article-card:hover::before { opacity: 1; }
+.article-card[data-cat="pokret"]::before { background: var(--mint-deep); }
+.article-card[data-cat="food"]::before { background: var(--clay); }
+.article-card[data-cat="mjesta"]::before { background: var(--clay-deep); }
+.article-card[data-cat="reflection"]::before { background: var(--sage); }
+/* legacy compat */
+.cat-mjesta { background: var(--cream-warm); color: var(--clay-deep); }
+.cat-pokret { background: var(--mint); color: var(--ink-soft); }
+
+.article-top {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 18px;
+}
+.article-cat {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; padding: 4px 10px; border-radius: 999px;
+}
+.article-date {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em;
+  color: var(--ink-muted);
+}
+.article-title {
+  font-family: var(--serif); font-size: clamp(19px, 2.4vw, 22px);
+  font-weight: 300; letter-spacing: -0.025em; line-height: 1.2;
+  color: var(--ink); margin-bottom: 12px; flex: 1;
+  transition: color 0.2s;
+}
+.article-title em { font-style: italic; }
+.article-card:hover .article-title { color: var(--ink-soft); }
+.article-excerpt {
+  font-size: 13px; color: var(--ink-muted);
+  line-height: 1.6; margin-bottom: 24px; flex: 1;
+}
+.article-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--cream-line);
+  margin-top: auto;
+}
+.article-author {
+  display: flex; align-items: center; gap: 7px;
+}
+.author-dot-sm {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--cream-warm);
+  font-family: var(--mono); font-size: 8px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-muted); letter-spacing: 0;
+  flex-shrink: 0;
+}
+.article-author-name { font-size: 12px; color: var(--ink-muted); }
+.article-readtime {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+
+/* ─── DIVIDER STRIP ──────────────────────────────────────── */
+.divider-strip {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 var(--gutter) 80px;
+}
+.divider-inner {
+  background: var(--cream-warm);
+  border-radius: var(--radius-lg);
+  padding: clamp(32px, 5vw, 56px) clamp(28px, 5vw, 56px);
+  display: grid; gap: 28px;
+}
+@media (min-width: 760px) {
+  .divider-inner { grid-template-columns: 1fr 1fr; align-items: center; }
+}
+.divider-quote {
+  font-family: var(--serif); font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 300; letter-spacing: -0.03em; line-height: 1.2; color: var(--ink);
+}
+.divider-quote em { font-style: italic; }
+.divider-source {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+  color: var(--ink-muted); margin-top: 12px;
+}
+.divider-body {
+  font-size: 15px; color: var(--ink-muted); line-height: 1.65;
+}
+
+/* ─── NEWSLETTER ─────────────────────────────────────────── */
+.newsletter-wrap {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 var(--gutter) 80px;
+}
+.newsletter-card {
+  background: var(--ink);
+  border-radius: var(--radius-lg);
+  padding: clamp(40px, 7vw, 72px) clamp(32px, 6vw, 64px);
+  display: grid; gap: 40px;
+  color: var(--cream);
+}
+@media (min-width: 760px) { .newsletter-card { grid-template-columns: 1fr 1fr; align-items: center; } }
+.nl-eyebrow {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; opacity: 0.5; margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.nl-eyebrow::before { content: ''; width: 22px; height: 1px; background: currentColor; }
+.nl-title {
+  font-family: var(--serif); font-size: clamp(28px, 4.5vw, 42px);
+  font-weight: 300; letter-spacing: -0.03em; line-height: 1.08;
+  margin-bottom: 16px;
+}
+.nl-title em { font-style: italic; }
+.nl-body { font-size: 15px; opacity: 0.6; line-height: 1.65; }
+.nl-form {}
+.nl-row {
+  display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;
+}
+.nl-input {
+  flex: 1; min-width: 200px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 999px; padding: 13px 20px;
+  font-family: var(--body); font-size: 14px;
+  color: var(--cream); outline: none;
+  transition: border-color 0.2s;
+}
+.nl-input::placeholder { color: rgba(232,225,210,0.35); }
+.nl-input:focus { border-color: rgba(255,255,255,0.35); }
+.nl-submit {
+  background: var(--lime); color: var(--ink);
+  padding: 13px 24px; border-radius: 999px;
+  font-size: 14px; font-weight: 500;
+  cursor: pointer; border: none;
+  white-space: nowrap; transition: opacity 0.2s;
+}
+.nl-submit:hover { opacity: 0.9; }
+.nl-fine {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
+  opacity: 0.35;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────── */
+.footer {
+  background: var(--ink-soft); color: var(--cream);
+  padding: clamp(48px, 7vw, 80px) var(--gutter) 32px;
+}
+.footer-inner { max-width: var(--max-w); margin: 0 auto; }
+.footer-top {
+  display: grid; gap: 40px;
+  grid-template-columns: 1fr;
+  margin-bottom: 48px;
+}
+@media (min-width: 720px) { .footer-top { grid-template-columns: 1.4fr 1fr 1fr; } }
+.footer-brand-mark {
+  font-family: var(--serif); font-size: 28px; font-weight: 300;
+  letter-spacing: -0.03em; color: var(--cream); margin-bottom: 10px;
+}
+.footer-brand-mark em { font-style: italic; }
+.footer-tagline { font-size: 14px; opacity: 0.5; line-height: 1.6; max-width: 32ch; }
+.footer-col-title {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
+  text-transform: uppercase; opacity: 0.4; margin-bottom: 16px;
+}
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 14px; opacity: 0.65; transition: opacity 0.2s; }
+.footer-links a:hover { opacity: 1; }
+.footer-bottom {
+  border-top: 0.5px solid rgba(232,225,210,0.12);
+  padding-top: 24px;
+  display: flex; flex-wrap: wrap; gap: 12px;
+  justify-content: space-between;
+}
+.footer-legal { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; opacity: 0.3; }
+
+/* ─── DOCK ────────────────────────────────────────────────── */
+.dock {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
+  background: rgba(8,39,45,0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 0.5px solid rgba(232,225,210,0.12);
+  padding: 12px var(--gutter);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.dock-info { display: flex; flex-direction: column; gap: 2px; }
+.dock-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+  color: rgba(232,225,210,0.45); text-transform: uppercase;
+}
+.dock-value {
+  font-family: var(--serif); font-size: 18px; font-weight: 300;
+  letter-spacing: -0.02em; color: var(--cream); line-height: 1;
+}
+.dock-value em { font-style: italic; }
+.dock-cta { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.dock-btn {
+  background: var(--lime); color: var(--ink);
+  padding: 11px 22px; border-radius: 999px;
+  font-size: 14px; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: opacity 0.2s; cursor: pointer; border: none;
+}
+.dock-btn:hover { opacity: 0.9; }
+@supports (bottom: env(safe-area-inset-bottom)) { .dock { bottom: calc(16px + env(safe-area-inset-bottom)); } }
+.dock-note {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+  color: rgba(232,225,210,0.45); display: none;
+}
+@media (min-width: 600px) { .dock-note { display: block; } }
+
+/* ── MOBILE NAV ─────────────────────────────────────────────── */
+.hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; padding: 8px 4px; cursor: pointer; background: none; border: none; z-index: 60; flex-shrink: 0; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); border-radius: 2px; transition: transform 0.28s cubic-bezier(0.2,0.8,0.2,1), opacity 0.2s; transform-origin: center; }
+@media (max-width: 879px) { .hamburger { display: flex; } }
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.mobile-nav { display: none; position: fixed; inset: 0; background: var(--ink); z-index: 49; padding: 88px var(--gutter) 48px; flex-direction: column; gap: 0; overflow-y: auto; }
+.mobile-nav.open { display: flex; animation: mnavIn 0.28s cubic-bezier(0.2,0.8,0.2,1); }
+@keyframes mnavIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.mobile-nav a.mnav-link { font-family: var(--serif); font-size: clamp(26px,7vw,40px); font-weight: 300; letter-spacing: -0.02em; color: rgba(199,230,217,0.65); padding: 16px 0; border-bottom: 0.5px solid rgba(199,230,217,0.1); text-decoration: none; transition: color 0.2s; display: block; }
+.mobile-nav a.mnav-link:hover, .mobile-nav a.mnav-link.active { color: var(--lime); }
+.mobile-nav-bottom { margin-top: auto; padding-top: 36px; display: flex; flex-direction: column; gap: 12px; }
+.mobile-nav-cta-btn { background: var(--lime); color: var(--ink); padding: 16px 24px; border-radius: 999px; font-size: 16px; font-weight: 600; display: block; text-align: center; text-decoration: none; transition: transform 0.2s; }
+.mobile-nav-cta-btn:hover { transform: translateY(-1px); }
+.mobile-nav-email { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(199,230,217,0.3); text-align: center; text-decoration: none; }
+@media (min-width: 880px) { .mobile-nav { display: none !important; } .hamburger { display: none !important; } }
+</style>
+<script src="/cookie-consent.js"></script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WJFPLL73');</script>
+<!-- End Google Tag Manager -->
+</head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJFPLL73"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ─── HEADER ─────────────────────────────────────────────── -->
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="brand">
+      <div class="brand-mark">treatme<span class="life">.life</span></div>
+    </a>
+
+    <nav class="nav">
+      <a href="/">home</a>
+      <a href="/retreati"><span lang="hr">retreati</span><span lang="en">retreats</span></a>
+      <a href="/yoga-sati"><span lang="hr">yoga sati</span><span lang="en">yoga classes</span></a>
+      <a href="/iskustva"><span lang="hr">iskustva</span><span lang="en">experiences</span></a>
+      <a href="/journal" class="active">journal</a>
+      <a href="/o-nama"><span lang="hr">o nama</span><span lang="en">about</span></a>
+      <a href="/b2b">B2B</a>
+    </nav>
+
+    <div class="header-right">
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="hr" onclick="setLang('hr')">HR</button>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="/retreati" class="cta-pill">
+        <span lang="hr">Retreati 2026</span><span lang="en">Retreats 2026</span> →
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Izbornik" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ── MOBILE NAV OVERLAY ──────────────────────────── -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="/" class="mnav-link">Home</a>
+  <a href="/retreati" class="mnav-link"><span lang="hr">Retreati</span><span lang="en">Retreats</span></a>
+  <a href="/yoga-sati" class="mnav-link"><span lang="hr">Yoga sati</span><span lang="en">Yoga classes</span></a>
+  <a href="/iskustva" class="mnav-link"><span lang="hr">Iskustva</span><span lang="en">Experiences</span></a>
+  <a href="/journal" class="mnav-link active">Journal</a>
+  <a href="/o-nama" class="mnav-link"><span lang="hr">O nama</span><span lang="en">About</span></a>
+  <a href="/b2b" class="mnav-link">B2B</a>
+  <div class="mobile-nav-bottom">
+    <a href="/retreati" class="mobile-nav-cta-btn">
+      <span lang="hr">Prijavi se na retreat →</span>
+      <span lang="en">Join a retreat →</span>
+    </a>
+    <a href="mailto:hello@treatme.life" class="mobile-nav-email">hello@treatme.life</a>
+  </div>
+</div>
+
+
+<!-- ─── BREADCRUMB ────────────────────────────────────────── -->
+<div class="breadcrumb">
+  <a href="/">treatme.life</a>
+  <span class="breadcrumb-sep">/</span>
+  <span class="breadcrumb-cur">Journal</span>
+</div>
+
+<!-- ─── PAGE HERO ─────────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">— THE JOURNAL</div>
+    <h1>
+      <span lang="hr">Bilješke iz<br><em>mjesta koja ostaju.</em></span>
+      <span lang="en">Notes from<br><em>places that stay.</em></span>
+    </h1>
+  </div>
+  <div class="hero-right">
+    <p class="hero-lede">
+      <span lang="hr">Pišemo o pokretu, hrani i mjestima koja nas mijenjaju. Istra, Maroko, jutarnje prakse i kuhinja koja miriši od ranog jutra. Jednom tjedno, bez filtera.</span>
+      <span lang="en">We write about movement, food, and places that change us. Istria, Morocco, morning practices and a kitchen that smells good from early morning. Once a week, unfiltered.</span>
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num"><em>12</em></div>
+        <div class="hero-stat-label"><span lang="hr">TEKSTOVA</span><span lang="en">ENTRIES</span></div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">4</div>
+        <div class="hero-stat-label"><span lang="hr">KATEGORIJE</span><span lang="en">CATEGORIES</span></div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num"><em>3</em></div>
+        <div class="hero-stat-label"><span lang="hr">AUTORA</span><span lang="en">AUTHORS</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FILTER BAR ────────────────────────────────────────── -->
+<div class="filter-bar">
+  <span class="filter-label"><span lang="hr">Tema</span><span lang="en">Topic</span></span>
+  <button class="filter-btn on" onclick="filterArticles(this, 'all')">
+    <span lang="hr">Sve</span><span lang="en">All</span>
+  </button>
+  <button class="filter-btn" onclick="filterArticles(this, 'pokret')">
+    <span lang="hr">Pokret</span><span lang="en">Movement</span>
+  </button>
+  <button class="filter-btn" onclick="filterArticles(this, 'food')">
+    <span lang="hr">Hrana</span><span lang="en">Food</span>
+  </button>
+  <button class="filter-btn" onclick="filterArticles(this, 'mjesta')">
+    <span lang="hr">Mjesta</span><span lang="en">Places</span>
+  </button>
+  <button class="filter-btn" onclick="filterArticles(this, 'reflection')">
+    <span lang="hr">Refleksija</span><span lang="en">Reflection</span>
+  </button>
+</div>
+
+<!-- ─── FEATURED ARTICLE ──────────────────────────────────── -->
+<div class="featured-wrap" data-cat="mjesta" id="featured">
+  <a href="/journal-clanak?id=marrakech-48h" class="featured-card">
+    <div class="featured-image" style="background: linear-gradient(135deg, #3D1E0A 0%, #7A4520 40%, #B06A3F 100%);">
+      <img src="fotografije homepage/hero marocco moodjpeg.jpeg" alt="Taghazout, prvih 48 sati"
+        style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(0.25) saturate(1.1) brightness(0.65) contrast(1.08);">
+      <div class="featured-image-overlay"></div>
+      <div class="featured-image-label">
+        <span lang="hr">ISTAKNUTO · TRAVANJ 2026</span>
+        <span lang="en">FEATURED · APRIL 2026</span>
+      </div>
+    </div>
+    <div class="featured-body">
+      <div>
+        <span class="featured-cat cat-mjesta">
+          <span lang="hr">Mjesta</span><span lang="en">Places</span>
+        </span>
+        <h2 class="featured-title">
+          <span lang="hr">Prvih 48 sati<br><em>u Taghazoutu.</em></span>
+          <span lang="en">First 48 hours<br><em>in Taghazout.</em></span>
+        </h2>
+        <p class="featured-excerpt">
+          <span lang="hr">Atlantski val, ribarski brodovi, kuhinja koja miriši na kumin. Taghazout nije turistički grad, i upravo to ga čini savršenim za prve 48 sati u Maroku.</span>
+          <span lang="en">Atlantic waves, fishing boats, a kitchen that smells of cumin. Taghazout isn't a tourist town, and that's exactly what makes it perfect for your first 48 hours in Morocco.</span>
+        </p>
+      </div>
+      <div class="featured-footer">
+        <div class="featured-author">
+          <div class="author-dot">IN</div>
+          <div class="author-info">
+            <div class="author-name">Ines</div>
+            <div class="author-meta">
+              <span lang="hr">20 trav 2026 · 9 min čitanja</span>
+              <span lang="en">20 Apr 2026 · 9 min read</span>
+            </div>
+          </div>
+        </div>
+        <span class="featured-read-link">
+          <span lang="hr">čitaj</span><span lang="en">read</span> →
+        </span>
+      </div>
+    </div>
+  </a>
+</div>
+
+<!-- ─── ARTICLES GRID ──────────────────────────────────────── -->
+<section class="grid-section">
+  <div class="grid-header">
+    <div class="grid-title">
+      <span lang="hr">Svi tekstovi</span><span lang="en">All entries</span>
+    </div>
+    <div class="grid-count" id="article-count">
+      <span lang="hr">8 tekstova</span><span lang="en">8 entries</span>
+    </div>
+  </div>
+
+  <div class="articles-grid" id="articles-grid">
+
+    <!-- 1 · POKRET -->
+    <a href="/journal-clanak?id=hatha-tijelo" class="article-card" data-cat="pokret">
+      <div class="article-top">
+        <span class="article-cat cat-pokret">
+          <span lang="hr">Pokret</span><span lang="en">Movement</span>
+        </span>
+        <span class="article-date">
+          <span lang="hr">04 svib 2026</span><span lang="en">04 May 2026</span>
+        </span>
+      </div>
+      <h3 class="article-title">
+        <span lang="hr">Što hatha praksa <em>zapravo traži</em> od tijela.</span>
+        <span lang="en">What hatha practice <em>actually asks</em> of the body.</span>
+      </h3>
+      <p class="article-excerpt">
+        <span lang="hr">Petra ulazi u anatomiju savita prema naprijed bez fitness vokabulara. Zašto fleksibilnost nije cilj, i što se zapravo događa u tkivu.</span>
+        <span lang="en">Petra breaks down forward folds without the fitness vocabulary. Why flexibility isn't the goal, and what actually happens in tissue.</span>
+      </p>
+      <div class="article-footer">
+        <div class="article-author">
+          <div class="author-dot-sm">PE</div>
+          <span class="article-author-name">Petra</span>
+        </div>
+        <span class="article-readtime">
+          <span lang="hr">5 min</span><span lang="en">5 min</span>
+        </span>
+      </div>
+    </a>
+
+    <!-- 2 · MJESTA -->
+    <a href="/journal-clanak?id=rabac-rujan" class="article-card" data-cat="mjesta">
+      <div class="article-top">
+        <span class="article-cat cat-mjesta">
+          <span lang="hr">Mjesta</span><span lang="en">Places</span>
+        </span>
+        <span class="article-date">
+          <span lang="hr">12 trav 2026</span><span lang="en">12 Apr 2026</span>
+        </span>
+      </div>
+      <h3 class="article-title">
+        <span lang="hr">Rabac u rujnu. <em>Kad turisti odu.</em></span>
+        <span lang="en">Rabac in September. <em>When the tourists leave.</em></span>
+      </h3>
+      <p class="article-excerpt">
+        <span lang="hr">Zašto smo odabrali jesen u Istri, i što se dogodi s morem, zrakom i tišinom čim se sezona završi.</span>
+        <span lang="en">Why we chose autumn in Istria, and what happens to the sea, the air and the silence once the season ends.</span>
+      </p>
+      <div class="article-footer">
+        <div class="article-author">
+          <div class="author-dot-sm" style="background:var(--sage);">IN</div>
+          <span class="article-author-name">Ines</span>
+        </div>
+        <span class="article-readtime">
+          <span lang="hr">6 min</span><span lang="en">6 min</span>
+        </span>
+      </div>
+    </a>
+
+    <!-- 3 · REFLEKSIJA -->
+    <a href="/journal-clanak?id=jutarnja-praksa" class="article-card" data-cat="reflection">
+      <div class="article-top">
+        <span class="article-cat cat-reflection">
+          <span lang="hr">Refleksija</span><span lang="en">Reflection</span>
+        </span>
+        <span class="article-date">
+          <span lang="hr">05 trav 2026</span><span lang="en">05 Apr 2026</span>
+        </span>
+      </div>
+      <h3 class="article-title">
+        <span lang="hr">Jutarnja praksa. <em>Što se dogodi kad je ne propustiš.</em></span>
+        <span lang="en">Morning practice. <em>What happens when you don't skip it.</em></span>
+      </h3>
+      <p class="article-excerpt">
+        <span lang="hr">Trideset dana, svako jutro, bez pregovaranja sa sobom. Petra piše o tome što se promijenilo, i što se nije.</span>
+        <span lang="en">Thirty days, every morning, without negotiating with yourself. Petra writes about what changed, and what didn't.</span>
+      </p>
+      <div class="article-footer">
+        <div class="article-author">
+          <div class="author-dot-sm">PE</div>
+          <span class="article-author-name">Petra</span>
+        </div>
+        <span class="article-readtime">
+          <span lang="hr">7 min</span><span lang="en">7 min</span>
+        </span>
+      </div>
+    </a>
+
+    <!-- 4 · POKRET -->
+    <a href="/journal-clanak?id=yin-nije-odmor" class="article-card" data-cat="pokret">
+      <div class="article-top">
+        <span class="article-cat cat-pokret">
+          <span lang="hr">Pokret</span><span lang="en">Movement</span>
+        </span>
+        <span class="article-date">
+          <span lang="hr">02 trav 2026</span><span lang="en">02 Apr 2026</span>
+        </span>
+      </div>
+      <h3 class="article-title">
+        <span lang="hr">Zašto <em>Yin yoga</em> nije odmor.</span>
+        <span lang="en">Why <em>Yin yoga</em> is not a rest.</span>
+      </h3>
+      <p class="article-excerpt">
+        <span lang="hr">Yin je sporost, ali nije pasivnost. Petra objašnjava što se zapravo traži od tijela i uma u dugim pozicijama, i zašto je to ponekad teže od Ashtange.</span>
+        <span lang="en">Yin is slowness, but not passivity. Petra explains what the body and mind are actually required to do in long holds, and why it's sometimes harder than Ashtanga.</span>
+      </p>
+      <div class="article-footer">
+        <div class="article-author">
+          <div class="author-dot-sm">PE</div>
+          <span class="article-author-name">Petra</span>
+        </div>
+        <span class="article-readtime">
+          <span lang="hr">7 min</span><span lang="en">7 min</span>
+        </span>
+      </div>
+    </a>
+
+    <!-- 5 · HRANA -->
+    <a href="/journal-clanak?id=marokanski-dorucak" class="article-card" data-cat="food">
+      <div class="article-top">
+        <span class="article-cat cat-food">
+          <span lang="hr">Hrana</span><span lang="en">Food</span>
+        </span>
+        <span class="article-date">
+          <span lang="hr">20 ožu 2026</span><span lang="en">20 Mar 2026</span>
+        </span>
+      </div>
+      <h3 class="article-title">
+        <span lang="hr"><em>Marokanski doručak</em> koji uvijek napravimo.</span>
+        <span lang="en">The <em>Moroccan breakfast</em> we always make.</span>
+      </h3>
+      <p class="article-excerpt">
+        <span lang="hr">Msemen, arganovo ulje, med i svježa metvica. Zašto je ovo jedini doručak koji smo usvojili u potpunosti, i kako ga prilagoditi istarskim namirnicama.</span>
+        <span lang="en">Msemen, argan oil, honey, and fresh mint. Why this is the only breakfast we've fully adopted, and how to adapt it to Istrian ingredients.</span>
+      </p>
+      <div class="article-footer">
+        <div class="article-author">
+          <div class="author-dot-sm" style="background:var(--clay-light);">SA</div>
+          <span class="article-author-name">Salem</span>
+        </div>
+        <span class="article-readtime">
+          <span lang="hr">5 min</span><span lang="en">5 min</span>
+        </span>
+      </div>
+    </a>
+
+    <!-- 6 · MJESTA -->
+    <a href="/journal-clanak?id=marrakech-polako" class="article-card" data-cat="mjesta">
+      <div class="article-top">
+        <span class="article-cat cat-mjesta">
+          <span lang="hr">Mjesta</span><span lang="en">Places</span>
+        </span>
+        <span class="article-date">
+          <span lang="hr">25 ožu 2026</span><span lang="en">25 Mar 2026</span>
+        </span>
+      </div>
+      <h3 class="article-title">
+        <span lang="hr">Marrakech polako. <em>Tri dana, jedan riad.</em></span>
+        <span lang="en">Marrakech slowly. <em>Three days, one riad.</em></span>
+      </h3>
+      <p class="article-excerpt">
+        <span lang="hr">Kako izgleda Marrakech kad ne žuriš nigdje. Salemov vodič kroz medinu, jedan riad i doručak koji traje sat vremena.</span>
+        <span lang="en">What Marrakech looks like when you have nowhere to be. Salem's guide through the medina, one riad, and a breakfast that lasts an hour.</span>
+      </p>
+      <div class="article-footer">
+        <div class="article-author">
+          <div class="author-dot-sm" style="background:var(--clay-light);">SA</div>
+          <span class="article-author-name">Salem</span>
+        </div>
+        <span class="article-readtime">
+          <span lang="hr">11 min</span><span lang="en">11 min</span>
+        </span>
+      </div>
+    </a>
+
+    <!-- 7 · REFLEKSIJA -->
+    <a href="/journal-clanak?id=mali-retreat" class="article-card" data-cat="reflection">
+      <div class="article-top">
+        <span class="article-cat cat-reflection">
+          <span lang="hr">Refleksija</span><span lang="en">Reflection</span>
+        </span>
+        <span class="article-date">
+          <span lang="hr">10 ožu 2026</span><span lang="en">10 Mar 2026</span>
+        </span>
+      </div>
+      <h3 class="article-title">
+        <span lang="hr">Zašto retreat <em>mora biti mali.</em></span>
+        <span lang="en">Why a retreat <em>must stay small.</em></span>
+      </h3>
+      <p class="article-excerpt">
+        <span lang="hr">Mogli smo uzeti dvadeset gostiju. Odlučili smo za dvanaest. Zašto je to bila jedina ispravna odluka, i što bi izgubili da nismo.</span>
+        <span lang="en">We could have taken twenty guests. We chose twelve. Why that was the only right decision, and what would have been lost if we hadn't.</span>
+      </p>
+      <div class="article-footer">
+        <div class="article-author">
+          <div class="author-dot-sm" style="background: var(--sage);">IN</div>
+          <span class="article-author-name">Ines</span>
+        </div>
+        <span class="article-readtime">
+          <span lang="hr">9 min</span><span lang="en">9 min</span>
+        </span>
+      </div>
+    </a>
+
+    <!-- 8 · HRANA -->
+    <a href="/journal-clanak?id=tagine-bez-recepta" class="article-card" data-cat="food">
+      <div class="article-top">
+        <span class="article-cat cat-food">
+          <span lang="hr">Hrana</span><span lang="en">Food</span>
+        </span>
+        <span class="article-date">
+          <span lang="hr">28 trav 2026</span><span lang="en">28 Apr 2026</span>
+        </span>
+      </div>
+      <h3 class="article-title">
+        <span lang="hr">Salemov tagine <em>bez recepta.</em></span>
+        <span lang="en">Salem's tagine <em>without a recipe.</em></span>
+      </h3>
+      <p class="article-excerpt">
+        <span lang="hr">Tri sastojka, sat vremena, jedan lonac. Kako kuhati po osjećaju, ne po kalkulatoru, i zašto su marokanska kuhinja i yoga sličniji nego što mislite.</span>
+        <span lang="en">Three ingredients, one hour, one pot. How to cook by feel, not by the calculator, and why Moroccan cooking and yoga are more alike than you think.</span>
+      </p>
+      <div class="article-footer">
+        <div class="article-author">
+          <div class="author-dot-sm" style="background:var(--clay-light);">SA</div>
+          <span class="article-author-name">Salem</span>
+        </div>
+        <span class="article-readtime">
+          <span lang="hr">8 min</span><span lang="en">8 min</span>
+        </span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ─── PULL QUOTE ─────────────────────────────────────────── -->
+<div class="divider-strip">
+  <div class="divider-inner">
+    <div>
+      <p class="divider-quote">
+        <span lang="hr">"Praksa ostane s tobom. Hrana ostaje. Mjesta ostaju. <em>Ostalo su samo detalji.</em>"</span>
+        <span lang="en">"Practice stays with you. Food stays. Places stay. <em>Everything else is just detail.</em>"</span>
+      </p>
+      <div class="divider-source">— Ines, treatme.life</div>
+    </div>
+    <div>
+      <p class="divider-body">
+        <span lang="hr">Journal nije blog. Nema sadržajnih strategija ni SEO trikova. Pišemo kad imamo nešto za reći, o pokretu, o hrani, o mjestima koja nas mijenjaju i o onom što ostaje kad se vratimo kući.</span>
+        <span lang="en">The Journal isn't a blog. No content strategies, no SEO tricks. We write when we have something to say, about movement, about food, about places that change us, and about what remains when we return home.</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── RETREAT BANNER ───────────────────────────────────────── -->
+<div style="background:var(--lime);padding:16px var(--gutter);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+  <p style="font-size:14px;color:var(--ink);font-weight:500;margin:0;">
+    <span lang="hr">Planirate retreat? Sljedeći polazak: <strong>Edition II — Rabac, 19–24 rujna 2026.</strong></span>
+    <span lang="en">Planning a retreat? Next up: <strong>Edition II — Rabac, 19–24 September 2026.</strong></span>
+  </p>
+  <a href="/retreati" style="font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:2px;white-space:nowrap;text-decoration:none;">
+    <span lang="hr">Rezerviraj →</span><span lang="en">Reserve →</span>
+  </a>
+</div>
+
+<!-- ─── NEWSLETTER ─────────────────────────────────────────── -->
+<div class="newsletter-wrap">
+  <div class="newsletter-card">
+    <div>
+      <div class="nl-eyebrow">
+        <span lang="hr">— PRIDRUŽI SE</span>
+        <span lang="en">— JOIN THE JOURNAL</span>
+      </div>
+      <h3 class="nl-title">
+        <span lang="hr">Bilješke jednom<br><em>mjesečno.</em></span>
+        <span lang="en">Notes once<br><em>a month.</em></span>
+      </h3>
+      <p class="nl-body">
+        <span lang="hr">Recept, kratka refleksija ili vijest o sljedećem retreatu. Bez spama, bez naguravanja. Otkaži kad hoćeš.</span>
+        <span lang="en">A recipe, a short reflection or news about the next retreat. No spam, no pressure. Unsubscribe anytime.</span>
+      </p>
+    </div>
+    <form class="nl-form" onsubmit="handleNewsletter(event)">
+      <div class="nl-row">
+        <input class="nl-input" type="email" placeholder="your@email.com" aria-label="Email adresa" id="nl-email">
+        <button class="nl-submit" type="submit">
+          <span lang="hr">prijavi se →</span>
+          <span lang="en">subscribe →</span>
+        </button>
+      </div>
+      <div class="nl-fine">
+        <span lang="hr">Bez spama. Odjaviti se možeš bilo kad.</span>
+        <span lang="en">No spam. Unsubscribe whenever you like.</span>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-mark">treatme<em>.life</em></div>
+        <p class="footer-tagline">
+          <span lang="hr">Mali, namjerni retreati. Istra i Maroko, 2026.</span>
+          <span lang="en">Small, intentional retreats. Istria and Morocco, 2026.</span>
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-title"><span lang="hr">Stranice</span><span lang="en">Pages</span></div>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/retreati"><span lang="hr">Retreati</span><span lang="en">Retreats</span></a>
+          <a href="/yoga-sati"><span lang="hr">Yoga sati</span><span lang="en">Yoga classes</span></a>
+          <a href="/iskustva"><span lang="hr">Iskustva</span><span lang="en">Experiences</span></a>
+          <a href="/journal">Journal</a>
+          <a href="/o-nama"><span lang="hr">O nama</span><span lang="en">About</span></a>
+          <a href="/b2b">B2B</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title"><span lang="hr">Kontakt</span><span lang="en">Contact</span></div>
+        <div class="footer-links">
+          <a href="mailto:hello@treatme.life">hello@treatme.life</a>
+          <a href="https://www.instagram.com/treatme.life/" target="_blank" rel="noopener" aria-label="Instagram" style="display:inline-flex;align-items:center;color:var(--mint);transition:color .2s;" onmouseover="this.style.color='var(--lime)'" onmouseout="this.style.color='var(--mint)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.facebook.com/treatme.life" target="_blank" rel="noopener" aria-label="Facebook" style="display:inline-flex;align-items:center;color:var(--mint);transition:color .2s;" onmouseover="this.style.color='var(--lime)'" onmouseout="this.style.color='var(--mint)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="/pravila"><span lang="hr">Privatnost</span><span lang="en">Privacy</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">© 2026 treatme.life · Studio Serial</div>
+      <div class="footer-legal">
+        <span lang="hr">Privatnost · Uvjeti</span><span lang="en">Privacy · Terms</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── DOCK ──────────────────────────────────────────────── -->
+<div class="dock">
+  <div class="dock-info">
+    <div class="dock-label">
+      <span lang="hr">Sljedeći retreat</span><span lang="en">Next retreat</span>
+    </div>
+    <div class="dock-value">
+      <span lang="hr">Edition II · <em>Istra, Rabac</em>, 19 rujna</span>
+      <span lang="en">Edition II · <em>Istria, Rabac</em>, Sep 19</span>
+    </div>
+  </div>
+  <div class="dock-cta">
+    <span class="dock-note">
+      <span lang="hr">8 mjesta · od €1.500</span><span lang="en">8 spots · from €1.500</span>
+    </span>
+    <a href="/retreati" class="dock-btn">
+      <span lang="hr">Rezerviraj →</span><span lang="en">Book →</span>
+    </a>
+  </div>
+</div>
+
+<!-- ─── JS ────────────────────────────────────────────────── -->
+<script>
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.setAttribute('lang', lang);
+  localStorage.setItem('tm-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang)
+  );
+}
+(function() {
+  const s = localStorage.getItem('tm-lang') || 'hr';
+  if (s !== 'hr') setLang(s);
+})();
+
+function filterArticles(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+
+  const featured = document.getElementById('featured');
+  const cards = document.querySelectorAll('#articles-grid .article-card');
+
+  if (cat === 'all') {
+    featured.style.display = '';
+    cards.forEach(c => c.style.display = '');
+    updateCount(cards.length + 1);
+  } else {
+    const featuredCat = featured.dataset.cat;
+    featured.style.display = (featuredCat === cat) ? '' : 'none';
+    let visible = (featuredCat === cat) ? 1 : 0;
+    cards.forEach(c => {
+      const match = c.dataset.cat === cat;
+      c.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+    updateCount(visible);
+  }
+}
+
+function updateCount(n) {
+  const el = document.getElementById('article-count');
+  const lang = document.documentElement.getAttribute('data-lang');
+  if (lang === 'hr') {
+    const lastTwo = n % 100;
+    const last = n % 10;
+    let form;
+    if (lastTwo >= 11 && lastTwo <= 14) {
+      form = 'tekstova';
+    } else if (last === 1) {
+      form = 'tekst';
+    } else if (last >= 2 && last <= 4) {
+      form = 'teksta';
+    } else {
+      form = 'tekstova';
+    }
+    el.textContent = n + ' ' + form;
+  } else {
+    el.textContent = n === 1 ? '1 entry' : n + ' entries';
+  }
+}
+
+function handleNewsletter(e) {
+  e.preventDefault();
+  const input = document.getElementById('nl-email');
+  if (!input.value) return;
+  const btn = e.target.querySelector('.nl-submit');
+  const lang = document.documentElement.getAttribute('data-lang');
+  btn.textContent = lang === 'hr' ? 'hvala ✓' : 'thank you ✓';
+  btn.style.background = '#9BCBB8';
+  input.value = '';
+  setTimeout(() => {
+    btn.innerHTML = lang === 'hr'
+      ? '<span lang="hr">prijavi se →</span>'
+      : '<span lang="en">subscribe →</span>';
+    btn.style.background = '';
+  }, 3000);
+}
+</script>
+
+<script>
+/* ─── ACTIVE NAV STATE ──────────────────────────────────────── */
+(function(){
+  var current = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".nav a").forEach(function(a){
+    if(a.getAttribute("href") === current) {
+      a.style.color = "var(--ink)";
+      a.style.fontWeight = "500";
+      a.style.borderBottom = "1px solid var(--ink)";
+    }
+  });
+})();
+
+/* ── MOBILE NAV TOGGLE ─── */
+function toggleMobileNav() {
+  var nav = document.getElementById('mobile-nav');
+  var btn = document.getElementById('hamburger');
+  var isOpen = nav.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var nav = document.getElementById('mobile-nav');
+    var btn = document.getElementById('hamburger');
+    if (nav) { nav.classList.remove('open'); }
+    if (btn) { btn.classList.remove('open'); }
+    document.body.style.overflow = '';
+  }
+});
+</script>
+</body>
+</html>
