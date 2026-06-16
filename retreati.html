@@ -695,8 +695,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="featured-actions">
         <a href="mailto:hello@treatme.life?subject=Rezervacija%20—%20Edition%20II%20Istra%2C%2019—24.%209.%202026&body=Pozdrav%2C%0A%0AZanima%20me%20rezervacija%20Edition%20II%20(Istra%2C%2019%E2%80%9424.%20rujna%202026).%0A%0AMoje%20ime%3A%0ABroj%20osoba%3A%0APitanja%3A" class="btn-lime" id="rezervacija">
-          <span lang="hr">rezerviraj uz €200 polog →</span>
-          <span lang="en">book with €200 deposit →</span>
+          <span lang="hr">rezerviraj uz €500 polog →</span>
+          <span lang="en">book with €500 deposit →</span>
         </a>
         <a href="/retreat-istra" class="btn-ghost-light">
           <span lang="hr">vidi sve detalje</span><span lang="en">see all details</span>
@@ -719,7 +719,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="retreats-grid">
 
     <!-- Edition I, prošlo -->
-    <div class="retreat-card sold-out">
+    <div class="retreat-card sold-out" data-cat="istra">
       <div class="retreat-card-img">
         <img src="fotografije homepage/hero istra.webp" alt="Istra, Rabac">
         <div class="retreat-card-img-tag">Edition I · Istra</div>
@@ -742,7 +742,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <!-- Edition II -->
-    <a href="/retreat-istra" class="retreat-card">
+    <a href="/retreat-istra" class="retreat-card" data-cat="istra available">
       <div class="retreat-card-img">
         <img src="fotografije homepage/hero istra.webp" alt="Istra, jesen">
         <div class="retreat-card-img-tag">Edition II · Istra</div>
@@ -766,7 +766,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
 
     <!-- Edition III, Morocco -->
-    <a href="/retreat-maroko" class="retreat-card morocco" id="maroko">
+    <a href="/retreat-maroko" class="retreat-card morocco" id="maroko" data-cat="maroko available">
       <div class="retreat-card-img">
         <img src="fotografije homepage/hero marocco moodjpeg.jpeg" alt="Taghazout, Maroko">
         <div class="retreat-card-img-tag">Edition III · Maroko</div>
@@ -790,7 +790,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
 
     <!-- Sold out -->
-    <div class="retreat-card sold-out">
+    <div class="retreat-card sold-out" data-cat="istra">
       <div class="retreat-card-img" style="background: var(--cream-warm);">
         <div class="retreat-card-img-tag" style="background: rgba(90,85,70,0.4);">
           <span lang="hr">Proljetni otvarač</span><span lang="en">Spring opener</span>
@@ -998,8 +998,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span lang="en">How does booking and the deposit work?</span>
       </div>
       <div class="faq-a">
-        <span lang="hr">Rezervacija se potvrđuje uplatom pologa od €200, koji se odbija od ukupne cijene retreata. Ostatak se plaća najkasnije 30 dana prije polaska. Polog je povratljiv do 45 dana prije retreata, u slučaju naše otkaze, vraćamo ga u potpunosti.</span>
-        <span lang="en">Booking is confirmed by a €200 deposit, deducted from the total price. The remainder is due no later than 30 days before departure. The deposit is refundable up to 45 days before the retreat, and fully refundable in the event of our cancellation.</span>
+        <span lang="hr">Rezervacija se potvrđuje uplatom pologa od €500, koji se odbija od ukupne cijene retreata. Ostatak od €1.000 plaća se do 22. kolovoza 2026. Polog je povratljiv do 45 dana prije retreata, a u slučaju naše otkaze, vraćamo ga u potpunosti.</span>
+        <span lang="en">Booking is confirmed by a €500 deposit, deducted from the total price. The balance €1,000 is due by 22 August 2026. The deposit is refundable up to 45 days before the retreat, and fully refundable in the event of our cancellation.</span>
       </div>
     </div>
 
@@ -1122,7 +1122,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="dock-extra">, <span lang="hr">19—24 rujna · 8 mjesta · od €1.500</span><span lang="en">19—24 Sep · 8 spots · from €1.500</span></span>
     </span>
   </div>
-  <a href="#rezervacija" class="dock-cta">
+  <a href="/retreat-istra" class="dock-cta">
     <span lang="hr">rezerviraj →</span><span lang="en">book →</span>
   </a>
 </div>
@@ -1145,6 +1145,10 @@ function toggleFaq(el) {
 function filterRetreats(type) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   event.currentTarget.classList.add('active');
+  document.querySelectorAll('.retreats-grid .retreat-card').forEach(function(card) {
+    var cats = (card.dataset.cat || '').split(' ');
+    card.style.display = (type === 'all' || cats.includes(type)) ? '' : 'none';
+  });
 }
 </script>
 
