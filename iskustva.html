@@ -1514,15 +1514,9 @@ document.getElementById('review-form').addEventListener('submit', function(e) {
 
   btn.disabled = true;
 
-  var subject = encodeURIComponent('Recenzija, treatme.life, ' + name);
-  var body = encodeURIComponent(
-    'Ime: ' + name + '\n' +
-    'E-mail: ' + (email || '—') + '\n' +
-    'Ocjena: ' + rating + '/5\n' +
-    'Lokacija/kontekst: ' + (ctx || '—') + '\n' +
-    'Odobrenje objave: ' + publish + '\n\n' +
-    'Recenzija:\n' + text
-  );
+  var lang = document.documentElement.getAttribute('data-lang') || 'hr';
+
+  btn.textContent = lang === 'hr' ? 'Šaljem…' : 'Sending…';
 
   function showSuccess() {
     document.getElementById('review-form').style.display = 'none';
@@ -1530,8 +1524,36 @@ document.getElementById('review-form').addEventListener('submit', function(e) {
     document.getElementById('review-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
-  window.open('mailto:hello@treatme.life?subject=' + subject + '&body=' + body, '_blank');
-  showSuccess();
+  function fallbackMailto() {
+    var sub, bod;
+    if (lang === 'hr') {
+      sub = encodeURIComponent('Recenzija, treatme.life, ' + name);
+      bod = encodeURIComponent('Ime: ' + name + '\nE-mail: ' + (email||'—') + '\nOcjena: ' + rating + '/5\nKontekst: ' + (ctx||'—') + '\nOdobrenje: ' + publish + '\n\nRecenzija:\n' + text);
+    } else {
+      sub = encodeURIComponent('Review, treatme.life, ' + name);
+      bod = encodeURIComponent('Name: ' + name + '\nEmail: ' + (email||'—') + '\nRating: ' + rating + '/5\nContext: ' + (ctx||'—') + '\nConsent: ' + (publish==='Da'?'Yes':'No') + '\n\nReview:\n' + text);
+    }
+    window.open('mailto:hello@treatme.life?subject=' + sub + '&body=' + bod, '_blank');
+  }
+
+  var W3F_KEY = '154fc84f-3b03-42d0-9537-9f3e62b6b108';
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      access_key: W3F_KEY,
+      subject: lang === 'hr' ? 'Recenzija — ' + name + ' (' + rating + '/5)' : 'Review — ' + name + ' (' + rating + '/5)',
+      from_name: name, replyto: email || undefined,
+      name: name, email: email || '—',
+      ocjena: rating + '/5', kontekst: ctx || '—',
+      objava: publish, recenzija: text,
+      stranica: 'iskustva', botcheck: ''
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(d) { if (d.success) { showSuccess(); } else { fallbackMailto(); showSuccess(); } })
+  .catch(function() { fallbackMailto(); showSuccess(); });
 });
 
 /* ── MOBILE NAV TOGGLE ─── */

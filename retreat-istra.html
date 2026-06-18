@@ -2118,63 +2118,65 @@ document.getElementById('review-form').addEventListener('submit', function(e) {
   e.preventDefault();
 
   const btn = document.getElementById('r-submit');
-  const name  = document.getElementById('r-name').value.trim();
-  const email = document.getElementById('r-email').value.trim();
-  const text  = document.getElementById('r-text').value.trim();
-  const ctx   = document.getElementById('r-context').value.trim();
-  const rating = document.getElementById('r-rating').value;
+  const name    = document.getElementById('r-name').value.trim();
+  const email   = document.getElementById('r-email').value.trim();
+  const text    = document.getElementById('r-text').value.trim();
+  const ctx     = document.getElementById('r-context').value.trim();
+  const rating  = document.getElementById('r-rating').value;
   const publish = document.getElementById('r-publish').checked ? 'Da' : 'Ne';
+  const lang    = document.documentElement.getAttribute('data-lang') || 'hr';
 
   if (!name || !text) {
-    const lang = document.documentElement.getAttribute('data-lang');
     alert(lang === 'hr' ? 'Molimo upiši ime i recenziju.' : 'Please enter your name and review.');
     return;
   }
 
   btn.disabled = true;
-
-  /* ── Compose mailto fallback ─────────────────────────────── */
-  const subject = encodeURIComponent('Recenzija, treatme.life, ' + name);
-  const body = encodeURIComponent(
-    'Ime: ' + name + '\n' +
-    'E-mail: ' + (email || '—') + '\n' +
-    'Ocjena: ' + rating + '/5\n' +
-    'Lokacija/kontekst: ' + (ctx || '—') + '\n' +
-    'Odobrenje objave: ' + publish + '\n\n' +
-    'Recenzija:\n' + text
-  );
-
-  /* ── Try Formspree first; fallback to mailto ─────────────── */
-  const FORMSPREE = 'https://formspree.io/f/FORM_ID_HERE'; // ← zamijeni s pravim ID-om
-  const isPlaceholder = FORMSPREE.includes('FORM_ID_HERE');
-
-  if (isPlaceholder) {
-    window.location.href = 'mailto:hello@treatme.life?subject=' + subject + '&body=' + body;
-    showSuccess();
-  } else {
-    fetch(FORMSPREE, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ name, email, rating, context: ctx, review: text, publish_ok: publish })
-    })
-    .then(function(r) { if (r.ok) showSuccess(); else throw new Error(); })
-    .catch(function() {
-      window.location.href = 'mailto:hello@treatme.life?subject=' + subject + '&body=' + body;
-      showSuccess();
-    });
-  }
+  btn.textContent = lang === 'hr' ? 'Šaljem…' : 'Sending…';
 
   function showSuccess() {
     document.getElementById('review-form').style.display = 'none';
     document.getElementById('review-success').style.display = 'block';
     document.getElementById('review-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
+
+  function fallbackMailto() {
+    var sub, bod;
+    if (lang === 'hr') {
+      sub = encodeURIComponent('Recenzija, treatme.life, ' + name);
+      bod = encodeURIComponent('Ime: ' + name + '\nE-mail: ' + (email||'—') + '\nOcjena: ' + rating + '/5\nKontekst: ' + (ctx||'—') + '\nOdobrenje: ' + publish + '\n\nRecenzija:\n' + text);
+    } else {
+      sub = encodeURIComponent('Review, treatme.life, ' + name);
+      bod = encodeURIComponent('Name: ' + name + '\nEmail: ' + (email||'—') + '\nRating: ' + rating + '/5\nContext: ' + (ctx||'—') + '\nConsent: ' + (publish==='Da'?'Yes':'No') + '\n\nReview:\n' + text);
+    }
+    window.open('mailto:hello@treatme.life?subject=' + sub + '&body=' + bod, '_blank');
+  }
+
+  const W3F_KEY = '154fc84f-3b03-42d0-9537-9f3e62b6b108';
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      access_key: W3F_KEY,
+      subject: lang === 'hr' ? 'Recenzija — ' + name + ' (' + rating + '/5)' : 'Review — ' + name + ' (' + rating + '/5)',
+      from_name: name,
+      replyto: email || undefined,
+      name: name, email: email || '—',
+      ocjena: rating + '/5', kontekst: ctx || '—',
+      objava: publish, recenzija: text,
+      stranica: 'retreat-istra', botcheck: ''
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(d) { if (d.success) { showSuccess(); } else { fallbackMailto(); showSuccess(); } })
+  .catch(function() { fallbackMailto(); showSuccess(); });
 });
 
 /* ─── ENQUIRY FORM SUBMIT ────────────────────────────────────── */
 document.getElementById('enquiry-form').addEventListener('submit', function(e) {
   e.preventDefault();
-  var btn = document.getElementById('eq-submit');
+  var btn      = document.getElementById('eq-submit');
   var name     = document.getElementById('eq-name').value.trim();
   var email    = document.getElementById('eq-email').value.trim();
   var location = document.getElementById('eq-location').value.trim();
@@ -2182,33 +2184,55 @@ document.getElementById('enquiry-form').addEventListener('submit', function(e) {
   var yoga     = document.getElementById('eq-yoga').value;
   var why      = document.getElementById('eq-why').value.trim();
   var call     = document.getElementById('eq-call').value;
+  var lang     = document.documentElement.getAttribute('data-lang') || 'hr';
 
   if (!name || !email) {
-    var lang = document.documentElement.getAttribute('data-lang');
     alert(lang === 'hr' ? 'Molimo upiši ime i e-mail.' : 'Please enter your name and email.');
     return;
   }
 
   btn.disabled = true;
+  btn.textContent = lang === 'hr' ? 'Šaljem…' : 'Sending…';
 
-  var subject = encodeURIComponent('Upit prije rezervacije — Istra retreat, ' + name);
-  var body = encodeURIComponent(
-    'Ime: ' + name + '\n' +
-    'E-mail: ' + email + '\n' +
-    'Grad / Država: ' + (location || '—') + '\n' +
-    'Dolazak: ' + (solo || '—') + '\n' +
-    'Iskustvo s yogom: ' + (yoga || '—') + '\n' +
-    'Što te privuklo: ' + (why || '—') + '\n' +
-    'Kratki poziv: ' + (call === 'da' ? 'Da' : 'Ne, email je ok')
-  );
+  function showSuccess() {
+    tmEvent('edition_ii_enquiry_submit', { retreat: 'istra' });
+    if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'istra_retreat_enquiry' });
+    document.getElementById('enquiry-form').style.display = 'none';
+    document.getElementById('enquiry-success').style.display = 'block';
+    document.getElementById('enquiry-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 
-  window.open('mailto:hello@treatme.life?subject=' + subject + '&body=' + body, '_blank');
-  tmEvent('edition_ii_enquiry_submit', { retreat: 'istra' });
-  if(typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'istra_retreat_enquiry' });
+  function fallbackMailto() {
+    var sub, bod;
+    if (lang === 'hr') {
+      sub = encodeURIComponent('Upit prije rezervacije — Istra retreat, ' + name);
+      bod = encodeURIComponent('Ime: ' + name + '\nE-mail: ' + email + '\nGrad/Država: ' + (location||'—') + '\nDolazak: ' + (solo||'—') + '\nYoga: ' + (yoga||'—') + '\nZašto: ' + (why||'—') + '\nPoziv: ' + (call==='da'?'Da':'Ne'));
+    } else {
+      sub = encodeURIComponent('Pre-booking enquiry — Istra retreat, ' + name);
+      bod = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nCity/Country: ' + (location||'—') + '\nAttending: ' + (solo||'—') + '\nYoga: ' + (yoga||'—') + '\nWhy: ' + (why||'—') + '\nCall: ' + (call==='da'?'Yes':'No'));
+    }
+    window.open('mailto:hello@treatme.life?subject=' + sub + '&body=' + bod, '_blank');
+  }
 
-  document.getElementById('enquiry-form').style.display = 'none';
-  document.getElementById('enquiry-success').style.display = 'block';
-  document.getElementById('enquiry-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  var W3F_KEY = '154fc84f-3b03-42d0-9537-9f3e62b6b108';
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      access_key: W3F_KEY,
+      subject: lang === 'hr' ? 'Upit — Istra retreat, ' + name : 'Enquiry — Istra retreat, ' + name,
+      from_name: name, replyto: email,
+      name: name, email: email,
+      grad: location || '—', dolazak: solo || '—',
+      yoga: yoga || '—', zasto: why || '—',
+      poziv: call === 'da' ? (lang==='hr'?'Da':'Yes') : (lang==='hr'?'Ne':'No'),
+      stranica: 'retreat-istra', botcheck: ''
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(d) { if (d.success) { showSuccess(); } else { fallbackMailto(); showSuccess(); } })
+  .catch(function() { fallbackMailto(); showSuccess(); });
 });
 
 /* ─── CTA BOOKING CLICK EVENTS ──────────────────────────────── */

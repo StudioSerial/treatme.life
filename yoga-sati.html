@@ -1518,7 +1518,11 @@ function filterSchedule(btn, type) {
 function bookSlot(el) {
   const name = el.querySelector('.slot-name').textContent.trim();
   const time = el.querySelector('.slot-time').textContent.trim();
-  window.location.href = `mailto:hello@treatme.life?subject=Rezervacija: ${name} ${time}`;
+  const lang = document.documentElement.getAttribute('data-lang') || 'hr';
+  const subject = lang === 'hr'
+    ? encodeURIComponent('Rezervacija: ' + name + ' ' + time)
+    : encodeURIComponent('Booking: ' + name + ' ' + time);
+  window.open('mailto:hello@treatme.life?subject=' + subject, '_blank');
 }
 
 (function(){

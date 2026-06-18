@@ -702,33 +702,51 @@ document.getElementById('wl-form').addEventListener('submit', function(e) {
   }
 
   btn.disabled = true;
+  btn.textContent = lang === 'hr' ? 'Šaljem…' : 'Sending…';
 
-  var seasonLabels = {
-    'jesen_2026':   'Jesen 2026',
-    'proljet_2027': 'Proljeće 2027',
-    'svejedno':     'Svejedno'
-  };
-  var beenLabels = {
-    'ne':       'Još ne',
-    'istra_1':  'Da — Edition I Istra',
-    'istra_2':  'Da — Edition II Istra'
-  };
+  var seasonLabels    = { 'jesen_2026': 'Jesen 2026', 'proljet_2027': 'Proljeće 2027', 'svejedno': 'Svejedno' };
+  var beenLabels      = { 'ne': 'Još ne', 'istra_1': 'Da — Edition I Istra', 'istra_2': 'Da — Edition II Istra' };
+  var seasonLabelsEn  = { 'jesen_2026': 'Autumn 2026', 'proljet_2027': 'Spring 2027', 'svejedno': 'Either' };
+  var beenLabelsEn    = { 'ne': 'Not yet', 'istra_1': 'Yes — Edition I Istra', 'istra_2': 'Yes — Edition II Istra' };
 
-  var subject = encodeURIComponent('Morocco lista čekanja — ' + name);
-  var body = encodeURIComponent(
-    'Ime: ' + name + '\n' +
-    'E-mail: ' + email + '\n' +
-    'Preferirani termin: ' + (seasonLabels[season] || season) + '\n' +
-    'Bio/la na TreatMe retreatu: ' + (beenLabels[been] || been) + '\n' +
-    'Early access: ' + early
-  );
+  function showSuccess() {
+    tmEvent('morocco_waitlist_submit', { season: season, been_before: been, early_access: early });
+    document.getElementById('wl-form').style.display = 'none';
+    document.getElementById('wl-success').style.display = 'block';
+    document.getElementById('wl-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 
-  window.open('mailto:hello@treatme.life?subject=' + subject + '&body=' + body, '_blank');
-  tmEvent('morocco_waitlist_submit', { season: season, been_before: been, early_access: early });
+  function fallbackMailto() {
+    var sub, bod;
+    if (lang === 'hr') {
+      sub = encodeURIComponent('Morocco lista čekanja — ' + name);
+      bod = encodeURIComponent('Ime: ' + name + '\nE-mail: ' + email + '\nTermin: ' + (seasonLabels[season]||season) + '\nBio/la: ' + (beenLabels[been]||been) + '\nEarly access: ' + early);
+    } else {
+      sub = encodeURIComponent('Morocco waitlist — ' + name);
+      bod = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nDates: ' + (seasonLabelsEn[season]||season) + '\nBeen before: ' + (beenLabelsEn[been]||been) + '\nEarly access: ' + early);
+    }
+    window.open('mailto:hello@treatme.life?subject=' + sub + '&body=' + bod, '_blank');
+  }
 
-  document.getElementById('wl-form').style.display = 'none';
-  document.getElementById('wl-success').style.display = 'block';
-  document.getElementById('wl-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  var W3F_KEY = '154fc84f-3b03-42d0-9537-9f3e62b6b108';
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      access_key: W3F_KEY,
+      subject: lang === 'hr' ? 'Morocco lista čekanja — ' + name : 'Morocco waitlist — ' + name,
+      from_name: name, replyto: email,
+      name: name, email: email,
+      termin: lang === 'hr' ? (seasonLabels[season]||season) : (seasonLabelsEn[season]||season),
+      bio_la: lang === 'hr' ? (beenLabels[been]||been) : (beenLabelsEn[been]||been),
+      early_access: early,
+      stranica: 'maroko-waitlist', botcheck: ''
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(d) { if (d.success) { showSuccess(); } else { fallbackMailto(); showSuccess(); } })
+  .catch(function() { fallbackMailto(); showSuccess(); });
 });
 </script>
 
