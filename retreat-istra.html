@@ -1643,69 +1643,118 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </h2>
       <p class="review-form-body">
         <span lang="hr">Pošalji nam kratku poruku. Ines odgovara osobno, bez prodajnog pitcha, bez pritiska. Samo iskreno da vidiš je li ovo pravo mjesto za tebe.</span>
-        <span lang="en">Send us a short note. Ines replies personally — no sales pitch, no pressure. Just an honest conversation to see if this is the right place for you.</span>
+        <span lang="en">Send us a short note. Ines replies personally, no sales pitch, no pressure. Just an honest conversation to see if this is the right place for you.</span>
       </p>
 
       <div id="enquiry-success" class="form-success" style="display:none;">
         <span lang="hr">Hvala. Ines će ti osobno odgovoriti i pomoći ti osjetiti je li ovaj retreat pravo za tebe. 🌿</span>
         <span lang="en">Thank you. Ines will reply personally and help you feel whether this retreat is right for you. 🌿</span>
         <p style="font-size:12px;color:rgba(199,230,217,0.5);margin-top:12px;font-family:var(--body);line-height:1.6;">
-          <span lang="hr">Napomena: rezervacija se potvrđuje uplatom pologa od €500. Ostatak od €1.000 dospijeva do 22. kolovoza 2026. Link za plaćanje ostatka stižet će emailom 22. srpnja 2026.</span>
-          <span lang="en">Note: booking is confirmed with a €500 deposit. The remaining €1,000 is due by 22 August 2026. You'll receive a balance payment link by email on 22 July 2026.</span>
+          <span lang="hr">Napomena: rezervacija se potvrđuje uplatom pologa od €500. Ostatak od €1.000 dospijeva do 22. kolovoza 2026.</span>
+          <span lang="en">Note: booking is confirmed with a €500 deposit. The remaining €1,000 is due by 22 August 2026.</span>
         </p>
       </div>
 
-      <form id="enquiry-form" class="review-form" novalidate>
+      <!-- HR FORMA -->
+      <form id="enquiry-form-hr" lang="hr" class="review-form" novalidate>
         <div class="form-row">
           <div class="form-field">
-            <label class="form-label" for="eq-name"><span lang="hr">Ime</span><span lang="en">Name</span></label>
-            <input class="form-input" type="text" id="eq-name" name="name" placeholder="Ana" required>
+            <label class="form-label" for="eq-name-hr">Ime</label>
+            <input class="form-input" type="text" id="eq-name-hr" name="name" placeholder="Ana" required>
           </div>
           <div class="form-field">
-            <label class="form-label" for="eq-email">E-mail</label>
-            <input class="form-input" type="email" id="eq-email" name="email" placeholder="tvoj@email.com" required>
+            <label class="form-label" for="eq-email-hr">E-mail</label>
+            <input class="form-input" type="email" id="eq-email-hr" name="email" placeholder="tvoj@email.com" required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-field">
-            <label class="form-label" for="eq-location"><span lang="hr">Grad / Država</span><span lang="en">City / Country</span></label>
-            <input class="form-input" type="text" id="eq-location" name="location" placeholder="Zagreb, HR">
+            <label class="form-label" for="eq-location-hr">Grad / Država</label>
+            <input class="form-input" type="text" id="eq-location-hr" name="location" placeholder="Zagreb, HR">
           </div>
           <div class="form-field">
-            <label class="form-label" for="eq-solo"><span lang="hr">Dolaziš</span><span lang="en">Coming</span></label>
-            <select class="form-input" id="eq-solo" name="solo" style="appearance:none;-webkit-appearance:none;cursor:pointer;">
-              <option value=""><span lang="hr">odaberi</span><span lang="en">select</span></option>
-              <option value="solo"><span lang="hr">sama/sam</span><span lang="en">solo</span></option>
-              <option value="partner"><span lang="hr">s partnerom/partnericom</span><span lang="en">with a partner</span></option>
-              <option value="prijatelj"><span lang="hr">s prijateljem/icom</span><span lang="en">with a friend</span></option>
+            <label class="form-label" for="eq-solo-hr">Dolaziš</label>
+            <select class="form-input" id="eq-solo-hr" name="solo" style="appearance:none;-webkit-appearance:none;cursor:pointer;">
+              <option value="">odaberi</option>
+              <option value="solo">Dolazim sam/a</option>
+              <option value="partner">s partnerom/partnericom</option>
+              <option value="prijatelj">s prijateljem/prijateljicom</option>
             </select>
           </div>
         </div>
         <div class="form-field">
-          <label class="form-label" for="eq-yoga"><span lang="hr">Iskustvo s yogom</span><span lang="en">Yoga experience</span></label>
-          <select class="form-input" id="eq-yoga" name="yoga_experience" style="appearance:none;-webkit-appearance:none;cursor:pointer;">
-            <option value=""><span lang="hr">odaberi</span><span lang="en">select</span></option>
-            <option value="pocetnik"><span lang="hr">Početnik/ca, nikad ili rijetko</span><span lang="en">Beginner — never or rarely</span></option>
-            <option value="povremeno"><span lang="hr">Povremeno, jednom-dva puta tjedno</span><span lang="en">Occasional — once or twice a week</span></option>
-            <option value="redovito"><span lang="hr">Redovito, dulje od godinu dana</span><span lang="en">Regular — more than a year</span></option>
-            <option value="iskusno"><span lang="hr">Iskusno, 3+ godina prakse</span><span lang="en">Experienced — 3+ years of practice</span></option>
+          <label class="form-label" for="eq-yoga-hr">Iskustvo s yogom</label>
+          <select class="form-input" id="eq-yoga-hr" name="yoga_experience" style="appearance:none;-webkit-appearance:none;cursor:pointer;">
+            <option value="">odaberi</option>
+            <option value="pocetnik">Početnik/ca, nikad ili rijetko</option>
+            <option value="povremeno">Povremeno, jednom-dvaput tjedno</option>
+            <option value="redovito">Redovito, dulje od godinu dana</option>
+            <option value="iskusno">Iskusno, 3+ godine prakse</option>
           </select>
         </div>
         <div class="form-field">
-          <label class="form-label" for="eq-why"><span lang="hr">Što te privuklo na ovaj retreat?</span><span lang="en">What drew you to this retreat?</span></label>
-          <textarea class="form-textarea" id="eq-why" name="reason" rows="3" placeholder="…" style="min-height:80px;"></textarea>
+          <label class="form-label" for="eq-why-hr">Što te privuklo na ovaj retreat?</label>
+          <textarea class="form-textarea" id="eq-why-hr" name="reason" rows="3" placeholder="…" style="min-height:80px;"></textarea>
         </div>
         <div class="form-field">
-          <label class="form-label" for="eq-call"><span lang="hr">Voliš li kratki poziv prije rezervacije?</span><span lang="en">Would you like a short call before booking?</span></label>
-          <select class="form-input" id="eq-call" name="call" style="appearance:none;-webkit-appearance:none;cursor:pointer;">
-            <option value="ne"><span lang="hr">Ne, email mi je ok</span><span lang="en">No, email is fine</span></option>
-            <option value="da"><span lang="hr">Da, rado bih razgovarala/o</span><span lang="en">Yes, I'd like a call</span></option>
+          <label class="form-label" for="eq-call-hr">Voliš li kratki poziv prije rezervacije?</label>
+          <select class="form-input" id="eq-call-hr" name="call" style="appearance:none;-webkit-appearance:none;cursor:pointer;">
+            <option value="ne">Ne, email mi je u redu</option>
+            <option value="da">Da, rado bih razgovarao/la</option>
           </select>
         </div>
-        <button type="submit" class="form-submit" id="eq-submit">
-          <span lang="hr">Pošalji poruku →</span>
-          <span lang="en">Send message →</span>
-        </button>
+        <button type="submit" class="form-submit" id="eq-submit-hr">Pošalji poruku →</button>
+      </form>
+
+      <!-- EN FORM -->
+      <form id="enquiry-form-en" lang="en" class="review-form" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" for="eq-name-en">Name</label>
+            <input class="form-input" type="text" id="eq-name-en" name="name" placeholder="Anna" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="eq-email-en">E-mail</label>
+            <input class="form-input" type="email" id="eq-email-en" name="email" placeholder="your@email.com" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" for="eq-location-en">City / Country</label>
+            <input class="form-input" type="text" id="eq-location-en" name="location" placeholder="London, UK">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="eq-solo-en">Coming</label>
+            <select class="form-input" id="eq-solo-en" name="solo" style="appearance:none;-webkit-appearance:none;cursor:pointer;">
+              <option value="">select</option>
+              <option value="solo">Solo</option>
+              <option value="partner">With a partner</option>
+              <option value="friend">With a friend</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="eq-yoga-en">Yoga experience</label>
+          <select class="form-input" id="eq-yoga-en" name="yoga_experience" style="appearance:none;-webkit-appearance:none;cursor:pointer;">
+            <option value="">select</option>
+            <option value="beginner">Beginner, never or rarely</option>
+            <option value="occasional">Occasional, once or twice a week</option>
+            <option value="regular">Regular, more than a year</option>
+            <option value="experienced">Experienced, 3+ years of practice</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="eq-why-en">What drew you to this retreat?</label>
+          <textarea class="form-textarea" id="eq-why-en" name="reason" rows="3" placeholder="…" style="min-height:80px;"></textarea>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="eq-call-en">Would you like a short call before booking?</label>
+          <select class="form-input" id="eq-call-en" name="call" style="appearance:none;-webkit-appearance:none;cursor:pointer;">
+            <option value="no">No, email is fine</option>
+            <option value="yes">Yes, I'd love a call</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit" id="eq-submit-en">Send message →</button>
       </form>
     </div>
   </div>
@@ -2138,66 +2187,75 @@ document.getElementById('review-form').addEventListener('submit', function(e) {
 });
 
 /* ─── ENQUIRY FORM SUBMIT ────────────────────────────────────── */
-document.getElementById('enquiry-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  var btn      = document.getElementById('eq-submit');
-  var name     = document.getElementById('eq-name').value.trim();
-  var email    = document.getElementById('eq-email').value.trim();
-  var location = document.getElementById('eq-location').value.trim();
-  var solo     = document.getElementById('eq-solo').value;
-  var yoga     = document.getElementById('eq-yoga').value;
-  var why      = document.getElementById('eq-why').value.trim();
-  var call     = document.getElementById('eq-call').value;
-  var lang     = document.documentElement.getAttribute('data-lang') || 'hr';
+function bindEnquiryForm(suffix) {
+  var form = document.getElementById('enquiry-form-' + suffix);
+  if (!form) return;
+  var lang = suffix;
 
-  if (!name || !email) {
-    alert(lang === 'hr' ? 'Molimo upiši ime i e-mail.' : 'Please enter your name and email.');
-    return;
-  }
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn      = document.getElementById('eq-submit-' + suffix);
+    var name     = document.getElementById('eq-name-' + suffix).value.trim();
+    var email    = document.getElementById('eq-email-' + suffix).value.trim();
+    var location = document.getElementById('eq-location-' + suffix).value.trim();
+    var solo     = document.getElementById('eq-solo-' + suffix).value;
+    var yoga     = document.getElementById('eq-yoga-' + suffix).value;
+    var why      = document.getElementById('eq-why-' + suffix).value.trim();
+    var call     = document.getElementById('eq-call-' + suffix).value;
 
-  btn.disabled = true;
-  btn.textContent = lang === 'hr' ? 'Šaljem…' : 'Sending…';
-
-  function showSuccess() {
-    tmEvent('edition_ii_enquiry_submit', { retreat: 'istra' });
-    if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'istra_retreat_enquiry' });
-    document.getElementById('enquiry-form').style.display = 'none';
-    document.getElementById('enquiry-success').style.display = 'block';
-    document.getElementById('enquiry-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-
-  function fallbackMailto() {
-    var sub, bod;
-    if (lang === 'hr') {
-      sub = encodeURIComponent('Upit prije rezervacije — Istra retreat, ' + name);
-      bod = encodeURIComponent('Ime: ' + name + '\nE-mail: ' + email + '\nGrad/Država: ' + (location||'—') + '\nDolazak: ' + (solo||'—') + '\nYoga: ' + (yoga||'—') + '\nZašto: ' + (why||'—') + '\nPoziv: ' + (call==='da'?'Da':'Ne'));
-    } else {
-      sub = encodeURIComponent('Pre-booking enquiry — Istra retreat, ' + name);
-      bod = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nCity/Country: ' + (location||'—') + '\nAttending: ' + (solo||'—') + '\nYoga: ' + (yoga||'—') + '\nWhy: ' + (why||'—') + '\nCall: ' + (call==='da'?'Yes':'No'));
+    if (!name || !email) {
+      alert(lang === 'hr' ? 'Molimo upiši ime i e-mail.' : 'Please enter your name and email.');
+      return;
     }
-    window.open('mailto:hello@treatme.life?subject=' + sub + '&body=' + bod, '_blank');
-  }
 
-  var W3F_KEY = '154fc84f-3b03-42d0-9537-9f3e62b6b108';
+    btn.disabled = true;
+    btn.textContent = lang === 'hr' ? 'Šaljem…' : 'Sending…';
 
-  fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({
-      access_key: W3F_KEY,
-      subject: lang === 'hr' ? 'Upit — Istra retreat, ' + name : 'Enquiry — Istra retreat, ' + name,
-      from_name: name, replyto: email,
-      name: name, email: email,
-      grad: location || '—', dolazak: solo || '—',
-      yoga: yoga || '—', zasto: why || '—',
-      poziv: call === 'da' ? (lang==='hr'?'Da':'Yes') : (lang==='hr'?'Ne':'No'),
-      stranica: 'retreat-istra', botcheck: ''
+    function showSuccess() {
+      tmEvent('edition_ii_enquiry_submit', { retreat: 'istra' });
+      if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'istra_retreat_enquiry' });
+      form.style.display = 'none';
+      var s = document.getElementById('enquiry-success');
+      s.style.display = 'block';
+      s.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function fallbackMailto() {
+      var sub, bod;
+      if (lang === 'hr') {
+        sub = encodeURIComponent('Upit prije rezervacije — Istra retreat, ' + name);
+        bod = encodeURIComponent('Ime: ' + name + '\nE-mail: ' + email + '\nGrad/Država: ' + (location||'—') + '\nDolazak: ' + (solo||'—') + '\nYoga: ' + (yoga||'—') + '\nZašto: ' + (why||'—') + '\nPoziv: ' + (call==='da'?'Da':'Ne'));
+      } else {
+        sub = encodeURIComponent('Pre-booking enquiry — Istra retreat, ' + name);
+        bod = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nCity/Country: ' + (location||'—') + '\nAttending: ' + (solo||'—') + '\nYoga: ' + (yoga||'—') + '\nWhy: ' + (why||'—') + '\nCall: ' + (call==='yes'?'Yes':'No'));
+      }
+      window.open('mailto:hello@treatme.life?subject=' + sub + '&body=' + bod, '_blank');
+    }
+
+    var W3F_KEY = '154fc84f-3b03-42d0-9537-9f3e62b6b108';
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: W3F_KEY,
+        subject: lang === 'hr' ? 'Upit — Istra retreat, ' + name : 'Enquiry — Istra retreat, ' + name,
+        from_name: name, replyto: email,
+        name: name, email: email,
+        grad: location || '—', dolazak: solo || '—',
+        yoga: yoga || '—', zasto: why || '—',
+        poziv: (call === 'da' || call === 'yes') ? (lang==='hr'?'Da':'Yes') : (lang==='hr'?'Ne':'No'),
+        stranica: 'retreat-istra', botcheck: ''
+      })
     })
-  })
-  .then(function(r) { return r.json(); })
-  .then(function(d) { if (d.success) { showSuccess(); } else { fallbackMailto(); showSuccess(); } })
-  .catch(function() { fallbackMailto(); showSuccess(); });
-});
+    .then(function(r) { return r.json(); })
+    .then(function(d) { if (d.success) { showSuccess(); } else { fallbackMailto(); showSuccess(); } })
+    .catch(function() { fallbackMailto(); showSuccess(); });
+  });
+}
+
+bindEnquiryForm('hr');
+bindEnquiryForm('en');
 
 /* ─── CTA BOOKING CLICK EVENTS ──────────────────────────────── */
 (function(){
