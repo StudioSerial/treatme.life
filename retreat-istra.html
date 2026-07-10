@@ -959,6 +959,29 @@ img { max-width: 100%; display: block; }
 .mobile-nav-cta-btn:hover { transform: translateY(-1px); }
 .mobile-nav-email { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(199,230,217,0.3); text-align: center; text-decoration: none; }
 @media (min-width: 880px) { .mobile-nav { display: none !important; } .hamburger { display: none !important; } }
+
+/* Stripe secondary enquiry link */
+.btn-book-secondary {
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.btn-book-secondary:hover { color: var(--ink); }
+.btn-book-secondary-sm {
+  display: block;
+  text-align: center;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.btn-book-secondary-sm:hover { color: var(--ink); }
 </style>
 <script type="application/ld+json">
 {
@@ -1177,14 +1200,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="sidebar-pricing">
       <div class="sidebar-pricing-label"><span lang="hr">Odaberi smještaj</span><span lang="en">Choose accommodation</span></div>
       <div class="pricing-opts">
-        <div class="pricing-opt selected" onclick="selectPricing(this)">
+        <div class="pricing-opt selected" data-pricing="shared" onclick="selectPricing(this)">
           <div>
             <div class="opt-name"><span lang="hr">Dijeljeno</span><span lang="en">Shared</span></div>
             <div class="opt-desc"><span lang="hr">2 osobe po sobi · svaki po €1.500</span><span lang="en">2 people per room · €1,500 each</span></div>
           </div>
           <div class="opt-price">€1.500</div>
         </div>
-        <div class="pricing-opt" onclick="selectPricing(this)">
+        <div class="pricing-opt" data-pricing="private" onclick="selectPricing(this)">
           <div>
             <div class="opt-name"><span lang="hr">Privatno</span><span lang="en">Private</span></div>
             <div class="opt-desc"><span lang="hr">vlastita soba</span><span lang="en">your own room</span></div>
@@ -1194,8 +1217,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <a href="#enquiry" lang="hr" class="btn-book" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">Osiguraj svoje mjesto →</a>
-    <a href="#enquiry" lang="en" class="btn-book" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">Secure your space →</a>
+    <a href="#enquiry" lang="hr" class="btn-book" data-stripe="istra-shared" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">Osiguraj mjesto uz €500 polog →</a>
+    <a href="#enquiry" lang="en" class="btn-book" data-stripe="istra-shared" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">Secure your place with deposit →</a>
+    <a href="#enquiry" lang="hr" class="btn-book-secondary">ili pošalji upit ↓</a>
+    <a href="#enquiry" lang="en" class="btn-book-secondary">or send an enquiry ↓</a>
     <div class="sidebar-deposit-note">
       <span lang="hr">€500 polog sada · €1.000 do 22. kolovoza · Ukupno €1.500<br>Polog je povratljiv ako otkažeš 45+ dana unaprijed.</span>
       <span lang="en">€500 now · €1,000 by 22 August · Total €1,500<br>Deposit refundable if you cancel 45+ days in advance.</span>
@@ -1935,17 +1960,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="booking-cta-right">
         <div class="booking-cta-price-row">
-          <a href="#enquiry" class="price-chip price-chip-shared" style="text-decoration:none;cursor:pointer;display:block;transition:transform 0.18s,box-shadow 0.18s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 18px -6px rgba(0,0,0,0.28)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <a href="#enquiry" class="price-chip price-chip-shared" data-stripe="istra-shared" style="text-decoration:none;cursor:pointer;display:block;transition:transform 0.18s,box-shadow 0.18s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 18px -6px rgba(0,0,0,0.28)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
             <small><span lang="hr">dijeljeno</span><span lang="en">shared</span></small>
             €1.500
           </a>
-          <a href="#enquiry" class="price-chip price-chip-private" style="text-decoration:none;cursor:pointer;display:block;transition:transform 0.18s,box-shadow 0.18s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 18px -6px rgba(0,0,0,0.28)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <a href="#enquiry" class="price-chip price-chip-private" data-stripe="istra-private" style="text-decoration:none;cursor:pointer;display:block;transition:transform 0.18s,box-shadow 0.18s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 18px -6px rgba(0,0,0,0.28)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
             <small><span lang="hr">privatno</span><span lang="en">private</span></small>
             €1.950
           </a>
         </div>
-        <a href="#enquiry" lang="hr" class="btn-book-big" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">rezerviraj uz €500 polog →</a>
-        <a href="#enquiry" lang="en" class="btn-book-big" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">book with €500 deposit →</a>
+        <a href="#enquiry" lang="hr" class="btn-book-big" data-stripe="istra-default" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">Osiguraj mjesto uz €500 polog →</a>
+        <a href="#enquiry" lang="en" class="btn-book-big" data-stripe="istra-default" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">Secure your place with deposit →</a>
+        <a href="#enquiry" lang="hr" class="btn-book-secondary-sm">ili pošalji upit ↓</a>
+        <a href="#enquiry" lang="en" class="btn-book-secondary-sm">or send an enquiry ↓</a>
         <div class="booking-deposit-note">
           <span lang="hr">Pitanja? hello@treatme.life</span>
           <span lang="en">Questions? hello@treatme.life</span>
@@ -2046,11 +2073,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="dock-spots">
       <span lang="hr">19.–24. rujna 2026</span><span lang="en">19—24 Sep 2026</span>
     </span>
-    <a href="#enquiry" lang="hr" class="dock-cta">
-      <div class="dock-dot"></div>rezerviraj uz €500
+    <a href="#enquiry" lang="hr" class="dock-cta" data-stripe="istra-default">
+      <div class="dock-dot"></div>osiguraj mjesto · €500
     </a>
-    <a href="#enquiry" lang="en" class="dock-cta">
-      <div class="dock-dot"></div>reserve — €500
+    <a href="#enquiry" lang="en" class="dock-cta" data-stripe="istra-default">
+      <div class="dock-dot"></div>secure your place
     </a>
   </div>
 </div>
@@ -2073,6 +2100,14 @@ function toggleFaq(el) {
 function selectPricing(el) {
   document.querySelectorAll('.pricing-opt').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
+  // Sync main book button to selected room type
+  var isPrivate = el.dataset.pricing === 'private';
+  var link = isPrivate ? (PAYMENT_ISTRA_PRIVATE || '#enquiry') : (PAYMENT_ISTRA_SHARED || '#enquiry');
+  document.querySelectorAll('.btn-book[data-stripe]').forEach(function(btn){
+    btn.href = link;
+    if (link !== '#enquiry') { btn.target = '_blank'; btn.rel = 'noopener'; }
+    else { btn.removeAttribute('target'); btn.removeAttribute('rel'); }
+  });
 }
 
 function scrollToBooking() {
@@ -2083,7 +2118,27 @@ function tmEvent(name, params) {
   try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: name }, params || {})); } catch(e) {}
 }
 
-var PAYMENT_ISTRA_DEPOSIT = ''; // ← zamijeni Stripe Payment Link-om
+/* ─── STRIPE PAYMENT LINKS — ISTRA ────────────────────────────────────
+   Kreiraj linkove: Stripe Dashboard → Payment Links → Create link
+   Postavi iznos na €500 (polog) za svaki tip sobe.
+   Stripe Dashboard → https://dashboard.stripe.com/payment-links
+─────────────────────────────────────────────────────────────────────── */
+var PAYMENT_ISTRA_SHARED  = ''; // ← Stripe Payment Link — dijeljeno (€500 polog)
+var PAYMENT_ISTRA_PRIVATE = ''; // ← Stripe Payment Link — privatno  (€500 polog)
+
+/* Wire all [data-stripe] buttons on load */
+document.addEventListener('DOMContentLoaded', function(){
+  function wire(attr, link) {
+    if (!link) return;
+    document.querySelectorAll('[data-stripe="' + attr + '"]').forEach(function(el){
+      el.href = link; el.target = '_blank'; el.rel = 'noopener';
+    });
+  }
+  wire('istra-shared',  PAYMENT_ISTRA_SHARED);
+  wire('istra-private', PAYMENT_ISTRA_PRIVATE);
+  // Dock + big buttons default to shared (most popular)
+  wire('istra-default', PAYMENT_ISTRA_SHARED || PAYMENT_ISTRA_PRIVATE);
+});
 </script>
 
 <script>
