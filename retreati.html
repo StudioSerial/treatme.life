@@ -486,6 +486,143 @@ a.dest-card { display: flex; text-decoration: none; }
 .mobile-nav-cta-btn:hover { transform: translateY(-1px); }
 .mobile-nav-email { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(199,230,217,0.3); text-align: center; text-decoration: none; }
 @media (min-width: 880px) { .mobile-nav { display: none !important; } .hamburger { display: none !important; } }
+
+/* ── ROXANICH CO-BRAND SECTION ─────────────────────────── */
+.rox-collab {
+  background: var(--ink);
+  margin: 0;
+  padding: clamp(56px,8vw,96px) 0;
+}
+.rox-collab-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid; grid-template-columns: 1fr;
+  gap: 40px;
+}
+@media (min-width: 800px) {
+  .rox-collab-inner { grid-template-columns: 1fr 1fr; gap: 0; }
+}
+.rox-collab-imgs {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 4px;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+}
+@media (min-width: 800px) {
+  .rox-collab-imgs {
+    border-radius: var(--r-lg) 0 0 var(--r-lg);
+    aspect-ratio: auto;
+    min-height: 480px;
+  }
+}
+.rox-collab-imgs-main {
+  position: relative; overflow: hidden; flex: 1;
+}
+.rox-collab-imgs-main img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: sepia(0.1) saturate(0.82) brightness(0.82);
+  transition: transform 1s cubic-bezier(0.2,0.8,0.2,1);
+}
+.rox-collab-imgs:hover .rox-collab-imgs-main img { transform: scale(1.03); }
+.rox-collab-imgs-pair {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4px; flex-shrink: 0;
+  max-height: 160px;
+}
+.rox-collab-imgs-pair div {
+  overflow: hidden; position: relative;
+}
+.rox-collab-imgs-pair img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: sepia(0.12) saturate(0.78) brightness(0.78);
+  transition: transform 1s cubic-bezier(0.2,0.8,0.2,1);
+}
+.rox-collab-imgs-pair div:hover img { transform: scale(1.05); }
+.rox-collab-text {
+  padding: clamp(32px,5vw,56px) clamp(28px,5vw,52px);
+  display: flex; flex-direction: column;
+  justify-content: center; gap: 0;
+}
+@media (min-width: 800px) {
+  .rox-collab-text {
+    border: 0.5px solid rgba(199,230,217,0.08);
+    border-left: none;
+    border-radius: 0 var(--r-lg) var(--r-lg) 0;
+  }
+}
+.rox-cobrand-mark {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(199,230,217,0.4);
+  margin-bottom: 24px;
+}
+.rox-cobrand-diamond {
+  width: 5px; height: 5px;
+  background: var(--lime); transform: rotate(45deg);
+  flex-shrink: 0; opacity: 0.7;
+}
+.rox-collab-eyebrow {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--lime); opacity: 0.7;
+  margin-bottom: 14px;
+}
+.rox-collab-title {
+  font-family: var(--serif); font-size: clamp(28px,3.5vw,42px);
+  font-weight: 300; color: var(--cream); line-height: 1.15;
+  letter-spacing: -0.02em; text-wrap: balance;
+  margin-bottom: 20px;
+}
+.rox-collab-title em { font-style: italic; color: rgba(232,225,210,0.65); }
+.rox-collab-meta {
+  display: flex; flex-direction: column; gap: 8px;
+  margin-bottom: 32px;
+}
+.rox-collab-meta-row {
+  display: flex; gap: 8px; align-items: baseline;
+  font-size: 13px; color: rgba(199,230,217,0.55);
+}
+.rox-collab-meta-label {
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(199,230,217,0.3); min-width: 68px;
+}
+.rox-collab-meta-val {
+  color: rgba(232,225,210,0.75); font-size: 14px;
+}
+.rox-collab-price {
+  margin-bottom: 32px;
+  display: flex; align-items: baseline; gap: 8px;
+}
+.rox-collab-price-from {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(199,230,217,0.4);
+}
+.rox-collab-price-num {
+  font-family: var(--serif); font-size: 36px;
+  color: var(--cream); letter-spacing: -0.02em;
+}
+.rox-collab-price-unit {
+  font-size: 13px; color: rgba(199,230,217,0.45);
+}
+.rox-collab-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--lime); color: var(--ink);
+  padding: 14px 24px; border-radius: 999px;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none; width: fit-content;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.rox-collab-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(217,241,0,0.2); }
+.rox-collab-note {
+  margin-top: 16px;
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(199,230,217,0.2);
+}
 </style>
 <script src="/cookie-consent.js"></script>
 <!-- Google Tag Manager -->
@@ -792,6 +929,94 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </div>
 </div>
+
+<!-- ROXANICH CO-BRAND SECTION -->
+<section class="rox-collab" aria-label="treatme.life × Hotel Roxanich suradnja">
+  <div class="rox-collab-inner">
+
+    <!-- Photo panel -->
+    <a href="/retreat-roxanich" class="rox-collab-imgs" style="display:grid; text-decoration:none;">
+      <div class="rox-collab-imgs-main">
+        <img src="fotografije Roxanic/roxanić vanjski pogled.jpg"
+             alt="Hotel Roxanich, Motovun — eksterijer"
+             loading="lazy">
+      </div>
+      <div class="rox-collab-imgs-pair">
+        <div>
+          <img src="fotografije Roxanic/roxanic soba 1.jpg"
+               alt="Dizajnerska soba · Hotel Roxanich"
+               loading="lazy">
+        </div>
+        <div>
+          <img src="fotografije homepage/hero joga.jpg"
+               alt="Somatski pokret · TreatMe Life"
+               loading="lazy">
+        </div>
+      </div>
+    </a>
+
+    <!-- Text panel -->
+    <div class="rox-collab-text">
+      <div class="rox-cobrand-mark">
+        <span>treatme.life</span>
+        <span class="rox-cobrand-diamond"></span>
+        <span>Hotel Roxanich</span>
+      </div>
+
+      <div class="rox-collab-eyebrow">
+        <span lang="hr">Posebna co-branding suradnja · Motovun · Istra</span>
+        <span lang="en">Special Co-Brand Collaboration · Motovun · Istria</span>
+      </div>
+
+      <h2 class="rox-collab-title">
+        <span lang="hr">Joga &amp; Somatic<br><em>Wellness Vikend.</em></span>
+        <span lang="en">Yoga &amp; Somatic<br><em>Wellness Retreat.</em></span>
+      </h2>
+
+      <div class="rox-collab-meta">
+        <div class="rox-collab-meta-row">
+          <span class="rox-collab-meta-label"><span lang="hr">Datum</span><span lang="en">Date</span></span>
+          <span class="rox-collab-meta-val">
+            <span lang="hr">20.–22. studenoga 2026.</span>
+            <span lang="en">November 20–22, 2026</span>
+          </span>
+        </div>
+        <div class="rox-collab-meta-row">
+          <span class="rox-collab-meta-label"><span lang="hr">Hotel</span><span lang="en">Hotel</span></span>
+          <span class="rox-collab-meta-val">Hotel Roxanich · Motovun</span>
+        </div>
+        <div class="rox-collab-meta-row">
+          <span class="rox-collab-meta-label"><span lang="hr">Trajanje</span><span lang="en">Duration</span></span>
+          <span class="rox-collab-meta-val">
+            <span lang="hr">vikend · 2 noćenja</span>
+            <span lang="en">weekend · 2 nights</span>
+          </span>
+        </div>
+        <div class="rox-collab-meta-row">
+          <span class="rox-collab-meta-label"><span lang="hr">Grupa</span><span lang="en">Group</span></span>
+          <span class="rox-collab-meta-val">8–16 <span lang="hr">gostiju</span><span lang="en">guests</span></span>
+        </div>
+      </div>
+
+      <div class="rox-collab-price">
+        <span class="rox-collab-price-from"><span lang="hr">od</span><span lang="en">from</span></span>
+        <span class="rox-collab-price-num">€599</span>
+        <span class="rox-collab-price-unit">/ <span lang="hr">osobi</span><span lang="en">person</span></span>
+      </div>
+
+      <a href="/retreat-roxanich" class="rox-collab-cta">
+        <span lang="hr">detalji i prijava →</span>
+        <span lang="en">details and booking →</span>
+      </a>
+
+      <div class="rox-collab-note">
+        <span lang="hr">DRAFT · Za odobrenje · Nije za objavu</span>
+        <span lang="en">DRAFT · For approval · Not for publication</span>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- RETREAT FORMAT -->
 <div class="format-section">
