@@ -1105,9 +1105,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="lang-btn active" data-lang="hr" onclick="setLang('hr')">HR</button>
         <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
       </div>
-      <a href="#enquiry" class="cta-pill">
-        <span lang="hr">rezerviraj →</span><span lang="en">book →</span>
-      </a>
+      <span class="cta-pill" style="background:rgba(8,39,45,0.07);color:var(--ink-muted);cursor:default;pointer-events:none;">
+        <span lang="hr">Rasprodano</span><span lang="en">Sold out</span>
+      </span>
 
       <button class="hamburger" id="hamburger" aria-label="Izbornik" onclick="toggleMobileNav()">
         <span></span><span></span><span></span>
@@ -1149,7 +1149,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-left">
     <div class="hero-eyebrow fade-up d1">
       Edition II · Istra · 2026
-      <span class="hero-badge"><span lang="hr">8 MJESTA</span><span lang="en">8 SPOTS</span></span>
+      <span class="hero-badge" style="background:var(--ink-muted);"><span lang="hr">RASPRODANO</span><span lang="en">SOLD OUT</span></span>
     </div>
     <h1 class="hero-title fade-up d2">
       <span lang="hr">Šest dana.<br><span class="ital">Ljeto koje odlazi polako.</span></span>
@@ -1171,15 +1171,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <!-- BOOKING SIDEBAR -->
+  <!-- BOOKING SIDEBAR — sold out -->
   <div class="booking-sidebar fade-up d4" id="booking">
     <div class="sidebar-edition">
       <span>Edition II · Istra · 2026</span>
-      <span style="background: var(--lime); color: var(--ink); padding: 2px 8px; border-radius: 3px; font-size: 9px;">8 <span lang="hr">MJESTA</span><span lang="en">SPOTS</span></span>
+      <span style="background:var(--ink-muted);color:var(--cream-soft);padding:2px 8px;border-radius:3px;font-size:9px;letter-spacing:0.08em;"><span lang="hr">RASPRODANO</span><span lang="en">SOLD OUT</span></span>
     </div>
     <div class="sidebar-title">
-      <span lang="hr">Osiguraj<br><span class="ital">svoje mjesto.</span></span>
-      <span lang="en">Secure<br><span class="ital">your space.</span></span>
+      <span lang="hr">Sva mjesta<br><span class="ital">su popunjena.</span></span>
+      <span lang="en">This retreat<br><span class="ital">is fully booked.</span></span>
     </div>
 
     <div class="sidebar-rows">
@@ -1193,38 +1193,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="sidebar-row">
         <span class="sidebar-row-label"><span lang="hr">Slobodnih mjesta</span><span lang="en">Available</span></span>
-        <span class="sidebar-row-val" style="color: var(--lime);">8 / 8</span>
+        <span class="sidebar-row-val" style="color:var(--ink-muted);"><span lang="hr">Rasprodano</span><span lang="en">Sold out</span></span>
       </div>
     </div>
 
-    <div class="sidebar-pricing">
-      <div class="sidebar-pricing-label"><span lang="hr">Odaberi smještaj</span><span lang="en">Choose accommodation</span></div>
-      <div class="pricing-opts">
-        <div class="pricing-opt selected" data-pricing="shared" onclick="selectPricing(this)">
-          <div>
-            <div class="opt-name"><span lang="hr">Dijeljeno</span><span lang="en">Shared</span></div>
-            <div class="opt-desc"><span lang="hr">2 osobe po sobi · svaki po €1.500</span><span lang="en">2 people per room · €1,500 each</span></div>
-          </div>
-          <div class="opt-price">€1.500</div>
-        </div>
-        <div class="pricing-opt" data-pricing="private" onclick="selectPricing(this)">
-          <div>
-            <div class="opt-name"><span lang="hr">Privatno</span><span lang="en">Private</span></div>
-            <div class="opt-desc"><span lang="hr">vlastita soba</span><span lang="en">your own room</span></div>
-          </div>
-          <div class="opt-price">€1.950</div>
-        </div>
-      </div>
-    </div>
+    <p style="font-size:14px;line-height:1.65;color:var(--ink-muted);margin:20px 0 24px;">
+      <span lang="hr">Sva mjesta za ovaj retreat su popunjena. Iduća je Maroko — jesen 2026.</span>
+      <span lang="en">This retreat is fully booked. Next up is Morocco — autumn 2026.</span>
+    </p>
 
-    <a href="#enquiry" lang="hr" class="btn-book" data-stripe="istra-shared" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">Osiguraj mjesto uz €500 polog →</a>
-    <a href="#enquiry" lang="en" class="btn-book" data-stripe="istra-shared" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">Secure your place with deposit →</a>
-    <a href="#enquiry" lang="hr" class="btn-book-secondary">ili pošalji upit ↓</a>
-    <a href="#enquiry" lang="en" class="btn-book-secondary">or send an enquiry ↓</a>
-    <div class="sidebar-deposit-note">
-      <span lang="hr">€500 polog sada · €1.000 do 22. kolovoza · Ukupno €1.500<br>Polog je povratljiv ako otkažeš 45+ dana unaprijed.</span>
-      <span lang="en">€500 now · €1,000 by 22 August · Total €1,500<br>Deposit refundable if you cancel 45+ days in advance.</span>
-    </div>
+    <a href="/retreat-maroko" lang="hr" class="btn-book" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">Pogledaj Taghazout →</a>
+    <a href="/retreat-maroko" lang="en" class="btn-book" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">Explore Taghazout →</a>
 
     <div class="sidebar-divider"></div>
 
@@ -1945,34 +1924,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </p>
   </div>
 
-  <!-- BOOKING CTA -->
+  <!-- BOOKING CTA — sold out -->
   <div class="section-gap">
     <div class="booking-cta-card">
       <div>
         <h2 class="booking-cta-title">
-          <span lang="hr">8 mjesta.<br>19.–24. <span class="ital">rujna.</span></span>
-          <span lang="en">8 spots.<br>19—24 <span class="ital">September.</span></span>
+          <span lang="hr">Rasprodano.<br><span class="ital">Iduće je Maroko.</span></span>
+          <span lang="en">Sold out.<br><span class="ital">Next stop: Morocco.</span></span>
         </h2>
         <p class="booking-cta-body">
-          <span lang="hr">€500 polog sada · €1.000 do 22. kolovoza · Ukupno €1.500<br>Polog je povratljiv ako otkažeš 45+ dana unaprijed.</span>
-          <span lang="en">€500 now · €1,000 by 22 August · Total €1,500<br>Deposit refundable if you cancel 45+ days in advance.</span>
+          <span lang="hr">Sva mjesta za ovaj retreat su popunjena. Edition III stiže u listopadu — Taghazout, Maroko.</span>
+          <span lang="en">This retreat is fully booked. Edition III is coming in October — Taghazout, Morocco.</span>
         </p>
       </div>
       <div class="booking-cta-right">
-        <div class="booking-cta-price-row">
-          <a href="#enquiry" class="price-chip price-chip-shared" data-stripe="istra-shared" style="text-decoration:none;cursor:pointer;display:block;transition:transform 0.18s,box-shadow 0.18s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 18px -6px rgba(0,0,0,0.28)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-            <small><span lang="hr">dijeljeno</span><span lang="en">shared</span></small>
-            €1.500
-          </a>
-          <a href="#enquiry" class="price-chip price-chip-private" data-stripe="istra-private" style="text-decoration:none;cursor:pointer;display:block;transition:transform 0.18s,box-shadow 0.18s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 18px -6px rgba(0,0,0,0.28)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-            <small><span lang="hr">privatno</span><span lang="en">private</span></small>
-            €1.950
-          </a>
-        </div>
-        <a href="#enquiry" lang="hr" class="btn-book-big" data-stripe="istra-default" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">Osiguraj mjesto uz €500 polog →</a>
-        <a href="#enquiry" lang="en" class="btn-book-big" data-stripe="istra-default" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">Secure your place with deposit →</a>
-        <a href="#enquiry" lang="hr" class="btn-book-secondary-sm">ili pošalji upit ↓</a>
-        <a href="#enquiry" lang="en" class="btn-book-secondary-sm">or send an enquiry ↓</a>
+        <a href="/retreat-maroko" lang="hr" class="btn-book-big" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">Pogledaj Taghazout →</a>
+        <a href="/retreat-maroko" lang="en" class="btn-book-big" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">Explore Taghazout →</a>
         <div class="booking-deposit-note">
           <span lang="hr">Pitanja? hello@treatme.life</span>
           <span lang="en">Questions? hello@treatme.life</span>
@@ -2067,18 +2034,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="dock">
   <div class="dock-left">
     <span class="dock-edition">Edition II · Istra · Rabac</span>
-    <span class="dock-price"><span lang="hr">od</span><span lang="en">from</span> <span>€1.500</span> · <span lang="hr">8 mjesta</span><span lang="en">8 spots</span></span>
+    <span class="dock-price" style="color:rgba(199,230,217,0.45);"><span lang="hr">Rasprodano</span><span lang="en">Sold out</span></span>
   </div>
   <div class="dock-right">
     <span class="dock-spots">
       <span lang="hr">19.–24. rujna 2026</span><span lang="en">19—24 Sep 2026</span>
     </span>
-    <a href="#enquiry" lang="hr" class="dock-cta" data-stripe="istra-default">
-      <div class="dock-dot"></div>osiguraj mjesto · €500
-    </a>
-    <a href="#enquiry" lang="en" class="dock-cta" data-stripe="istra-default">
-      <div class="dock-dot"></div>secure your place
-    </a>
+    <a href="/retreat-maroko" lang="hr" class="dock-cta" style="background:var(--cream-soft);color:var(--ink);">Pogledaj Taghazout →</a>
+    <a href="/retreat-maroko" lang="en" class="dock-cta" style="background:var(--cream-soft);color:var(--ink);">Explore Taghazout →</a>
   </div>
 </div>
 
@@ -2098,16 +2061,8 @@ function toggleFaq(el) {
 }
 
 function selectPricing(el) {
-  document.querySelectorAll('.pricing-opt').forEach(o => o.classList.remove('selected'));
-  el.classList.add('selected');
-  // Sync main book button to selected room type
-  var isPrivate = el.dataset.pricing === 'private';
-  var link = isPrivate ? (PAYMENT_ISTRA_PRIVATE || '#enquiry') : (PAYMENT_ISTRA_SHARED || '#enquiry');
-  document.querySelectorAll('.btn-book[data-stripe]').forEach(function(btn){
-    btn.href = link;
-    if (link !== '#enquiry') { btn.target = '_blank'; btn.rel = 'noopener'; }
-    else { btn.removeAttribute('target'); btn.removeAttribute('rel'); }
-  });
+  // RASPRODANO — Edition II Istra je rasprodan; selekcija smještaja blokirana
+  return;
 }
 
 function scrollToBooking() {
@@ -2118,26 +2073,34 @@ function tmEvent(name, params) {
   try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: name }, params || {})); } catch(e) {}
 }
 
-/* ─── STRIPE PAYMENT LINKS — ISTRA ────────────────────────────────────
-   Kreiraj linkove: Stripe Dashboard → Payment Links → Create link
-   Postavi iznos na €500 (polog) za svaki tip sobe.
-   Stripe Dashboard → https://dashboard.stripe.com/payment-links
+/* ─── STRIPE PAYMENT LINKS — ISTRA ─────────────────────────────────────
+   RASPRODANO — Edition II Istra (19.–24. rujna 2026) je rasprodan.
+   Payment linkovi su postavljeni na null; Stripe linkove deaktivirati
+   ručno u Stripe Dashboardu:
+     https://dashboard.stripe.com/payment-links
+   Link koji treba deaktivirati: https://buy.stripe.com/00w14g9LW3Qt0N7bkb7EQ00
 ─────────────────────────────────────────────────────────────────────── */
-var PAYMENT_ISTRA_SHARED  = 'https://buy.stripe.com/00w14g9LW3Qt0N7bkb7EQ00'; // ← Stripe Payment Link — dijeljeno (€500 polog)
-var PAYMENT_ISTRA_PRIVATE = 'https://buy.stripe.com/00w14g9LW3Qt0N7bkb7EQ00'; // ← Stripe Payment Link — privatno  (€500 polog)
+var PAYMENT_ISTRA_SHARED  = null; // RASPRODANO — ne aktivirati
+var PAYMENT_ISTRA_PRIVATE = null; // RASPRODANO — ne aktivirati
 
-/* Wire all [data-stripe] buttons on load */
+/* Wire all [data-stripe] buttons on load — null linkovi se ignoriraju */
 document.addEventListener('DOMContentLoaded', function(){
   function wire(attr, link) {
-    if (!link) return;
+    if (!link) return; // bez linka = bez wiring-a
     document.querySelectorAll('[data-stripe="' + attr + '"]').forEach(function(el){
       el.href = link; el.target = '_blank'; el.rel = 'noopener';
     });
   }
   wire('istra-shared',  PAYMENT_ISTRA_SHARED);
   wire('istra-private', PAYMENT_ISTRA_PRIVATE);
-  // Dock + big buttons default to shared (most popular)
   wire('istra-default', PAYMENT_ISTRA_SHARED || PAYMENT_ISTRA_PRIVATE);
+  // Osiguraj da ni jedan preostali [data-stripe="istra-*"] element ne vodi na Stripe
+  document.querySelectorAll('[data-stripe^="istra"]').forEach(function(el){
+    el.removeAttribute('href');
+    el.style.pointerEvents = 'none';
+    el.style.opacity = '0.4';
+    el.setAttribute('aria-disabled', 'true');
+  });
 });
 </script>
 

@@ -128,6 +128,17 @@ img { max-width: 100%; display: block; }
 .sidebar-divider { height: 0.5px; background: rgba(199,230,217,0.1); margin: 16px 0; }
 .sidebar-include-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: rgba(199,230,217,0.5); margin-bottom: 7px; }
 .sidebar-include-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--mint-deep); flex-shrink: 0; }
+.sidebar-includes .sidebar-include-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: rgba(199,230,217,0.5); margin-bottom: 7px; }
+
+/* ── BOOKING FORM ─────────────────────────────────────────── */
+.form-label { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(199,230,217,0.45); margin-bottom: 5px; }
+.form-input { width: 100%; box-sizing: border-box; background: rgba(255,255,255,0.06); border: 0.5px solid rgba(199,230,217,0.18); border-radius: var(--r-sm); padding: 10px 12px; font-size: 14px; color: var(--cream-soft); font-family: var(--body); transition: border-color 0.2s; outline: none; }
+.form-input:focus { border-color: rgba(199,230,217,0.45); }
+.form-input::placeholder { color: rgba(199,230,217,0.22); }
+.form-input option { background: #0a2a2e; color: var(--cream-soft); }
+textarea.form-input { min-height: 72px; }
+.btn-book { width: 100%; background: var(--lime); color: var(--ink); padding: 15px 20px; border-radius: 999px; font-size: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; }
+.btn-book:hover { transform: translateY(-1px); box-shadow: 0 12px 28px -8px rgba(166,208,155,0.4); }
 
 /* ── PHOTO GRID ─────────────────────────────────────────── */
 .photo-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; grid-template-rows: 220px 220px; gap: 8px; max-width: var(--max-w); margin: clamp(32px,5vw,56px) auto clamp(48px,7vw,88px); padding: 0 var(--gutter); box-sizing: border-box; border-radius: var(--r-lg); overflow: hidden; }
@@ -374,8 +385,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="lang-btn active" data-lang="hr" onclick="setLang('hr')">HR</button>
         <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
       </div>
-      <a href="/maroko-waitlist" class="cta-pill" style="background: var(--clay); color: var(--cream-soft);" onclick="tmEvent('morocco_waitlist_click')">
-        <span lang="hr">lista čekanja →</span><span lang="en">join waitlist →</span>
+      <a href="#booking" class="cta-pill">
+        <span lang="hr">Rezerviraj boravak →</span><span lang="en">Book your stay →</span>
       </a>
 
       <button class="hamburger" id="hamburger" aria-label="Izbornik" onclick="toggleMobileNav()">
@@ -418,7 +429,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-left">
     <div class="hero-eyebrow fade-up d1">
       Edition III · Maroko · 2026
-      <span class="hero-badge"><span lang="hr">DOLAZI JESEN</span><span lang="en">COMING AUTUMN</span></span>
+      <span class="hero-badge"><span lang="hr">OTVORENE REZERVACIJE</span><span lang="en">BOOKINGS OPEN</span></span>
     </div>
     <h1 class="hero-title fade-up d2">
       <span lang="hr">Salemov<br><span class="ital">teritorij.</span></span>
@@ -441,11 +452,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <!-- INTEREST SIDEBAR -->
-  <div class="booking-sidebar fade-up d4" id="interes">
+  <!-- BOOKING SIDEBAR — otvorene rezervacije -->
+  <div class="booking-sidebar fade-up d4" id="booking">
     <div class="sidebar-edition">
       <span>Edition III · Maroko · 2026</span>
-      <span class="sidebar-badge-clay"><span lang="hr">USKORO</span><span lang="en">COMING SOON</span></span>
+      <span style="background:var(--lime);color:var(--ink);padding:2px 8px;border-radius:3px;font-size:9px;letter-spacing:0.08em;font-weight:600;"><span lang="hr">OTVORENE REZ.</span><span lang="en">BOOKINGS OPEN</span></span>
     </div>
     <div class="sidebar-title">
       <span lang="hr">Rezerviraj<br><span class="ital">svoje mjesto.</span></span>
@@ -459,11 +470,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="sidebar-row">
         <span class="sidebar-row-label"><span lang="hr">Lokacija</span><span lang="en">Location</span></span>
-        <span class="sidebar-row-val">Taghazout, Maroko</span>
+        <span class="sidebar-row-val">Taghazout, <span lang="hr">Maroko</span><span lang="en">Morocco</span></span>
       </div>
       <div class="sidebar-row">
         <span class="sidebar-row-label"><span lang="hr">Mjesta</span><span lang="en">Spots</span></span>
-        <span class="sidebar-row-val" style="color: var(--sand);">10 / 10</span>
+        <span class="sidebar-row-val" style="color:var(--lime);">10 <span lang="hr">mjesta</span><span lang="en">spots</span></span>
       </div>
       <div class="sidebar-row">
         <span class="sidebar-row-label"><span lang="hr">Cijena od</span><span lang="en">Price from</span></span>
@@ -471,26 +482,105 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <p class="sidebar-interest-note">
-      <span lang="hr">Retreat se potvrđuje kada se popuni lista interesa. Pošalji nam poruku, bez obaveza, odgovaramo u roku 24h.</span>
-      <span lang="en">The retreat is confirmed when the interest list fills up. Send us a message, no commitment, we reply within 24h.</span>
-    </p>
+    <!-- BOOKING FORM -->
+    <form id="booking-form" style="margin-top:20px;" onsubmit="submitBooking(event)">
+      <input type="hidden" name="access_key" value="154fc84f-3b03-42d0-9537-9f3e62b6b108">
+      <input type="hidden" name="subject" value="Zahtjev za rezervaciju — Edition III Maroko, Taghazout 2026">
+      <input type="hidden" name="from_name" value="treatme.life booking">
+      <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
 
-    <a href="/maroko-waitlist" class="btn-interest" onclick="tmEvent('morocco_waitlist_click')">
-      <span lang="hr">pridruži se listi →</span><span lang="en">join the waitlist →</span>
-    </a>
-    <div class="sidebar-deposit-note">
-      <span lang="hr">Nema obaveza. Early access 48h<br>prije javnog otvaranja rezervacija.</span>
-      <span lang="en">No commitment. Early access 48h<br>before public booking opens.</span>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div>
+          <label class="form-label" lang="hr" for="bf-name">Ime i prezime *</label>
+          <label class="form-label" lang="en" for="bf-name">Full name *</label>
+          <input class="form-input" id="bf-name" name="name" type="text" required autocomplete="name"
+            placeholder="Ana Horvat">
+        </div>
+        <div>
+          <label class="form-label" lang="hr" for="bf-email">E-mail *</label>
+          <label class="form-label" lang="en" for="bf-email">Email *</label>
+          <input class="form-input" id="bf-email" name="email" type="email" required autocomplete="email"
+            placeholder="ana@example.com">
+        </div>
+        <div>
+          <label class="form-label" lang="hr" for="bf-term">Termin *</label>
+          <label class="form-label" lang="en" for="bf-term">Dates *</label>
+          <select class="form-input" id="bf-term" name="termin" required onchange="toggleOtherDates(this.value)">
+            <option value="" disabled selected>
+              <span lang="hr">Odaberi…</span><span lang="en">Select…</span>
+            </option>
+            <option value="18-24 listopada 2026 (Taghazout)">18.–24. listopada 2026</option>
+            <option value="Drugi termin / Other dates">
+              <span lang="hr">Drugi termin</span><span lang="en">Other dates</span>
+            </option>
+          </select>
+        </div>
+        <div id="other-dates-wrap" style="display:none;gap:8px;flex-direction:column;">
+          <div>
+            <label class="form-label" lang="hr" for="bf-arrival">Željeni dolazak *</label>
+            <label class="form-label" lang="en" for="bf-arrival">Preferred arrival *</label>
+            <input class="form-input" id="bf-arrival" name="zelJeni_dolazak" type="date" min="">
+          </div>
+          <div>
+            <label class="form-label" lang="hr" for="bf-departure">Željeni odlazak *</label>
+            <label class="form-label" lang="en" for="bf-departure">Preferred departure *</label>
+            <input class="form-input" id="bf-departure" name="zelJeni_odlazak" type="date" min="">
+          </div>
+          <p style="font-size:12px;color:var(--ink-muted);line-height:1.5;margin:0;">
+            <span lang="hr">Pošalji željene datume boravka. Dostupnost i cijenu potvrđujemo nakon upita.</span>
+            <span lang="en">Send us your preferred dates. We will confirm availability and pricing after receiving your enquiry.</span>
+          </p>
+        </div>
+        <div>
+          <label class="form-label" lang="hr" for="bf-guests">Broj gostiju *</label>
+          <label class="form-label" lang="en" for="bf-guests">Number of guests *</label>
+          <select class="form-input" id="bf-guests" name="broj_gostiju" required>
+            <option value="" disabled selected>—</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" lang="hr" for="bf-accom">Smještaj *</label>
+          <label class="form-label" lang="en" for="bf-accom">Accommodation *</label>
+          <select class="form-input" id="bf-accom" name="smjestaj" required>
+            <option value="" disabled selected>—</option>
+            <option value="Dijeljeno / Shared (€1.300)"><span lang="hr">Dijeljeno</span><span lang="en">Shared</span> — €1.300</option>
+            <option value="Privatno / Private (€1.650)"><span lang="hr">Privatno</span><span lang="en">Private</span> — €1.650</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" lang="hr" for="bf-msg">Poruka</label>
+          <label class="form-label" lang="en" for="bf-msg">Message</label>
+          <textarea class="form-input" id="bf-msg" name="poruka" rows="3" style="resize:vertical;"
+            placeholder="…"></textarea>
+        </div>
+        <div id="bf-error" style="display:none;color:#c0392b;font-size:12px;margin:0;"></div>
+        <button type="submit" class="btn-book" id="bf-submit" style="width:100%;margin-top:4px;border:none;cursor:pointer;font-family:inherit;">
+          <span lang="hr">Pošalji zahtjev za rezervaciju →</span>
+          <span lang="en">Send booking request →</span>
+        </button>
+      </div>
+    </form>
+
+    <div id="booking-success" style="display:none;margin-top:20px;padding:16px;background:rgba(166,208,155,0.15);border-radius:8px;border:1px solid rgba(166,208,155,0.4);">
+      <p style="margin:0;font-size:14px;line-height:1.65;color:var(--ink);">
+        <span lang="hr">Hvala! Zaprimili smo tvoj zahtjev. Javit ćemo ti se s potvrdom dostupnosti i detaljima rezervacije.</span>
+        <span lang="en">Thank you! We have received your request. We will contact you to confirm availability and booking details.</span>
+      </p>
     </div>
 
-    <div class="sidebar-divider"></div>
+    <div class="sidebar-divider" style="margin-top:20px;"></div>
 
-    <div class="sidebar-include-item"><span lang="hr">Smještaj (6 noći)</span><span lang="en">Accommodation (6 nights)</span></div>
-    <div class="sidebar-include-item"><span lang="hr">3 obroka dnevno + snacks</span><span lang="en">3 meals daily + snacks</span></div>
-    <div class="sidebar-include-item"><span lang="hr">Sve yoga prakse s Petrom</span><span lang="en">All yoga practices with Petra</span></div>
-    <div class="sidebar-include-item"><span lang="hr">Salemova kuhinja svaki dan</span><span lang="en">Salem's kitchen every day</span></div>
-    <div class="sidebar-include-item"><span lang="hr">Lokalni prijevoz unutar retreata</span><span lang="en">Local transport within retreat</span></div>
+    <div class="sidebar-includes">
+      <div class="sidebar-include-item"><span lang="hr">Smještaj (6 noći)</span><span lang="en">Accommodation (6 nights)</span></div>
+      <div class="sidebar-include-item"><span lang="hr">3 obroka dnevno + snacks</span><span lang="en">3 meals daily + snacks</span></div>
+      <div class="sidebar-include-item"><span lang="hr">Sve yoga prakse s Petrom</span><span lang="en">All yoga practices with Petra</span></div>
+      <div class="sidebar-include-item"><span lang="hr">Salemova kuhinja svaki dan</span><span lang="en">Salem's kitchen every day</span></div>
+      <div class="sidebar-include-item"><span lang="hr">Lokalni prijevoz unutar retreata</span><span lang="en">Local transport within retreat</span></div>
+    </div>
   </div>
 </div>
 
@@ -514,25 +604,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<!-- COMING SOON BANNER -->
-<div class="content-wrap">
-  <div class="coming-banner" style="margin-bottom: clamp(48px, 7vw, 88px);">
-    <div class="coming-banner-text">
-      <div class="coming-banner-eyebrow">
-        <span lang="hr">Status retreata</span><span lang="en">— Retreat status</span>
-      </div>
-      <div class="coming-banner-title">
-        <span lang="hr">Dolazi jesen 2026. <em>Mjesta se popunjavaju.</em></span>
-        <span lang="en">Coming autumn 2026. <em>Spaces filling up.</em></span>
-      </div>
-    </div>
-    <div class="coming-banner-cta">
-      <a href="mailto:hello@treatme.life?subject=Zanima%20me%20Maroko%20retreat%20—%20Edition%20III%2C%20Taghazout%202026&body=Pozdrav%2C%0A%0AZanima%20me%20Edition%20III%20%E2%80%94%20Maroko%20(Taghazout%2C%2018%E2%80%9424.%20listopada%202026).%0A%0AMoje%20ime%3A%0APitanja%3A" class="coming-banner-btn">
-        <span lang="hr">prijavi interes →</span><span lang="en">express interest →</span>
-      </a>
-    </div>
-  </div>
-</div>
 
 <!-- O RETREATU -->
 <div class="content-wrap">
@@ -773,12 +844,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">
-          <span lang="hr">Kad se potvrđuje retreat?</span>
-          <span lang="en">When is the retreat confirmed?</span>
+          <span lang="hr">Kako funkcionira rezervacija?</span>
+          <span lang="en">How does booking work?</span>
         </div>
         <div class="faq-a">
-          <span lang="hr">Retreat se potvrđuje kada se popuni lista interesa, minimalno 8 gostiju. Kada pošalješ prijavu interesa, dobivate sve detalje o uvjetima rezervacije. Nema nikakve financijske obveze do formalne potvrde.</span>
-          <span lang="en">The retreat is confirmed when the interest list fills up, minimum 8 guests. When you submit your interest, you'll receive all details about booking conditions. There's no financial commitment until formal confirmation.</span>
+          <span lang="hr">Pošalji zahtjev putem forme. Mi potvrđujemo dostupnost i šaljemo ti sve detalje rezervacije. Rezervacija se formalno potvrđuje nakon što primimo tvoj zahtjev i potvrdimo dostupnost.</span>
+          <span lang="en">Send a booking request via the form. We confirm availability and send you all the booking details. The booking is formally confirmed after we receive your request and confirm availability.</span>
         </div>
       </div>
 
@@ -906,20 +977,95 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="dock-spots">
       <span lang="hr">18.–24. listopada 2026</span><span lang="en">18—24 Oct 2026</span>
     </span>
-    <a href="mailto:hello@treatme.life?subject=Zanima%20me%20Maroko%20retreat%20—%20Edition%20III%2C%20Taghazout%202026" class="dock-cta" data-stripe="maroko">
-      <span lang="hr">osiguraj mjesto · polog →</span><span lang="en">secure your place →</span>
+    <a href="#booking" class="dock-cta">
+      <div class="dock-dot"></div><span lang="hr">Rezerviraj boravak →</span><span lang="en">Book your stay →</span>
     </a>
   </div>
 </div>
 
 <script>
 
-/* ─── STRIPE PAYMENT LINK — MAROKO ────────────────────────────────────
-   Kreiraj link: Stripe Dashboard → Payment Links → Create link
-   Postavi iznos na iznos pologa za Maroko retreat.
-   Stripe Dashboard → https://dashboard.stripe.com/payment-links
+/* ─── BOOKING FORM ─────────────────────────────────────────────────── */
+function toggleOtherDates(val) {
+  var wrap = document.getElementById('other-dates-wrap');
+  var arrival = document.getElementById('bf-arrival');
+  var departure = document.getElementById('bf-departure');
+  if (val === 'Drugi termin / Other dates') {
+    wrap.style.display = 'flex';
+    arrival.required = true;
+    departure.required = true;
+    var today = new Date().toISOString().split('T')[0];
+    arrival.min = today;
+    departure.min = today;
+  } else {
+    wrap.style.display = 'none';
+    arrival.required = false;
+    departure.required = false;
+  }
+}
+
+async function submitBooking(e) {
+  e.preventDefault();
+  var form = document.getElementById('booking-form');
+  var errEl = document.getElementById('bf-error');
+  var btn = document.getElementById('bf-submit');
+  errEl.style.display = 'none';
+
+  // Validate dates if "other" selected
+  var term = document.getElementById('bf-term').value;
+  if (term === 'Drugi termin / Other dates') {
+    var arrival = document.getElementById('bf-arrival').value;
+    var departure = document.getElementById('bf-departure').value;
+    if (!arrival || !departure) {
+      errEl.textContent = document.documentElement.lang === 'en'
+        ? 'Please enter arrival and departure dates.'
+        : 'Upiši datume dolaska i odlaska.';
+      errEl.style.display = 'block';
+      return;
+    }
+    if (departure <= arrival) {
+      errEl.textContent = document.documentElement.lang === 'en'
+        ? 'Departure must be after arrival.'
+        : 'Datum odlaska mora biti nakon dolaska.';
+      errEl.style.display = 'block';
+      return;
+    }
+  }
+
+  btn.disabled = true;
+  btn.style.opacity = '0.6';
+
+  var data = new FormData(form);
+  try {
+    var res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+    var json = await res.json();
+    if (json.success) {
+      form.style.display = 'none';
+      document.getElementById('booking-success').style.display = 'block';
+    } else {
+      errEl.textContent = document.documentElement.lang === 'en'
+        ? 'An error occurred. Please try again or write to hello@treatme.life.'
+        : 'Došlo je do greške. Pokušaj ponovo ili nam piši na hello@treatme.life.';
+      errEl.style.display = 'block';
+      btn.disabled = false;
+      btn.style.opacity = '1';
+    }
+  } catch(err) {
+    errEl.textContent = document.documentElement.lang === 'en'
+      ? 'Connection error. Please write to hello@treatme.life.'
+      : 'Greška veze. Piši nam na hello@treatme.life.';
+    errEl.style.display = 'block';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+  }
+}
+/* ─────────────────────────────────────────────────────────────────── */
+
+
+/* ─── STRIPE PAYMENT LINK — MAROKO (aktivan, rezervacije otvorene) ──────
+   https://dashboard.stripe.com/payment-links
 ─────────────────────────────────────────────────────────────────────── */
-var PAYMENT_MAROKO_DEPOSIT = 'https://buy.stripe.com/3cI00c4rCfzb9jD73V7EQ01'; // ← Stripe Payment Link — Maroko (polog)
+var PAYMENT_MAROKO_DEPOSIT = 'https://buy.stripe.com/3cI00c4rCfzb9jD73V7EQ01'; // Maroko — polog (aktivan)
 
 document.addEventListener('DOMContentLoaded', function(){
   if (!PAYMENT_MAROKO_DEPOSIT) return;
