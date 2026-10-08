@@ -1423,14 +1423,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span lang="en">A recipe, a short reflection, or news about the next retreat. Once a month, no spam.</span>
       </p>
     </div>
-    <form class="nl-form" onsubmit="return false;">
+    <form class="nl-form" id="nl-home" onsubmit="submitNewsletter(event,'nl-home')">
+      <input type="hidden" name="access_key" value="154fc84f-3b03-42d0-9537-9f3e62b6b108">
+      <input type="hidden" name="subject" value="Newsletter prijava — treatme.life">
+      <input type="hidden" name="botcheck" style="display:none">
       <div class="nl-row">
-        <input class="nl-input" type="email" placeholder="tvoj@email.com" aria-label="Email adresa">
+        <input class="nl-input" type="email" name="email" required placeholder="tvoj@email.com" aria-label="Email adresa">
         <button class="nl-submit" type="submit">
           <span lang="hr">prijavi se →</span>
           <span lang="en">subscribe →</span>
         </button>
       </div>
+      <div id="nl-home-msg" style="display:none;font-size:12px;margin-top:8px;color:var(--ink-muted)"></div>
       <div class="nl-fine">
         <span lang="hr">Odjaviti se možeš bilo kad. · <a href="/pravila" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Privatnost</a></span>
         <span lang="en">No spam. Unsubscribe whenever you like. · <a href="/pravila" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Privacy</a></span>
@@ -1463,11 +1467,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Editions 2026</h4>
+      <h4><span lang="hr">Retreati</span><span lang="en">Retreats</span></h4>
       <ul>
-        <li><span style="opacity:0.4; font-size:13px;">I · Istra (<span lang="hr">svibanj</span><span lang="en">May</span>), <span lang="hr">prošlo</span><span lang="en">past</span></span></li>
-        <li><a href="/retreati">II · Istra (<span lang="hr">rujan</span><span lang="en">Sep</span>)</a></li>
-        <li><a href="/retreati">III · <span lang="hr">Maroko</span><span lang="en">Morocco</span> (<span lang="hr">jesen</span><span lang="en">autumn</span>)</a></li>
+        <li><a href="/retreat-maroko"><span lang="hr">Maroko — Otvoreno</span><span lang="en">Morocco — Open</span></a></li>
+        <li><a href="/retreat-istra"><span lang="hr">Istra — Rasprodano</span><span lang="en">Istria — Sold out</span></a></li>
+        <li><a href="/hrvatska"><span lang="hr">Hrvatska 2027 — Stiže</span><span lang="en">Croatia 2027 — Coming</span></a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1583,6 +1587,29 @@ document.addEventListener('keydown', function(e) {
     document.body.style.overflow = '';
   }
 });
+
+async function submitNewsletter(e, formId) {
+  e.preventDefault();
+  var form = document.getElementById(formId);
+  var btn = form.querySelector('button[type="submit"]');
+  var msg = document.getElementById(formId + '-msg');
+  btn.disabled = true;
+  try {
+    var res = await fetch('https://api.web3forms.com/submit', {method:'POST', body: new FormData(form)});
+    var json = await res.json();
+    if (json.success) {
+      form.reset();
+      msg.textContent = document.documentElement.dataset.lang === 'hr' ? 'Prijava uspješna. Hvala!' : 'Subscribed. Thank you!';
+    } else {
+      msg.textContent = document.documentElement.dataset.lang === 'hr' ? 'Greška. Pokušaj ponovo.' : 'Something went wrong. Try again.';
+      btn.disabled = false;
+    }
+  } catch(err) {
+    msg.textContent = 'hello@treatme.life';
+    btn.disabled = false;
+  }
+  msg.style.display = 'block';
+}
 </script>
 </body>
 </html>

@@ -13,6 +13,9 @@
 <meta property="og:image" content="https://treatme.life/fotografije%20homepage/hero%20istra.webp">
 <meta name="theme-color" content="#08272D">
 <link rel="canonical" href="https://treatme.life/iskustva">
+<link rel="alternate" hreflang="hr" href="https://treatme.life/iskustva" />
+<link rel="alternate" hreflang="en" href="https://treatme.life/iskustva" />
+<link rel="alternate" hreflang="x-default" href="https://treatme.life/iskustva" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1340,13 +1343,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span lang="en">Subscribe and receive new retreat announcements, letters from the road and occasionally Salem's recipe. Once a month, no spam.</span>
       </p>
     </div>
-    <form class="nl-form" onsubmit="return false;">
+    <form class="nl-form" id="nl-iskustva" onsubmit="submitNewsletter(event,'nl-iskustva')">
+      <input type="hidden" name="access_key" value="154fc84f-3b03-42d0-9537-9f3e62b6b108">
+      <input type="hidden" name="subject" value="Newsletter prijava — treatme.life">
+      <input type="hidden" name="botcheck" style="display:none">
       <div class="nl-row">
-        <input class="nl-input" type="email" placeholder="your@email.com">
+        <input class="nl-input" type="email" name="email" required placeholder="your@email.com">
         <button class="nl-submit" type="submit">
           <span lang="hr">prijavi se →</span><span lang="en">subscribe →</span>
         </button>
       </div>
+      <div id="nl-iskustva-msg" style="display:none;font-size:12px;margin-top:8px;color:var(--ink-muted)"></div>
       <div class="nl-fine">
         <span lang="hr">Bez spama. Odjaviti se možeš bilo kad.</span>
         <span lang="en">No spam. Unsubscribe whenever you like.</span>
@@ -1436,7 +1443,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
         </li>
-        <li><a href="retreati.html#faq">FAQ</a></li>
+        <li><a href="/faq">FAQ</a></li>
         <li><a href="/uvjeti"><span lang="hr">Uvjeti</span><span lang="en">Terms</span></a></li>
       </ul>
     </div>
@@ -1605,6 +1612,29 @@ document.addEventListener('keydown', function(e) {
     document.body.style.overflow = '';
   }
 });
+
+async function submitNewsletter(e, formId) {
+  e.preventDefault();
+  var form = document.getElementById(formId);
+  var btn = form.querySelector('button[type="submit"]');
+  var msg = document.getElementById(formId + '-msg');
+  btn.disabled = true;
+  try {
+    var res = await fetch('https://api.web3forms.com/submit', {method:'POST', body: new FormData(form)});
+    var json = await res.json();
+    if (json.success) {
+      form.reset();
+      msg.textContent = document.documentElement.dataset.lang === 'hr' ? 'Prijava uspješna. Hvala!' : 'Subscribed. Thank you!';
+    } else {
+      msg.textContent = document.documentElement.dataset.lang === 'hr' ? 'Greška. Pokušaj ponovo.' : 'Something went wrong. Try again.';
+      btn.disabled = false;
+    }
+  } catch(err) {
+    msg.textContent = 'hello@treatme.life';
+    btn.disabled = false;
+  }
+  msg.style.display = 'block';
+}
 </script>
 </body>
 </html>

@@ -38,5 +38,18 @@
     <loc>https://treatme.life/yoga-sati</loc>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://treatme.life/iskustva</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/b2b</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/hrvatska</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 
 </urlset>

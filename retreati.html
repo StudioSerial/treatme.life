@@ -1020,6 +1020,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- CROATIA 2027 -->
+<div style="max-width:var(--max-w); margin:0 auto clamp(48px,7vw,88px); padding:0 var(--gutter);">
+  <div style="background:var(--ink); border-radius:20px; padding:clamp(32px,5vw,56px); display:flex; flex-direction:column; gap:20px;">
+    <div style="font-family:var(--mono); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(217,241,0,0.6);">
+      <span lang="hr">— Stiže 2027</span><span lang="en">— Coming 2027</span>
+    </div>
+    <h2 style="font-family:var(--serif); font-size:clamp(28px,4vw,44px); font-weight:400; letter-spacing:-0.02em; color:var(--mint); line-height:1.1;">
+      <span lang="hr">Hrvatska.<br><em style="font-style:italic; font-weight:300;">Istra.</em></span>
+      <span lang="en">Croatia.<br><em style="font-style:italic; font-weight:300;">Istria.</em></span>
+    </h2>
+    <p style="font-size:15px; color:rgba(199,230,217,0.6); line-height:1.7; max-width:52ch;">
+      <span lang="hr">Istra je oduvijek bila tu. Kamena sela, maslinici, ritam koji se ne žuri. Planiramo retreat za 2027. Ako te zanima, kaži nam.</span>
+      <span lang="en">Istria has always been here. Stone villages, olive groves, an unhurried rhythm. We are planning a 2027 retreat. If you're interested, let us know.</span>
+    </p>
+    <div>
+      <a href="/hrvatska" style="display:inline-block; background:var(--lime); color:var(--ink); font-size:13px; font-weight:600; padding:12px 24px; border-radius:999px; text-decoration:none;">
+        <span lang="hr">Prijavi interes →</span><span lang="en">Register interest →</span>
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- RETREAT FORMAT -->
 <div class="format-section">
   <div class="section-head">
@@ -1248,13 +1270,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span lang="en">Subscribe and receive new retreat announcements, letters from the road and occasionally Salem's recipe. Once a month, no spam.</span>
       </p>
     </div>
-    <form class="nl-form" onsubmit="return false;">
+    <form class="nl-form" id="nl-retreati" onsubmit="submitNewsletter(event,'nl-retreati')">
+      <input type="hidden" name="access_key" value="154fc84f-3b03-42d0-9537-9f3e62b6b108">
+      <input type="hidden" name="subject" value="Newsletter prijava — treatme.life">
+      <input type="hidden" name="botcheck" style="display:none">
       <div class="nl-row">
-        <input class="nl-input" type="email" placeholder="your@email.com">
+        <input class="nl-input" type="email" name="email" required placeholder="your@email.com">
         <button class="nl-submit" type="submit">
           <span lang="hr">prijavi se →</span><span lang="en">subscribe →</span>
         </button>
       </div>
+      <div id="nl-retreati-msg" style="display:none;font-size:12px;margin-top:8px;color:var(--ink-muted)"></div>
       <div class="nl-fine">
         <span lang="hr">Bez spama. Odjaviti se možeš bilo kad. · <a href="/pravila" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Privatnost</a></span>
         <span lang="en">No spam. Unsubscribe whenever you like. · <a href="/pravila" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Privacy</a></span>
@@ -1384,6 +1410,29 @@ document.addEventListener('keydown', function(e) {
     document.body.style.overflow = '';
   }
 });
+
+async function submitNewsletter(e, formId) {
+  e.preventDefault();
+  var form = document.getElementById(formId);
+  var btn = form.querySelector('button[type="submit"]');
+  var msg = document.getElementById(formId + '-msg');
+  btn.disabled = true;
+  try {
+    var res = await fetch('https://api.web3forms.com/submit', {method:'POST', body: new FormData(form)});
+    var json = await res.json();
+    if (json.success) {
+      form.reset();
+      msg.textContent = document.documentElement.dataset.lang === 'hr' ? 'Prijava uspješna. Hvala!' : 'Subscribed. Thank you!';
+    } else {
+      msg.textContent = document.documentElement.dataset.lang === 'hr' ? 'Greška. Pokušaj ponovo.' : 'Something went wrong. Try again.';
+      btn.disabled = false;
+    }
+  } catch(err) {
+    msg.textContent = 'hello@treatme.life';
+    btn.disabled = false;
+  }
+  msg.style.display = 'block';
+}
 </script>
 </body>
 </html>
