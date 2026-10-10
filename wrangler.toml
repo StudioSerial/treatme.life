@@ -4,4 +4,4 @@ compatibility_date = "2024-09-23"
 
 [assets]
 directory = "."
-exclude = [".git/**", ".github/**", "*.docx", "*.jsonl", "retreat-roxanich.html", "retreat-obonjan.html", "newsletter-roxanich.html"]
+exclude = [".git/**", ".github/**", "*.docx", "*.jsonl", "retreat-obonjan.html", "newsletter-roxanich.html"]
