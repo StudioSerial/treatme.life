@@ -543,6 +543,7 @@ a.dest-card { display: flex; text-decoration: none; }
 }
 .rox-collab-imgs-pair div:hover img { transform: scale(1.05); }
 .rox-collab-text {
+  min-width: 0;
   padding: clamp(32px,5vw,56px) clamp(28px,5vw,52px);
   display: flex; flex-direction: column;
   justify-content: center; gap: 0;
@@ -555,7 +556,7 @@ a.dest-card { display: flex; text-decoration: none; }
   }
 }
 .rox-cobrand-mark {
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
   font-family: var(--mono); font-size: 10px;
   letter-spacing: 0.2em; text-transform: uppercase;
   color: rgba(199,230,217,0.4);
@@ -932,30 +933,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<!-- ROXANICH CO-BRAND SECTION -->
-<section class="rox-collab" aria-label="treatme.life × Hotel Roxanich suradnja">
+<!-- NAJAVA: EKSKLUZIVNE SURADNJE ZA HRVATSKU -->
+<section class="rox-collab" aria-label="Najava ekskluzivnih suradnji za Hrvatsku">
   <div class="rox-collab-inner">
 
     <!-- Photo panel -->
-    <a href="/retreat-roxanich" class="rox-collab-imgs" style="display:grid; text-decoration:none;">
+    <div class="rox-collab-imgs" style="display:grid;">
       <div class="rox-collab-imgs-main">
         <img src="fotografije Roxanic/roxanić vanjski pogled.jpg"
-             alt="Hotel Roxanich, Motovun — eksterijer"
+             alt="Hotel Roxanich, Motovun, eksterijer"
              loading="lazy">
       </div>
       <div class="rox-collab-imgs-pair">
         <div>
           <img src="fotografije Roxanic/roxanic soba 1.jpg"
-               alt="Dizajnerska soba · Hotel Roxanich"
+               alt="Dizajnerska soba, Hotel Roxanich"
                loading="lazy">
         </div>
         <div>
           <img src="fotografije homepage/hero joga.jpg"
-               alt="Somatski pokret · TreatMe Life"
+               alt="Somatski pokret, TreatMe Life"
                loading="lazy">
         </div>
       </div>
-    </a>
+    </div>
 
     <!-- Text panel -->
     <div class="rox-collab-text">
@@ -963,58 +964,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span>treatme.life</span>
         <span class="rox-cobrand-diamond"></span>
         <span>Hotel Roxanich</span>
+        <span class="rox-cobrand-diamond"></span>
+        <span>Obonjan</span>
       </div>
 
       <div class="rox-collab-eyebrow">
-        <span lang="hr">Posebna co-branding suradnja · Motovun · Istra</span>
-        <span lang="en">Special Co-Brand Collaboration · Motovun · Istria</span>
+        <span lang="hr">Najava · Hrvatska</span>
+        <span lang="en">Announcement · Croatia</span>
       </div>
 
       <h2 class="rox-collab-title">
-        <span lang="hr">Joga &amp; Somatic<br><em>Wellness Vikend.</em></span>
-        <span lang="en">Yoga &amp; Somatic<br><em>Wellness Retreat.</em></span>
+        <span lang="hr">Ekskluzivne suradnje<br><em>za Hrvatsku.</em></span>
+        <span lang="en">Exclusive collaborations<br><em>for Croatia.</em></span>
       </h2>
 
-      <div class="rox-collab-meta">
-        <div class="rox-collab-meta-row">
-          <span class="rox-collab-meta-label"><span lang="hr">Datum</span><span lang="en">Date</span></span>
-          <span class="rox-collab-meta-val">
-            <span lang="hr">20.–22. studenoga 2026.</span>
-            <span lang="en">November 20–22, 2026</span>
-          </span>
-        </div>
-        <div class="rox-collab-meta-row">
-          <span class="rox-collab-meta-label"><span lang="hr">Hotel</span><span lang="en">Hotel</span></span>
-          <span class="rox-collab-meta-val">Hotel Roxanich · Motovun</span>
-        </div>
-        <div class="rox-collab-meta-row">
-          <span class="rox-collab-meta-label"><span lang="hr">Trajanje</span><span lang="en">Duration</span></span>
-          <span class="rox-collab-meta-val">
-            <span lang="hr">vikend · 2 noćenja</span>
-            <span lang="en">weekend · 2 nights</span>
-          </span>
-        </div>
-        <div class="rox-collab-meta-row">
-          <span class="rox-collab-meta-label"><span lang="hr">Grupa</span><span lang="en">Group</span></span>
-          <span class="rox-collab-meta-val">8–16 <span lang="hr">gostiju</span><span lang="en">guests</span></span>
-        </div>
-      </div>
+      <p style="font-size:15px;color:rgba(199,230,217,0.75);line-height:1.65;margin:0 0 28px;max-width:46ch;">
+        <span lang="hr">Pripremamo dvije posebne suradnje, s Hotelom Roxanich u Motovunu i s Obonjanom. Bit će dostupne samo u Hrvatskoj. Detalji uskoro.</span>
+        <span lang="en">We are preparing two special collaborations, with Hotel Roxanich in Motovun and with Obonjan. They will be available only in Croatia. Details soon.</span>
+      </p>
 
-      <div class="rox-collab-price">
-        <span class="rox-collab-price-from"><span lang="hr">od</span><span lang="en">from</span></span>
-        <span class="rox-collab-price-num">€599</span>
-        <span class="rox-collab-price-unit">/ <span lang="hr">osobi</span><span lang="en">person</span></span>
-      </div>
-
-      <a href="/retreat-roxanich" class="rox-collab-cta">
-        <span lang="hr">detalji i prijava →</span>
-        <span lang="en">details and booking →</span>
+      <a href="/hrvatska" class="rox-collab-cta">
+        <span lang="hr">javi mi kad krene →</span>
+        <span lang="en">notify me →</span>
       </a>
-
-      <div class="rox-collab-note">
-        <span lang="hr">DRAFT · Za odobrenje · Nije za objavu</span>
-        <span lang="en">DRAFT · For approval · Not for publication</span>
-      </div>
     </div>
 
   </div>
