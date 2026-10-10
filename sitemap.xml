@@ -17,24 +17,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://treatme.life/o-nama</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://treatme.life/faq</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://treatme.life/journal</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://treatme.life/journal-clanak?id=rujan-u-pustinji</loc>
-    <lastmod>2026-10-10</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://treatme.life/yoga-sati</loc>
     <priority>0.6</priority>
   </url>
@@ -43,12 +25,73 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://treatme.life/b2b</loc>
-    <priority>0.5</priority>
+    <loc>https://treatme.life/o-nama</loc>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://treatme.life/hrvatska</loc>
     <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/faq</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/b2b</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/journal</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/uvjeti</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/pravila</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/journal-clanak?id=rujan-u-pustinji</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/journal-clanak?id=marrakech-48h</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/journal-clanak?id=tagine-bez-recepta</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/journal-clanak?id=hatha-tijelo</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/journal-clanak?id=rabac-rujan</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/journal-clanak?id=jutarnja-praksa</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/journal-clanak?id=yin-nije-odmor</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/journal-clanak?id=marrakech-polako</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/journal-clanak?id=marokanski-dorucak</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://treatme.life/journal-clanak?id=mali-retreat</loc>
     <priority>0.6</priority>
   </url>
 
