@@ -506,6 +506,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span lang="en">Stays can be booked from 01 Oct to 01 Apr 2027. Arrival is flexible within that period. Maximum capacity is 8 guests at the same time.</span>
     </p>
 
+    <!-- DEPOSIT CTA -->
+    <a href="#" data-stripe="maroko" class="btn-interest" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;text-decoration:none;">
+      <span>
+        <span lang="hr" style="display:block;font-size:15px;font-weight:600;">Rezerviraj s pologom €400 →</span>
+        <span lang="en" style="display:block;font-size:15px;font-weight:600;">Reserve with €400 deposit →</span>
+      </span>
+    </a>
+    <p class="sidebar-deposit-note" style="margin-bottom:18px;">
+      <span lang="hr">Polog €400 · ostatak 15 dana prije dolaska · polog je za edukacijske usluge</span>
+      <span lang="en">€400 deposit · balance due 15 days before arrival · deposit covers educational services</span>
+    </p>
+
     <!-- BOOKING FORM -->
     <form id="booking-form" style="margin-top:4px;" onsubmit="submitBooking(event)">
       <input type="hidden" name="access_key" value="154fc84f-3b03-42d0-9537-9f3e62b6b108">
@@ -531,13 +543,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <label class="form-label" lang="hr" for="bf-arrival">Dolazak *</label>
             <label class="form-label" lang="en" for="bf-arrival">Arrival *</label>
             <input class="form-input" id="bf-arrival" name="dolazak" type="date"
-              min="2026-10-01" max="2027-01-31" required>
+              min="2026-10-01" max="2027-03-31" required>
           </div>
           <div>
             <label class="form-label" lang="hr" for="bf-departure">Odlazak *</label>
             <label class="form-label" lang="en" for="bf-departure">Departure *</label>
             <input class="form-input" id="bf-departure" name="odlazak" type="date"
-              min="2026-10-02" max="2027-02-01" required>
+              min="2026-10-02" max="2027-04-01" required>
           </div>
         </div>
         <div>
@@ -579,9 +591,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </form>
 
     <div id="booking-success" style="display:none;margin-top:20px;padding:16px;background:rgba(166,208,155,0.15);border-radius:8px;border:1px solid rgba(166,208,155,0.4);">
-      <p style="margin:0;font-size:14px;line-height:1.65;color:var(--ink);">
-        <span lang="hr">Hvala! Zaprimili smo tvoj zahtjev. Javit ćemo ti se s potvrdom dostupnosti i detaljima rezervacije.</span>
-        <span lang="en">Thank you! We have received your request. We will contact you to confirm availability and booking details.</span>
+      <p style="margin:0 0 12px;font-size:14px;line-height:1.65;">
+        <span lang="hr">Hvala! Zaprimili smo tvoj zahtjev. Osiguraj svoje mjesto uplatom pologa:</span>
+        <span lang="en">Thank you! We received your request. Secure your spot by paying the deposit:</span>
+      </p>
+      <a href="#" data-stripe="maroko" style="display:block;background:var(--lime);color:var(--ink);text-align:center;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;">
+        <span lang="hr">Uplati polog €400 →</span>
+        <span lang="en">Pay €400 deposit →</span>
+      </a>
+      <p style="margin:8px 0 0;font-size:11px;opacity:0.55;text-align:center;font-family:var(--mono);">
+        <span lang="hr">Ostatak plaćaš 15 dana prije dolaska.</span>
+        <span lang="en">Balance due 15 days before arrival.</span>
       </p>
     </div>
 
