@@ -507,7 +507,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </p>
 
     <!-- DEPOSIT CTA -->
-    <a href="#" data-stripe="maroko" class="btn-interest" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;text-decoration:none;">
+    <div style="margin-bottom:10px;">
+      <label class="form-label" for="dep-arrival-date">
+        <span lang="hr">Željeni datum dolaska *</span>
+        <span lang="en">Preferred arrival date *</span>
+      </label>
+      <input class="form-input" id="dep-arrival-date" type="date"
+        min="2026-10-01" max="2027-03-31"
+        style="margin-bottom:8px;"
+        oninput="updateDepositLink()">
+      <div id="dep-date-error" style="display:none;color:#e07060;font-size:11px;font-family:var(--mono);margin-bottom:6px;">
+        <span lang="hr">Odaberi datum dolaska.</span>
+        <span lang="en">Please select an arrival date.</span>
+      </div>
+    </div>
+    <a href="#" id="btn-deposit" class="btn-interest" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;text-decoration:none;" onclick="return goDeposit(event)">
       <span>
         <span lang="hr" style="display:block;font-size:15px;font-weight:600;">Rezerviraj s pologom €400 →</span>
         <span lang="en" style="display:block;font-size:15px;font-weight:600;">Reserve with €400 deposit →</span>
@@ -1097,13 +1111,35 @@ async function submitBooking(e) {
 ─────────────────────────────────────────────────────────────────────── */
 var PAYMENT_MAROKO_DEPOSIT = 'https://buy.stripe.com/aFa6oA1fq3Qt53nag77EQ02'; // Maroko — polog (aktivan)
 
+function updateDepositLink() {
+  var btn = document.getElementById('btn-deposit');
+  var err = document.getElementById('dep-date-error');
+  if (btn && err) { err.style.display = 'none'; }
+}
+
+function goDeposit(e) {
+  e.preventDefault();
+  if (!PAYMENT_MAROKO_DEPOSIT) return false;
+  var dateEl = document.getElementById('dep-arrival-date');
+  var err = document.getElementById('dep-date-error');
+  if (!dateEl || !dateEl.value) {
+    if (err) err.style.display = 'block';
+    if (dateEl) dateEl.focus();
+    return false;
+  }
+  var d = new Date(dateEl.value);
+  var formatted = d.getDate() + '.' + (d.getMonth()+1) + '.' + d.getFullYear() + '.';
+  var url = PAYMENT_MAROKO_DEPOSIT + '?prefilled_custom_fields[0][text][value]=' + encodeURIComponent(formatted);
+  window.open(url, '_blank', 'noopener');
+  return false;
+}
+
 document.addEventListener('DOMContentLoaded', function(){
-  if (!PAYMENT_MAROKO_DEPOSIT) return;
-  document.querySelectorAll('[data-stripe="maroko"]').forEach(function(el){
-    el.href = PAYMENT_MAROKO_DEPOSIT;
-    el.target = '_blank';
-    el.rel = 'noopener';
-  });
+  var arrInput = document.getElementById('dep-arrival-date');
+  var formArr = document.getElementById('bf-arrival');
+  if (arrInput && formArr) {
+    arrInput.addEventListener('change', function(){ formArr.value = arrInput.value; });
+  }
 });
 function tmEvent(name, params) {
   try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: name }, params || {})); } catch(e) {}
