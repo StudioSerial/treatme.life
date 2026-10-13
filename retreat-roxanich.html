@@ -8,10 +8,91 @@
 <meta property="og:title" content="Joga &amp; Somatic Wellness Vikend · Hotel Roxanich × treatme.life">
 <meta property="og:description" content="Travanj · Svibanj · Lipanj 2027 · Hotel Roxanich, Motovun, Istra · Ekskluzivni retreat za do 20 gostiju.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://treatme.life/fotografije%20Roxanic/roxanic%20pogled%20no%C4%87u.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="hr_HR">
 <meta property="og:locale:alternate" content="en_GB">
+<meta property="og:site_name" content="treatme.life">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Joga & Somatic Wellness Vikend · Hotel Roxanich × treatme.life">
+<meta name="twitter:description" content="Travanj · Svibanj · Lipanj 2027 · Hotel Roxanich, Motovun, Istra. Ekskluzivni retreat za do 20 gostiju. Somatski pokret, joga, boutique smještaj i gastronomija.">
+<meta name="twitter:image" content="https://treatme.life/fotografije%20Roxanic/roxanic%20pogled%20no%C4%87u.jpg">
+<meta name="geo.region" content="HR-18">
+<meta name="geo.placename" content="Motovun, Istra, Hrvatska">
+<meta name="geo.position" content="45.3366;13.8272">
+<meta name="ICBM" content="45.3366, 13.8272">
+<meta name="keywords" content="yoga retreat Istra, wellness vikend Motovun, Hotel Roxanich retreat, somatic wellness Hrvatska, joga odmor Istra, yoga vikend Hrvatska, boutique retreat Istra, treatme.life">
 <meta name="theme-color" content="#08272D">
 <meta name="robots" content="noindex,nofollow">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Joga & Somatic Wellness Vikend u Hotelu Roxanich",
+  "description": "Ekskluzivni yoga i somatic wellness retreat u boutique Hotelu Roxanich u Motovunu, Istra. Somatski pokret, joga, luksuzni smještaj i regionalna gastronomija. Do 20 gostiju.",
+  "url": "https://treatme.life/retreat-roxanich",
+  "image": "https://treatme.life/fotografije%20Roxanic/roxanic%20pogled%20no%C4%87u.jpg",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "startDate": "2027-04-02",
+  "endDate": "2027-06-13",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Dijeljena soba",
+      "price": "990",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/LimitedAvailability",
+      "url": "https://treatme.life/retreat-roxanich"
+    },
+    {
+      "@type": "Offer",
+      "name": "Jednokrevetna soba",
+      "price": "1290",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/LimitedAvailability",
+      "url": "https://treatme.life/retreat-roxanich"
+    }
+  ],
+  "location": {
+    "@type": "LodgingBusiness",
+    "name": "Hotel Roxanich",
+    "url": "https://www.roxanich.hr",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Motovun",
+      "addressRegion": "Istarska županija",
+      "addressCountry": "HR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 45.3366,
+      "longitude": 13.8272
+    },
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Boutique smještaj" },
+      { "@type": "LocationFeatureSpecification", "name": "Wellness" },
+      { "@type": "LocationFeatureSpecification", "name": "Gastronomija" }
+    ]
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "treatme.life",
+    "url": "https://treatme.life",
+    "description": "Intimni yoga i wellness retreati u Istri i Maroku"
+  },
+  "performer": {
+    "@type": "Person",
+    "name": "Petra",
+    "jobTitle": "Yoga učiteljica i somatic practitioner",
+    "worksFor": { "@type": "Organization", "name": "treatme.life" }
+  },
+  "inLanguage": ["hr", "en"],
+  "typicalAgeRange": "18-",
+  "maximumAttendeeCapacity": 20
+}
+</script>
 <link rel="canonical" href="https://treatme.life/retreat-roxanich">
 <link rel="alternate" hreflang="hr" href="https://treatme.life/retreat-roxanich" />
 <link rel="alternate" hreflang="en" href="https://treatme.life/retreat-roxanich" />
@@ -805,6 +886,126 @@ img { max-width: 100%; display: block; object-fit: cover; }
   .dock-cta-inner { padding: 8px; }
   .rox-pricing-grid { grid-template-columns: 1fr; }
 }
+
+/* ── GALLERY SCROLL ─────────────────────────────────────── */
+.rox-strip-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 4px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+.rox-strip-scroll::-webkit-scrollbar { display: none; }
+.rox-strip-scroll.is-dragging { cursor: grabbing; user-select: none; }
+.rox-strip-item {
+  flex: 0 0 auto;
+  width: clamp(260px, 35vw, 420px);
+  height: clamp(320px, 45vw, 520px);
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.rox-strip-item::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 55%, rgba(15,27,17,0.5));
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.rox-strip-item:hover::after { opacity: 0.6; }
+.rox-strip-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: sepia(0.12) saturate(0.85) brightness(0.9) contrast(1.03);
+  transition: transform 0.9s cubic-bezier(0.2,0.8,0.2,1);
+}
+.rox-strip-item:hover img { transform: scale(1.05); }
+.rox-strip-zoom-hint {
+  position: absolute; bottom: 14px; right: 14px;
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 2;
+}
+.rox-strip-zoom-hint svg { width: 14px; height: 14px; stroke: #fff; fill: none; stroke-width: 1.5; }
+.rox-strip-item:hover .rox-strip-zoom-hint { opacity: 1; }
+
+/* ── LIGHTBOX ───────────────────────────────────────────── */
+.rox-lightbox {
+  display: none;
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(8,20,12,0.97);
+  align-items: center; justify-content: center;
+}
+.rox-lightbox.open { display: flex; }
+.rox-lightbox-img {
+  max-width: 92vw; max-height: 90vh;
+  object-fit: contain;
+  border-radius: 2px;
+  user-select: none;
+}
+.rox-lb-close {
+  position: absolute; top: 18px; right: 22px;
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  color: #fff; font-size: 20px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  z-index: 10;
+}
+.rox-lb-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff; padding: 14px 18px;
+  font-size: 16px; cursor: pointer;
+  backdrop-filter: blur(4px);
+  border-radius: 4px;
+  z-index: 10;
+  transition: background 0.2s;
+}
+.rox-lb-nav:hover { background: rgba(255,255,255,0.2); }
+.rox-lb-prev { left: 16px; }
+.rox-lb-next { right: 16px; }
+.rox-lb-counter {
+  position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ── PRINT ──────────────────────────────────────────────── */
+@media print {
+  .fade-up { opacity: 1 !important; transform: none !important; }
+  .header, .mobile-nav, .dock, .draft-badge, .rox-lightbox { display: none !important; }
+  .rox-strip-scroll {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    overflow: visible !important;
+    cursor: default !important;
+  }
+  .rox-strip-item {
+    width: auto !important;
+    height: 180px !important;
+    break-inside: avoid;
+  }
+  .rox-strip-zoom-hint { display: none !important; }
+  section, .rox-features, .rox-pricing-section, .rox-booking, .rox-travel {
+    padding-top: clamp(32px, 4vw, 48px) !important;
+    padding-bottom: clamp(32px, 4vw, 48px) !important;
+  }
+  body { padding-bottom: 0 !important; }
+}
 </style>
 </head>
 
@@ -955,23 +1156,78 @@ img { max-width: 100%; display: block; object-fit: cover; }
 
 <!-- photo strip — TreatMe × Roxanich -->
 <div class="rox-photo-strip">
-  <div class="rox-strip-grid">
-    <div class="rox-strip-item">
-      <img src="fotografije homepage/hero joga.jpg" alt="Somatski pokret i joga · TreatMe Life" loading="lazy">
+  <div class="rox-strip-scroll" id="roxGallery">
+
+    <div class="rox-strip-item" data-src="fotografije Roxanic/roxanic pogled noću.jpg" data-alt="Hotel Roxanich noću · Motovun, Istra">
+      <img src="fotografije Roxanic/roxanic pogled noću.jpg" alt="Hotel Roxanich noću · Motovun, Istra" loading="lazy">
+      <div class="rox-strip-zoom-hint"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
     </div>
-    <div class="rox-strip-item">
+
+    <div class="rox-strip-item" data-src="fotografije homepage/hero joga.jpg" data-alt="Somatski pokret i joga · Petra · TreatMe Life">
+      <img src="fotografije homepage/hero joga.jpg" alt="Somatski pokret i joga · Petra · TreatMe Life" loading="lazy">
+      <div class="rox-strip-zoom-hint"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
+    </div>
+
+    <div class="rox-strip-item" data-src="fotografije Roxanic/Roxanic pogled 1.jpg" data-alt="Pogled na dolinu Mirne · Hotel Roxanich">
+      <img src="fotografije Roxanic/Roxanic pogled 1.jpg" alt="Pogled na dolinu Mirne · Hotel Roxanich" loading="lazy">
+      <div class="rox-strip-zoom-hint"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
+    </div>
+
+    <div class="rox-strip-item" data-src="fotografije Roxanic/roxanic soba share.jpg" data-alt="Dizajnerska soba · Hotel Roxanich">
       <img src="fotografije Roxanic/roxanic soba share.jpg" alt="Dizajnerska soba · Hotel Roxanich" loading="lazy">
+      <div class="rox-strip-zoom-hint"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
     </div>
-    <div class="rox-strip-item">
-      <img src="fotografije Roxanic/roxanić vanjski pogled.jpg" alt="Hotel Roxanich · Motovun" loading="lazy">
+
+    <div class="rox-strip-item" data-src="fotografije Roxanic/petra roxanic yoga 3.jpeg" data-alt="Yoga praksa · Petra · Hotel Roxanich">
+      <img src="fotografije Roxanic/petra roxanic yoga 3.jpeg" alt="Yoga praksa · Petra · Hotel Roxanich" loading="lazy">
+      <div class="rox-strip-zoom-hint"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
     </div>
-    <div class="rox-strip-item">
-      <img src="fotografije Roxanic/roxanić wellnes pogled.jpg" alt="Wellness pogled na dolinu · Hotel Roxanich" loading="lazy">
+
+    <div class="rox-strip-item" data-src="fotografije Roxanic/roxanić vanjski pogled.jpg" data-alt="Hotel Roxanich · vanjski pogled · Motovun">
+      <img src="fotografije Roxanic/roxanić vanjski pogled.jpg" alt="Hotel Roxanich · vanjski pogled · Motovun" loading="lazy">
+      <div class="rox-strip-zoom-hint"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
     </div>
-    <div class="rox-strip-item">
-      <img src="fotografije Roxanic/ROXanic pogled.jpg" alt="Pogled na dolinu · Hotel Roxanich" loading="lazy">
+
+    <div class="rox-strip-item" data-src="fotografije Roxanic/rox pogled iz soba.jpg" data-alt="Pogled iz sobe · Hotel Roxanich">
+      <img src="fotografije Roxanic/rox pogled iz soba.jpg" alt="Pogled iz sobe · Hotel Roxanich" loading="lazy">
+      <div class="rox-strip-zoom-hint"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
     </div>
+
+    <div class="rox-strip-item" data-src="fotografije Roxanic/roxanić soba.jpg" data-alt="Soba · Hotel Roxanich">
+      <img src="fotografije Roxanic/roxanić soba.jpg" alt="Soba · Hotel Roxanich" loading="lazy">
+      <div class="rox-strip-zoom-hint"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
+    </div>
+
+    <div class="rox-strip-item" data-src="fotografije Roxanic/roxanic soba tri.jpg" data-alt="Trokrevetna soba · Hotel Roxanich">
+      <img src="fotografije Roxanic/roxanic soba tri.jpg" alt="Trokrevetna soba · Hotel Roxanich" loading="lazy">
+      <div class="rox-strip-zoom-hint"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
+    </div>
+
+    <div class="rox-strip-item" data-src="fotografije Roxanic/roxanić wellnes pogled.jpg" data-alt="Wellness i pogled na dolinu · Hotel Roxanich">
+      <img src="fotografije Roxanic/roxanić wellnes pogled.jpg" alt="Wellness i pogled na dolinu · Hotel Roxanich" loading="lazy">
+      <div class="rox-strip-zoom-hint"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
+    </div>
+
+    <div class="rox-strip-item" data-src="fotografije Roxanic/petra roxanic yoga 4.jpeg" data-alt="Yoga na retreatu · Petra · Hotel Roxanich">
+      <img src="fotografije Roxanic/petra roxanic yoga 4.jpeg" alt="Yoga na retreatu · Petra · Hotel Roxanich" loading="lazy">
+      <div class="rox-strip-zoom-hint"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
+    </div>
+
+    <div class="rox-strip-item" data-src="fotografije Roxanic/ROXanic pogled.jpg" data-alt="Pogled na Motovun i dolinu · Hotel Roxanich">
+      <img src="fotografije Roxanic/ROXanic pogled.jpg" alt="Pogled na Motovun i dolinu · Hotel Roxanich" loading="lazy">
+      <div class="rox-strip-zoom-hint"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
+    </div>
+
   </div>
+</div>
+
+<!-- Lightbox -->
+<div class="rox-lightbox" id="roxLightbox" role="dialog" aria-modal="true" aria-label="Pregled fotografije">
+  <button class="rox-lb-close" id="roxLbClose" aria-label="Zatvori">&#215;</button>
+  <button class="rox-lb-nav rox-lb-prev" id="roxLbPrev" aria-label="Prethodna">&#8592;</button>
+  <img class="rox-lightbox-img" id="roxLbImg" src="" alt="">
+  <button class="rox-lb-nav rox-lb-next" id="roxLbNext" aria-label="Sljedeća">&#8594;</button>
+  <div class="rox-lb-counter" id="roxLbCounter"></div>
 </div>
 
 <!-- ─────────────────────────────────────────────────────── -->
@@ -1573,6 +1829,74 @@ if (form) {
       });
   });
 }
+
+// ── GALLERY LIGHTBOX & DRAG SCROLL ────────────────────────
+(function() {
+  var items = document.querySelectorAll('.rox-strip-item[data-src]');
+  var lb    = document.getElementById('roxLightbox');
+  var lbImg = document.getElementById('roxLbImg');
+  var lbCnt = document.getElementById('roxLbCounter');
+  var srcs  = Array.from(items).map(function(el) {
+    return { src: el.dataset.src, alt: el.dataset.alt || '' };
+  });
+  var current = 0;
+
+  function openLb(idx) {
+    current = ((idx % srcs.length) + srcs.length) % srcs.length;
+    lbImg.src = srcs[current].src;
+    lbImg.alt = srcs[current].alt;
+    lbCnt.textContent = (current + 1) + ' / ' + srcs.length;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  items.forEach(function(el, i) {
+    el.addEventListener('click', function() { openLb(i); });
+  });
+
+  document.getElementById('roxLbClose').addEventListener('click', closeLb);
+  document.getElementById('roxLbPrev').addEventListener('click', function() { openLb(current - 1); });
+  document.getElementById('roxLbNext').addEventListener('click', function() { openLb(current + 1); });
+  lb.addEventListener('click', function(e) { if (e.target === lb) closeLb(); });
+
+  document.addEventListener('keydown', function(e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')     closeLb();
+    if (e.key === 'ArrowLeft')  openLb(current - 1);
+    if (e.key === 'ArrowRight') openLb(current + 1);
+  });
+
+  // Drag to scroll
+  var scroll = document.getElementById('roxGallery');
+  if (scroll) {
+    var isDown = false, startX, scrollLeft, moved = false;
+    scroll.addEventListener('mousedown', function(e) {
+      isDown = true; moved = false;
+      scroll.classList.add('is-dragging');
+      startX = e.pageX - scroll.offsetLeft;
+      scrollLeft = scroll.scrollLeft;
+    });
+    scroll.addEventListener('mouseleave', function() { isDown = false; scroll.classList.remove('is-dragging'); });
+    scroll.addEventListener('mouseup',    function() { isDown = false; scroll.classList.remove('is-dragging'); });
+    scroll.addEventListener('mousemove',  function(e) {
+      if (!isDown) return;
+      e.preventDefault();
+      var x = e.pageX - scroll.offsetLeft;
+      var walk = (x - startX) * 1.4;
+      scroll.scrollLeft = scrollLeft - walk;
+      if (Math.abs(walk) > 4) moved = true;
+    });
+    // Prevent click from firing after drag
+    items.forEach(function(el) {
+      el.addEventListener('mousedown', function() { moved = false; });
+      el.addEventListener('click',     function(e) { if (moved) e.stopImmediatePropagation(); }, true);
+    });
+  }
+})();
 </script>
 </body>
 </html>
