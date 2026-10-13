@@ -887,6 +887,30 @@ img { max-width: 100%; display: block; object-fit: cover; }
   .rox-pricing-grid { grid-template-columns: 1fr; }
 }
 
+/* ── DATE LINKS ─────────────────────────────────────────── */
+a.rox-date-link, a.hero-meta-pill.rox-date-link, a.rox-fact.rox-date-link {
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s, color 0.2s;
+}
+a.rox-date-link:hover { opacity: 0.7; }
+.rox-price-dates a.rox-date-link {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid rgba(201,188,158,0.3);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--rox-warm);
+  margin: 2px 2px 2px 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+.rox-price-dates a.rox-date-link:hover {
+  background: rgba(201,188,158,0.1);
+  border-color: var(--rox-warm);
+}
+
 /* ── GALLERY SCROLL ─────────────────────────────────────── */
 .rox-strip-scroll {
   display: flex;
@@ -1099,7 +1123,9 @@ img { max-width: 100%; display: block; object-fit: cover; }
     </h1>
 
     <div class="rox-hero-meta fade-up d3">
-      <span class="hero-meta-pill"><span lang="hr">Travanj · Svibanj · Lipanj 2027</span><span lang="en">April · May · June 2027</span></span>
+      <a class="hero-meta-pill rox-date-link" href="#prijava" data-termin="travanj"><span lang="hr">Travanj 2027</span><span lang="en">April 2027</span></a>
+      <a class="hero-meta-pill rox-date-link" href="#prijava" data-termin="svibanj"><span lang="hr">Svibanj 2027</span><span lang="en">May 2027</span></a>
+      <a class="hero-meta-pill rox-date-link" href="#prijava" data-termin="lipanj"><span lang="hr">Lipanj 2027</span><span lang="en">June 2027</span></a>
       <span class="hero-meta-pill">Hotel Roxanich · Motovun · Istra</span>
       <span class="hero-meta-pill accent"><span lang="hr">do 20 gostiju</span><span lang="en">max 20 guests</span></span>
     </div>
@@ -1146,7 +1172,9 @@ img { max-width: 100%; display: block; object-fit: cover; }
       Surrounded by tranquil vineyards and the rolling hills of the Mirna River Valley, this weekend is designed to help you ground your body, quiet your mind, and indulge your senses.
     </p>
     <div class="rox-quick-facts">
-      <span class="rox-fact"><span lang="hr">02.–04.04. · 07.–09.05. · 11.–13.06.</span><span lang="en">Apr 2–4 · May 7–9 · Jun 11–13</span></span>
+      <a class="rox-fact rox-date-link" href="#prijava" data-termin="travanj"><span lang="hr">02.–04.04.</span><span lang="en">Apr 2–4</span></a>
+      <a class="rox-fact rox-date-link" href="#prijava" data-termin="svibanj"><span lang="hr">07.–09.05.</span><span lang="en">May 7–9</span></a>
+      <a class="rox-fact rox-date-link" href="#prijava" data-termin="lipanj"><span lang="hr">11.–13.06.</span><span lang="en">Jun 11–13</span></a>
       <span class="rox-fact">Motovun · Istra</span>
       <span class="rox-fact"><span lang="hr">2 noćenja</span><span lang="en">2 nights</span></span>
       <span class="rox-fact"><span lang="hr">do 20 gostiju</span><span lang="en">max 20 guests</span></span>
@@ -1382,8 +1410,9 @@ img { max-width: 100%; display: block; object-fit: cover; }
           <span class="rox-price-unit"><span lang="hr">/ sobi · 2 noćenja</span><span lang="en">/ room · 2 nights</span></span>
         </div>
         <div class="rox-price-dates">
-          <span lang="hr">02.–04.04. · 07.–09.05. · 11.–13.06. 2027</span>
-          <span lang="en">Apr 2–4 · May 7–9 · Jun 11–13, 2027</span>
+          <a class="rox-date-link" href="#prijava" data-termin="travanj"><span lang="hr">02.–04.04.</span><span lang="en">Apr 2–4</span></a>
+          <a class="rox-date-link" href="#prijava" data-termin="svibanj"><span lang="hr">07.–09.05.</span><span lang="en">May 7–9</span></a>
+          <a class="rox-date-link" href="#prijava" data-termin="lipanj"><span lang="hr">11.–13.06.</span><span lang="en">Jun 11–13</span></a>
         </div>
         <div class="rox-price-includes">
           <div class="rox-include-item" lang="hr">2 noćenja u dijeljenoj sobi</div>
@@ -1416,8 +1445,9 @@ img { max-width: 100%; display: block; object-fit: cover; }
           <span class="rox-price-unit"><span lang="hr">/ sobi · 2 noćenja</span><span lang="en">/ room · 2 nights</span></span>
         </div>
         <div class="rox-price-dates">
-          <span lang="hr">02.–04.04. · 07.–09.05. · 11.–13.06. 2027</span>
-          <span lang="en">Apr 2–4 · May 7–9 · Jun 11–13, 2027</span>
+          <a class="rox-date-link" href="#prijava" data-termin="travanj"><span lang="hr">02.–04.04.</span><span lang="en">Apr 2–4</span></a>
+          <a class="rox-date-link" href="#prijava" data-termin="svibanj"><span lang="hr">07.–09.05.</span><span lang="en">May 7–9</span></a>
+          <a class="rox-date-link" href="#prijava" data-termin="lipanj"><span lang="hr">11.–13.06.</span><span lang="en">Jun 11–13</span></a>
         </div>
         <div class="rox-price-includes">
           <div class="rox-include-item" lang="hr">2 noćenja u jednokrevetnoj sobi</div>
@@ -1631,7 +1661,8 @@ img { max-width: 100%; display: block; object-fit: cover; }
           <label class="rox-form-label" lang="hr">Ime i prezime</label>
           <label class="rox-form-label" lang="en">Full name</label>
           <input class="rox-form-input" type="text" name="name" required
-            placeholder="Vaše ime / Your name">
+            placeholder="Vaše ime"
+            data-ph-hr="Vaše ime" data-ph-en="Your name">
         </div>
 
         <div class="rox-form-field">
@@ -1644,19 +1675,16 @@ img { max-width: 100%; display: block; object-fit: cover; }
         <div class="rox-form-field">
           <label class="rox-form-label" lang="hr">Paket koji vas zanima</label>
           <label class="rox-form-label" lang="en">Package of interest</label>
-          <select class="rox-form-select" name="package">
-            <option value="" disabled selected>
-              <span lang="hr">Odaberite paket</span>
-              <span lang="en">Select package</span>
-            </option>
-            <option value="dijeljena-travanj">Dijeljena soba — €990 · Travanj (02.–04.04.)</option>
-            <option value="dijeljena-svibanj">Dijeljena soba — €990 · Svibanj (07.–09.05.)</option>
-            <option value="dijeljena-lipanj">Dijeljena soba — €990 · Lipanj (11.–13.06.)</option>
-            <option value="jednokrevetna-travanj">Jednokrevetna — €1.290 · Travanj (02.–04.04.)</option>
-            <option value="jednokrevetna-svibanj">Jednokrevetna — €1.290 · Svibanj (07.–09.05.)</option>
-            <option value="jednokrevetna-lipanj">Jednokrevetna — €1.290 · Lipanj (11.–13.06.)</option>
-            <option value="produljenje">+ Produljenje / Extension (+1 noć)</option>
-            <option value="jos-razmisljam">Još razmišljam / Still deciding</option>
+          <select class="rox-form-select" name="package" id="rox-package-select">
+            <option value="" disabled selected data-hr="Odaberite paket" data-en="Select package">Odaberite paket</option>
+            <option value="dijeljena-travanj" data-hr="Dijeljena soba — €990 · Travanj (02.–04.04.)" data-en="Shared room — €990 · April (Apr 2–4)">Dijeljena soba — €990 · Travanj (02.–04.04.)</option>
+            <option value="dijeljena-svibanj"  data-hr="Dijeljena soba — €990 · Svibanj (07.–09.05.)" data-en="Shared room — €990 · May (May 7–9)">Dijeljena soba — €990 · Svibanj (07.–09.05.)</option>
+            <option value="dijeljena-lipanj"   data-hr="Dijeljena soba — €990 · Lipanj (11.–13.06.)" data-en="Shared room — €990 · June (Jun 11–13)">Dijeljena soba — €990 · Lipanj (11.–13.06.)</option>
+            <option value="jednokrevetna-travanj" data-hr="Jednokrevetna — €1.290 · Travanj (02.–04.04.)" data-en="Private room — €1,290 · April (Apr 2–4)">Jednokrevetna — €1.290 · Travanj (02.–04.04.)</option>
+            <option value="jednokrevetna-svibanj"  data-hr="Jednokrevetna — €1.290 · Svibanj (07.–09.05.)" data-en="Private room — €1,290 · May (May 7–9)">Jednokrevetna — €1.290 · Svibanj (07.–09.05.)</option>
+            <option value="jednokrevetna-lipanj"   data-hr="Jednokrevetna — €1.290 · Lipanj (11.–13.06.)" data-en="Private room — €1,290 · June (Jun 11–13)">Jednokrevetna — €1.290 · Lipanj (11.–13.06.)</option>
+            <option value="produljenje"        data-hr="+ Produljenje (+1 noć)" data-en="+ Extension (+1 night)">+ Produljenje (+1 noć)</option>
+            <option value="jos-razmisljam"     data-hr="Još razmišljam" data-en="Still deciding">Još razmišljam</option>
           </select>
         </div>
 
@@ -1664,7 +1692,9 @@ img { max-width: 100%; display: block; object-fit: cover; }
           <label class="rox-form-label" lang="hr">Poruka (alergije, pitanja, napomene)</label>
           <label class="rox-form-label" lang="en">Message (allergies, questions, notes)</label>
           <textarea class="rox-form-textarea" name="message"
-            placeholder="Alergije na hranu, pitanja o programu...&#10;Food allergies, questions about the program..."></textarea>
+            placeholder="Alergije na hranu, pitanja o programu..."
+            data-ph-hr="Alergije na hranu, pitanja o programu..."
+            data-ph-en="Food allergies, questions about the program..."></textarea>
         </div>
 
         <button type="submit" class="rox-form-submit">
@@ -1748,8 +1778,18 @@ img { max-width: 100%; display: block; object-fit: cover; }
 /* ── Lang switcher ── */
 function setLang(lang) {
   document.documentElement.setAttribute('data-lang', lang);
-  document.querySelectorAll('.lang-btn').forEach(b => {
+  document.querySelectorAll('.lang-btn').forEach(function(b) {
     b.classList.toggle('active', b.dataset.lang === lang);
+  });
+  // Swap select option texts
+  document.querySelectorAll('#rox-package-select option').forEach(function(opt) {
+    var txt = opt.getAttribute('data-' + lang);
+    if (txt) opt.textContent = txt;
+  });
+  // Swap input/textarea placeholders
+  document.querySelectorAll('[data-ph-hr]').forEach(function(el) {
+    var ph = el.getAttribute('data-ph-' + lang);
+    if (ph) el.placeholder = ph;
   });
   try { localStorage.setItem('tm-lang', lang); } catch(e) {}
 }
@@ -1759,6 +1799,21 @@ function setLang(lang) {
     if (saved) setLang(saved);
   } catch(e) {}
 })();
+
+/* ── Date-link → pre-select form package ── */
+document.querySelectorAll('a.rox-date-link[data-termin]').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    var termin = link.getAttribute('data-termin');
+    var sel = document.getElementById('rox-package-select');
+    if (sel && termin) {
+      // Pre-select the shared-room option for that date
+      var target = 'dijeljena-' + termin;
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value === target) { sel.selectedIndex = i; break; }
+      }
+    }
+  });
+});
 
 /* ── Mobile nav ── */
 function toggleMobileNav() {
