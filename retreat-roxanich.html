@@ -1403,9 +1403,21 @@ a.rox-date-link:hover { opacity: 0.7; }
   body { padding-bottom: 0 !important; }
 }
 </style>
+<script src="/cookie-consent.js"></script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WJFPLL73');</script>
+<!-- End Google Tag Manager -->
 </head>
 
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJFPLL73"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- ── HEADER ──────────────────────────────────────────── -->
 <header class="header">
@@ -2133,6 +2145,7 @@ a.rox-date-link:hover { opacity: 0.7; }
           <input type="hidden" name="subject" value="Prijava na program · Joga &amp; Somatic Wellness Vikend · Roxanich 2027">
           <input type="hidden" name="redirect" value="false">
           <input type="hidden" name="cijena_programa" id="rox-price-field" value="710 EUR">
+          <input type="hidden" name="izvor" id="rox-source-field" value="">
           <input type="checkbox" name="botcheck" style="display:none">
 
           <div class="rox-form-field">
@@ -2368,6 +2381,17 @@ var ROX_PROGRAM_PRICE = 710;            // EUR po osobi, samo edukacijski progra
 var ROX_LOYALTY_CODES = ['TREATME10'];  // kod za postojeće polaznike, 10% na program
 var ROX_LOYALTY_PCT   = 10;
 
+/* ── Izvor posjeta (UTM) → skriveno polje u prijavi ── */
+(function() {
+  try {
+    var q = new URLSearchParams(location.search), parts = [];
+    ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k) { if (q.get(k)) parts.push(k.replace('utm_','') + '=' + q.get(k)); });
+    if (parts.length) sessionStorage.setItem('tm-src', parts.join(' · '));
+    var src = sessionStorage.getItem('tm-src') || (document.referrer ? 'ref=' + document.referrer.split('/')[2] : 'direct');
+    var f = document.getElementById('rox-source-field'); if (f) f.value = src;
+  } catch(e) {}
+})();
+
 function roxTrack(name, params) {
   try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: name }, params || {})); } catch(e) {}
 }
@@ -2391,7 +2415,10 @@ function roxTrack(name, params) {
     else { btn.hidden = true; pending.hidden = false; }
   };
   tabs.forEach(function(t) { t.addEventListener('click', function() { window.roxSetTermin(t.dataset.termin); }); });
-  btn.addEventListener('click', function() { roxTrack('roxanich_hotel_booking_click', { termin: current }); });
+  btn.addEventListener('click', function() {
+    roxTrack('roxanich_hotel_booking_click', { termin: current, value: ROX_HOTEL_ROOM_PRICE[current], currency: 'EUR' });
+    if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', { content_name: 'Roxanich ' + current, value: ROX_HOTEL_ROOM_PRICE[current], currency: 'EUR' });
+  });
   // Odabir termina u formi prati i korak 1
   var sel = document.getElementById('rox-package-select');
   if (sel) sel.addEventListener('change', function() {
@@ -2441,7 +2468,12 @@ if (form) {
     }).then(function(res) { return res.json(); })
       .then(function(data) {
         if (data.success) {
-          roxTrack('roxanich_program_signup', { package: form.package.value, loyalty: /kod/.test(document.getElementById('rox-price-field').value) });
+          var val = parseFloat(document.getElementById('rox-price-field').value) || ROX_PROGRAM_PRICE;
+          var loyal = /kod/.test(document.getElementById('rox-price-field').value);
+          roxTrack('roxanich_program_signup', { package: form.package.value, loyalty: loyal, value: val, currency: 'EUR' });
+          roxTrack('retreat_inquiry_complete', { retreat_destination: 'roxanich', lead_type: 'program_signup', value: val, currency: 'EUR' });
+          roxTrack('generate_lead', { value: val, currency: 'EUR' });
+          if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'Roxanich program', value: val, currency: 'EUR' });
           form.style.display = 'none';
           document.getElementById('rox-form-success').classList.add('visible');
         } else {
