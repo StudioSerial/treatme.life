@@ -40,7 +40,7 @@
   "offers": [
     {
       "@type": "Offer",
-      "name": "Dijeljena soba",
+      "name": "Dijeljena soba: smještaj i obroci (hotel, 280 €) + program (treatme.life, 710 €)",
       "price": "990",
       "priceCurrency": "EUR",
       "availability": "https://schema.org/LimitedAvailability",
@@ -48,8 +48,8 @@
     },
     {
       "@type": "Offer",
-      "name": "Jednokrevetna soba",
-      "price": "1290",
+      "name": "Program joge i somatike (jednokrevetni smještaj plaća se hotelu zasebno)",
+      "price": "710",
       "priceCurrency": "EUR",
       "availability": "https://schema.org/LimitedAvailability",
       "url": "https://treatme.life/retreat-roxanich"
@@ -746,6 +746,83 @@ img { max-width: 100%; display: block; object-fit: cover; }
 }
 .rox-form-success.visible { display: block; }
 
+/* Price split (hotel + program) */
+.rox-price-split {
+  display: flex; flex-direction: column; gap: 0;
+  border-top: 0.5px solid rgba(201,188,158,0.1);
+}
+.rox-split-row {
+  display: grid; grid-template-columns: 1fr auto; gap: 12px;
+  padding: 12px 0; border-bottom: 0.5px solid rgba(201,188,158,0.1);
+  align-items: baseline;
+}
+.rox-split-what { font-size: 13px; color: rgba(201,188,158,0.7); line-height: 1.5; }
+.rox-split-who {
+  display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(201,188,158,0.35); margin-top: 3px;
+}
+.rox-split-amt { font-family: var(--serif); font-size: 20px; font-weight: 300; color: var(--cream-soft); white-space: nowrap; }
+.rox-pay-note {
+  margin-top: 24px; padding: 20px 24px;
+  border: 0.5px solid rgba(217,241,0,0.25); border-radius: var(--r-md);
+  font-size: 13px; line-height: 1.7; color: rgba(201,188,158,0.7);
+}
+.rox-pay-note strong { color: var(--cream-soft); font-weight: 500; }
+
+/* Booking steps */
+.rox-steps { display: flex; flex-direction: column; gap: 20px; }
+.rox-step {
+  border: 0.5px solid rgba(201,188,158,0.15); border-radius: var(--r-lg);
+  padding: clamp(22px, 3vw, 32px);
+}
+.rox-step-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--lime); margin-bottom: 10px;
+}
+.rox-step-title {
+  font-family: var(--serif); font-size: clamp(20px, 2.4vw, 24px); font-weight: 300;
+  letter-spacing: -0.02em; color: var(--cream-soft); margin-bottom: 8px; line-height: 1.2;
+}
+.rox-step-body { font-size: 13px; line-height: 1.7; color: rgba(201,188,158,0.6); margin-bottom: 18px; }
+.rox-termin-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.rox-termin-tab {
+  background: transparent; color: rgba(201,188,158,0.7);
+  border: 0.5px solid rgba(201,188,158,0.25); border-radius: 999px;
+  padding: 8px 16px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+  cursor: pointer; transition: all 0.2s;
+}
+.rox-termin-tab[aria-pressed="true"] { background: var(--cream-soft); color: var(--ink); border-color: var(--cream-soft); }
+.rox-hotel-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  background: var(--cream-soft); color: var(--ink); text-decoration: none;
+  padding: 14px 28px; border-radius: 999px; font-size: 14px; font-weight: 500;
+  transition: transform 0.2s; width: 100%;
+}
+.rox-hotel-btn:hover { transform: translateY(-1px); }
+.rox-hotel-btn[hidden], .rox-hotel-pending[hidden] { display: none; }
+.rox-hotel-pending {
+  font-size: 13px; line-height: 1.6; color: rgba(201,188,158,0.6);
+  padding: 14px 18px; border: 0.5px dashed rgba(201,188,158,0.25); border-radius: var(--r-md);
+}
+.rox-hotel-fine {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; line-height: 1.6;
+  color: rgba(201,188,158,0.35); margin-top: 12px;
+}
+.rox-code-status { font-size: 12px; line-height: 1.5; min-height: 18px; }
+.rox-code-status.ok { color: var(--mint); }
+.rox-code-status.bad { color: var(--clay-light); }
+.rox-program-total {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+  padding: 14px 0; border-top: 0.5px solid rgba(201,188,158,0.12);
+  border-bottom: 0.5px solid rgba(201,188,158,0.12);
+}
+.rox-program-total-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(201,188,158,0.45); }
+.rox-program-total-num { font-family: var(--serif); font-size: 26px; font-weight: 300; color: var(--cream-soft); }
+.rox-program-total-num s { font-size: 16px; color: rgba(201,188,158,0.4); margin-right: 8px; }
+.rox-check { display: flex; gap: 10px; align-items: flex-start; font-size: 12px; line-height: 1.6; color: rgba(201,188,158,0.6); }
+.rox-check input { margin-top: 3px; accent-color: var(--lime); }
+.rox-check a { color: var(--cream-soft); }
+
 /* ── DIVIDER ────────────────────────────────────────────── */
 .rox-divider {
   max-width: var(--max-w); margin: 0 auto;
@@ -1400,7 +1477,17 @@ a.rox-date-link:hover { opacity: 0.7; }
         </div>
         <div class="rox-price-amount">
           <span class="rox-price-num">€990</span>
-          <span class="rox-price-unit"><span lang="hr">/ osobi · 2 noćenja</span><span lang="en">/ person · 2 nights</span></span>
+          <span class="rox-price-unit"><span lang="hr">/ osobi · 2 noćenja · ukupno</span><span lang="en">/ person · 2 nights · total</span></span>
+        </div>
+        <div class="rox-price-split">
+          <div class="rox-split-row">
+            <span class="rox-split-what"><span lang="hr">Smještaj i obroci (560 € po sobi za dvoje)</span><span lang="en">Room and meals (€560 per room for two)</span><span class="rox-split-who"><span lang="hr">plaćate hotelu Roxanich</span><span lang="en">paid to Hotel Roxanich</span></span></span>
+            <span class="rox-split-amt">€280</span>
+          </div>
+          <div class="rox-split-row">
+            <span class="rox-split-what"><span lang="hr">Joga i somatski program</span><span lang="en">Yoga and somatic programme</span><span class="rox-split-who"><span lang="hr">plaćate treatme.life</span><span lang="en">paid to treatme.life</span></span></span>
+            <span class="rox-split-amt">€710</span>
+          </div>
         </div>
         <div class="rox-price-dates">
           <a class="rox-date-link" href="#prijava" data-termin="travanj"><span lang="hr">02.–04.04.</span><span lang="en">Apr 2–4</span></a>
@@ -1434,8 +1521,18 @@ a.rox-date-link:hover { opacity: 0.7; }
           <span lang="en">Private <span class="ital">Reset</span></span>
         </div>
         <div class="rox-price-amount">
-          <span class="rox-price-num">€1.290</span>
-          <span class="rox-price-unit"><span lang="hr">/ osobi · 2 noćenja</span><span lang="en">/ person · 2 nights</span></span>
+          <span class="rox-price-num">€710</span>
+          <span class="rox-price-unit"><span lang="hr">program + soba po cijeni hotela</span><span lang="en">programme + room at hotel rate</span></span>
+        </div>
+        <div class="rox-price-split">
+          <div class="rox-split-row">
+            <span class="rox-split-what"><span lang="hr">Jednokrevetni smještaj i obroci</span><span lang="en">Single room and meals</span><span class="rox-split-who"><span lang="hr">plaćate hotelu Roxanich, cijena u njihovom sustavu</span><span lang="en">paid to Hotel Roxanich, rate shown in their system</span></span></span>
+            <span class="rox-split-amt"><span lang="hr">hotel</span><span lang="en">hotel</span></span>
+          </div>
+          <div class="rox-split-row">
+            <span class="rox-split-what"><span lang="hr">Joga i somatski program</span><span lang="en">Yoga and somatic programme</span><span class="rox-split-who"><span lang="hr">plaćate treatme.life</span><span lang="en">paid to treatme.life</span></span></span>
+            <span class="rox-split-amt">€710</span>
+          </div>
         </div>
         <div class="rox-price-dates">
           <a class="rox-date-link" href="#prijava" data-termin="travanj"><span lang="hr">02.–04.04.</span><span lang="en">Apr 2–4</span></a>
@@ -1457,6 +1554,12 @@ a.rox-date-link:hover { opacity: 0.7; }
           <div class="rox-include-item" lang="en">treatme.life team guidance</div>
         </div>
       </div>
+    </div>
+
+    <!-- Kako se plaća -->
+    <div class="rox-pay-note fade-up d4">
+      <p lang="hr"><strong>Kako se plaća.</strong> Sobu i obroke rezervirate i plaćate izravno hotelu Roxanich, kroz njihov rezervacijski sustav (20% predujma, ostatak pri dolasku). Hotel izdaje svoj račun i naplaćuje boravišnu pristojbu. treatme.life naplaćuje samo edukacijski program joge i somatskog pokreta. <strong>Postojeći polaznici treatme.life imaju 10% popusta na program.</strong></p>
+      <p lang="en"><strong>How payment works.</strong> You book and pay for the room and meals directly with Hotel Roxanich through their booking system (20% deposit, balance on arrival). The hotel issues its own invoice and collects the tourist tax. treatme.life charges only for the educational yoga and somatic movement programme. <strong>Returning treatme.life guests get 10% off the programme.</strong></p>
     </div>
 
     <!-- Nije uključeno -->
@@ -1482,10 +1585,10 @@ a.rox-date-link:hover { opacity: 0.7; }
         <span lang="en">Extended Immersion <span class="ital">(+1 night, no obligation)</span></span>
       </p>
       <p class="rox-extension-body" lang="hr">
-        Ostanite dan dulje i upijte istarski mir — dodajte opciju bilo kada, ovisno o dostupnosti (180 € dijeljena soba / 240 € jednokrevetna, po osobi, po noći).
+        Ostanite dan dulje i upijte istarski mir. Dodatnu noć rezervirate izravno kod hotela Roxanich, ovisno o dostupnosti i po njihovoj cijeni.
       </p>
       <p class="rox-extension-body" lang="en">
-        Stay one extra day and soak in the Istrian peacefulness — add this option anytime, subject to availability (€180 shared / €240 private, per person, per night).
+        Stay one extra day and soak in the Istrian peacefulness. Book the extra night directly with Hotel Roxanich, subject to availability and at their rate.
       </p>
     </div>
 
@@ -1625,8 +1728,8 @@ a.rox-date-link:hover { opacity: 0.7; }
         <span lang="en">Space is limited<br><span class="ital">to 20 guests.</span></span>
       </h2>
       <p class="rox-booking-body fade-up d3">
-        <span lang="hr">Kako bismo sačuvali intimnost i osobnu kvalitetu iskustva, grupa ostaje namjerno mala. Javite nam se i rezervirajte svoje mjesto.</span>
-        <span lang="en">To keep this gathering intimate and personal, the group stays intentionally small. Reach out and reserve your spot.</span>
+        <span lang="hr">Kako bismo sačuvali intimnost i osobnu kvalitetu iskustva, grupa ostaje namjerno mala. Rezervacija ide u dva kratka koraka: sobu rezervirate izravno kod hotela, a mjesto na programu kod nas.</span>
+        <span lang="en">To keep this gathering intimate and personal, the group stays intentionally small. Booking takes two short steps: your room directly with the hotel, your place in the programme with us.</span>
       </p>
       <p class="rox-booking-closing fade-up d4">
         <span lang="hr">"Jedva čekamo podijeliti ovaj čarobni vikend s vama."</span>
@@ -1637,68 +1740,123 @@ a.rox-date-link:hover { opacity: 0.7; }
       </p>
     </div>
 
-    <!-- ENQUIRY FORM -->
-    <div class="fade-up d3">
-      <div id="rox-form-success" class="rox-form-success">
-        <span lang="hr">Hvala! Javimo se uskoro.</span>
-        <span lang="en">Thank you! We'll be in touch soon.</span>
+    <!-- BOOKING: 1) hotel (Phobs)  2) program (treatme.life) -->
+    <div class="rox-steps fade-up d3">
+
+      <div class="rox-step" id="rox-step-hotel">
+        <div class="rox-step-num"><span lang="hr">Korak 1 · Smještaj</span><span lang="en">Step 1 · Your room</span></div>
+        <h3 class="rox-step-title"><span lang="hr">Rezervirajte sobu izravno u hotelu</span><span lang="en">Book your room directly with the hotel</span></h3>
+        <p class="rox-step-body">
+          <span lang="hr">Smještaj i obroke plaćate hotelu Roxanich, kroz njihov sigurni rezervacijski sustav. Cijena za treatme.life goste je 560 € po sobi za dvoje (2 noćenja, doručak, ručak i dvije večere).</span>
+          <span lang="en">You pay Hotel Roxanich for the room and meals, through their secure booking system. The treatme.life guest rate is €560 per room for two (2 nights, breakfast, lunch and two dinners).</span>
+        </p>
+        <div class="rox-termin-tabs" role="group" aria-label="Termin">
+          <button type="button" class="rox-termin-tab" data-termin="travanj" aria-pressed="true"><span lang="hr">02.–04.04.</span><span lang="en">Apr 2–4</span></button>
+          <button type="button" class="rox-termin-tab" data-termin="svibanj" aria-pressed="false"><span lang="hr">07.–09.05.</span><span lang="en">May 7–9</span></button>
+          <button type="button" class="rox-termin-tab" data-termin="lipanj" aria-pressed="false"><span lang="hr">11.–13.06.</span><span lang="en">Jun 11–13</span></button>
+        </div>
+        <a class="rox-hotel-btn" id="rox-hotel-btn" href="#" target="_blank" rel="noopener">
+          <span lang="hr">Rezerviraj sobu kod hotela ↗</span>
+          <span lang="en">Book room with the hotel ↗</span>
+        </a>
+        <div class="rox-hotel-pending" id="rox-hotel-pending" hidden>
+          <span lang="hr">Hotelski link za ovaj termin otvaramo uskoro. Prijavite se na program u koraku 2 i poslat ćemo vam ga e-mailom čim bude spreman.</span>
+          <span lang="en">The hotel booking link for this date opens soon. Sign up for the programme in step 2 and we'll email it to you as soon as it's live.</span>
+        </div>
+        <p class="rox-hotel-fine">
+          <span lang="hr">Hotel: 20% predujma, ostatak pri dolasku · boravišnu pristojbu naplaćuje hotel · otkazivanje smještaja po uvjetima hotela</span>
+          <span lang="en">Hotel: 20% deposit, balance on arrival · tourist tax collected by the hotel · room cancellation per hotel terms</span>
+        </p>
       </div>
 
-      <form class="rox-form" id="rox-enquiry-form" novalidate>
-        <input type="hidden" name="access_key" value="154fc84f-3b03-42d0-9537-9f3e62b6b108">
-        <input type="hidden" name="subject" value="Prijava — Joga &amp; Somatic Wellness Vikend · Roxanich 2027">
-        <input type="hidden" name="redirect" value="false">
-        <input type="checkbox" name="botcheck" style="display:none">
-
-        <div class="rox-form-field">
-          <label class="rox-form-label" lang="hr">Ime i prezime</label>
-          <label class="rox-form-label" lang="en">Full name</label>
-          <input class="rox-form-input" type="text" name="name" required
-            placeholder="Vaše ime"
-            data-ph-hr="Vaše ime" data-ph-en="Your name">
-        </div>
-
-        <div class="rox-form-field">
-          <label class="rox-form-label" lang="hr">E-mail adresa</label>
-          <label class="rox-form-label" lang="en">Email address</label>
-          <input class="rox-form-input" type="email" name="email" required
-            placeholder="ime@email.com">
-        </div>
-
-        <div class="rox-form-field">
-          <label class="rox-form-label" lang="hr">Paket koji vas zanima</label>
-          <label class="rox-form-label" lang="en">Package of interest</label>
-          <select class="rox-form-select" name="package" id="rox-package-select">
-            <option value="" disabled selected data-hr="Odaberite paket" data-en="Select package">Odaberite paket</option>
-            <option value="dijeljena-travanj" data-hr="Dijeljena soba — €990/osobi · Travanj (02.–04.04.)" data-en="Shared room — €990/person · April (Apr 2–4)">Dijeljena soba — €990/osobi · Travanj (02.–04.04.)</option>
-            <option value="dijeljena-svibanj"  data-hr="Dijeljena soba — €990/osobi · Svibanj (07.–09.05.)" data-en="Shared room — €990/person · May (May 7–9)">Dijeljena soba — €990/osobi · Svibanj (07.–09.05.)</option>
-            <option value="dijeljena-lipanj"   data-hr="Dijeljena soba — €990/osobi · Lipanj (11.–13.06.)" data-en="Shared room — €990/person · June (Jun 11–13)">Dijeljena soba — €990/osobi · Lipanj (11.–13.06.)</option>
-            <option value="jednokrevetna-travanj" data-hr="Jednokrevetna — €1.290/osobi · Travanj (02.–04.04.)" data-en="Private room — €1,290/person · April (Apr 2–4)">Jednokrevetna — €1.290/osobi · Travanj (02.–04.04.)</option>
-            <option value="jednokrevetna-svibanj"  data-hr="Jednokrevetna — €1.290/osobi · Svibanj (07.–09.05.)" data-en="Private room — €1,290/person · May (May 7–9)">Jednokrevetna — €1.290/osobi · Svibanj (07.–09.05.)</option>
-            <option value="jednokrevetna-lipanj"   data-hr="Jednokrevetna — €1.290/osobi · Lipanj (11.–13.06.)" data-en="Private room — €1,290/person · June (Jun 11–13)">Jednokrevetna — €1.290/osobi · Lipanj (11.–13.06.)</option>
-            <option value="produljenje"        data-hr="+ Produljenje (+1 noć)" data-en="+ Extension (+1 night)">+ Produljenje (+1 noć)</option>
-            <option value="jos-razmisljam"     data-hr="Još razmišljam" data-en="Still deciding">Još razmišljam</option>
-          </select>
-        </div>
-
-        <div class="rox-form-field">
-          <label class="rox-form-label" lang="hr">Poruka (alergije, pitanja, napomene)</label>
-          <label class="rox-form-label" lang="en">Message (allergies, questions, notes)</label>
-          <textarea class="rox-form-textarea" name="message"
-            placeholder="Alergije na hranu, pitanja o programu..."
-            data-ph-hr="Alergije na hranu, pitanja o programu..."
-            data-ph-en="Food allergies, questions about the program..."></textarea>
-        </div>
-
-        <button type="submit" class="rox-form-submit">
-          <span lang="hr">Pošalji prijavu →</span>
-          <span lang="en">Send enquiry →</span>
-        </button>
-        <p class="rox-form-note">
-          <span lang="hr">Potvrdu ćemo poslati na vašu e-mail adresu</span>
-          <span lang="en">We'll confirm by email</span>
+      <div class="rox-step" id="rox-step-program">
+        <div class="rox-step-num"><span lang="hr">Korak 2 · Program</span><span lang="en">Step 2 · The programme</span></div>
+        <h3 class="rox-step-title"><span lang="hr">Prijavite se na program joge i somatike</span><span lang="en">Sign up for the yoga and somatic programme</span></h3>
+        <p class="rox-step-body">
+          <span lang="hr">Program je edukacijski dio vikenda koji vodi treatme.life. Nakon prijave šaljemo vam potvrdu i račun za program.</span>
+          <span lang="en">The programme is the educational part of the weekend, led by treatme.life. After you sign up we send a confirmation and the programme invoice.</span>
         </p>
-      </form>
+
+        <div id="rox-form-success" class="rox-form-success">
+          <span lang="hr">Hvala. Prijava je stigla, javljamo se s potvrdom i računom za program.</span>
+          <span lang="en">Thank you. Your sign-up is in, we'll be in touch with a confirmation and the programme invoice.</span>
+        </div>
+
+        <form class="rox-form" id="rox-enquiry-form" novalidate>
+          <input type="hidden" name="access_key" value="154fc84f-3b03-42d0-9537-9f3e62b6b108">
+          <input type="hidden" name="subject" value="Prijava na program · Joga &amp; Somatic Wellness Vikend · Roxanich 2027">
+          <input type="hidden" name="redirect" value="false">
+          <input type="hidden" name="cijena_programa" id="rox-price-field" value="710 EUR">
+          <input type="checkbox" name="botcheck" style="display:none">
+
+          <div class="rox-form-field">
+            <label class="rox-form-label" for="rox-name"><span lang="hr">Ime i prezime</span><span lang="en">Full name</span></label>
+            <input class="rox-form-input" id="rox-name" type="text" name="name" required autocomplete="name"
+              placeholder="Vaše ime" data-ph-hr="Vaše ime" data-ph-en="Your name">
+          </div>
+
+          <div class="rox-form-field">
+            <label class="rox-form-label" for="rox-email"><span lang="hr">E-mail adresa</span><span lang="en">Email address</span></label>
+            <input class="rox-form-input" id="rox-email" type="email" name="email" required autocomplete="email" placeholder="ime@email.com">
+          </div>
+
+          <div class="rox-form-field">
+            <label class="rox-form-label" for="rox-package-select"><span lang="hr">Termin i soba</span><span lang="en">Date and room</span></label>
+            <select class="rox-form-select" name="package" id="rox-package-select" required>
+              <option value="" disabled selected data-hr="Odaberite termin" data-en="Select a date">Odaberite termin</option>
+              <option value="dijeljena-travanj" data-hr="Travanj (02.–04.04.) · dijeljena soba" data-en="April (Apr 2–4) · shared room">Travanj (02.–04.04.) · dijeljena soba</option>
+              <option value="dijeljena-svibanj" data-hr="Svibanj (07.–09.05.) · dijeljena soba" data-en="May (May 7–9) · shared room">Svibanj (07.–09.05.) · dijeljena soba</option>
+              <option value="dijeljena-lipanj" data-hr="Lipanj (11.–13.06.) · dijeljena soba" data-en="June (Jun 11–13) · shared room">Lipanj (11.–13.06.) · dijeljena soba</option>
+              <option value="jednokrevetna-travanj" data-hr="Travanj (02.–04.04.) · jednokrevetna soba" data-en="April (Apr 2–4) · private room">Travanj (02.–04.04.) · jednokrevetna soba</option>
+              <option value="jednokrevetna-svibanj" data-hr="Svibanj (07.–09.05.) · jednokrevetna soba" data-en="May (May 7–9) · private room">Svibanj (07.–09.05.) · jednokrevetna soba</option>
+              <option value="jednokrevetna-lipanj" data-hr="Lipanj (11.–13.06.) · jednokrevetna soba" data-en="June (Jun 11–13) · private room">Lipanj (11.–13.06.) · jednokrevetna soba</option>
+              <option value="jos-razmisljam" data-hr="Još razmišljam, imam pitanje" data-en="Still deciding, I have a question">Još razmišljam, imam pitanje</option>
+            </select>
+          </div>
+
+          <div class="rox-form-field">
+            <label class="rox-form-label" for="rox-hotel-ref"><span lang="hr">Broj hotelske rezervacije (ako je već imate)</span><span lang="en">Hotel booking number (if you have it)</span></label>
+            <input class="rox-form-input" id="rox-hotel-ref" type="text" name="hotel_rezervacija"
+              placeholder="npr. 123456" data-ph-hr="npr. 123456" data-ph-en="e.g. 123456">
+          </div>
+
+          <div class="rox-form-field">
+            <label class="rox-form-label" for="rox-code"><span lang="hr">Kod za postojeće polaznike (−10%)</span><span lang="en">Returning guest code (−10%)</span></label>
+            <input class="rox-form-input" id="rox-code" type="text" name="kod_popusta" autocomplete="off"
+              placeholder="Kod iz našeg e-maila" data-ph-hr="Kod iz našeg e-maila" data-ph-en="Code from our email">
+            <div class="rox-code-status" id="rox-code-status" aria-live="polite"></div>
+          </div>
+
+          <div class="rox-program-total">
+            <span class="rox-program-total-label"><span lang="hr">Program po osobi</span><span lang="en">Programme per person</span></span>
+            <span class="rox-program-total-num" id="rox-program-total">€710</span>
+          </div>
+
+          <div class="rox-form-field">
+            <label class="rox-form-label" for="rox-message"><span lang="hr">Poruka (alergije, pitanja, napomene)</span><span lang="en">Message (allergies, questions, notes)</span></label>
+            <textarea class="rox-form-textarea" id="rox-message" name="message"
+              placeholder="Alergije na hranu, pitanja o programu..."
+              data-ph-hr="Alergije na hranu, pitanja o programu..."
+              data-ph-en="Food allergies, questions about the programme..."></textarea>
+          </div>
+
+          <label class="rox-check">
+            <input type="checkbox" name="uvjeti_prihvaceni" value="da" required id="rox-terms">
+            <span lang="hr">Prihvaćam <a href="/uvjeti" target="_blank">uvjete rezervacije</a> i razumijem da smještaj plaćam hotelu, a program treatme.life.</span>
+            <span lang="en">I accept the <a href="/uvjeti" target="_blank">booking terms</a> and understand that I pay the hotel for the room and treatme.life for the programme.</span>
+          </label>
+
+          <button type="submit" class="rox-form-submit">
+            <span lang="hr">Prijavi se na program →</span>
+            <span lang="en">Sign up for the programme →</span>
+          </button>
+          <p class="rox-form-note">
+            <span lang="hr">Potvrdu i račun šaljemo na vaš e-mail</span>
+            <span lang="en">Confirmation and invoice sent by email</span>
+          </p>
+        </form>
+      </div>
+
     </div>
 
   </div>
@@ -1785,6 +1943,7 @@ function setLang(lang) {
     if (ph) el.placeholder = ph;
   });
   try { localStorage.setItem('tm-lang', lang); } catch(e) {}
+  if (window.roxUpdateCode) window.roxUpdateCode();
 }
 (function() {
   try {
@@ -1805,6 +1964,7 @@ document.querySelectorAll('a.rox-date-link[data-termin]').forEach(function(link)
         if (sel.options[i].value === target) { sel.selectedIndex = i; break; }
       }
     }
+    if (termin && window.roxSetTermin) window.roxSetTermin(termin);
   });
 });
 
@@ -1851,11 +2011,79 @@ fadeEls.forEach(function(el) { io.observe(el); });
   dockIO.observe(hero);
 })();
 
-/* ── Web3Forms enquiry ── */
+/* ── Booking config ──────────────────────────────────────
+   Hotel (Phobs) linkovi po terminu. Svaki link hotel generira
+   zasebno (crcid je potpis), pa ne mijenjati datume ručno.
+   null = link još nije stigao, prikazuje se poruka "uskoro".   */
+var ROX_HOTEL_LINKS = {
+  travanj: 'https://secure.phobs.net/book.php?page=availability&companyid=86&hotelid=263&checkin=2027-04-02&checkout=2027-04-04&partnerid=27607&unitid=1627&crcid=2e17085446d3df0053c7635f5146c823',
+  svibanj: null,
+  lipanj:  null
+};
+var ROX_PROGRAM_PRICE = 710;            // EUR po osobi, samo edukacijski program
+var ROX_LOYALTY_CODES = ['TREATME10'];  // kod za postojeće polaznike, 10% na program
+var ROX_LOYALTY_PCT   = 10;
+
+function roxTrack(name, params) {
+  try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: name }, params || {})); } catch(e) {}
+}
+
+/* ── Termin tabs → hotel link ── */
+(function() {
+  var tabs = document.querySelectorAll('.rox-termin-tab');
+  var btn = document.getElementById('rox-hotel-btn');
+  var pending = document.getElementById('rox-hotel-pending');
+  if (!tabs.length || !btn) return;
+  var current = 'travanj';
+  window.roxSetTermin = function(termin) {
+    current = termin;
+    tabs.forEach(function(t) { t.setAttribute('aria-pressed', t.dataset.termin === termin ? 'true' : 'false'); });
+    var url = ROX_HOTEL_LINKS[termin];
+    if (url) { btn.href = url; btn.hidden = false; pending.hidden = true; }
+    else { btn.hidden = true; pending.hidden = false; }
+  };
+  tabs.forEach(function(t) { t.addEventListener('click', function() { window.roxSetTermin(t.dataset.termin); }); });
+  btn.addEventListener('click', function() { roxTrack('roxanich_hotel_booking_click', { termin: current }); });
+  // Odabir termina u formi prati i korak 1
+  var sel = document.getElementById('rox-package-select');
+  if (sel) sel.addEventListener('change', function() {
+    var m = sel.value.match(/-(travanj|svibanj|lipanj)$/);
+    if (m) window.roxSetTermin(m[1]);
+  });
+  window.roxSetTermin(current);
+})();
+
+/* ── Kod za postojeće polaznike → cijena programa ── */
+(function() {
+  var input = document.getElementById('rox-code');
+  var status = document.getElementById('rox-code-status');
+  var total = document.getElementById('rox-program-total');
+  var field = document.getElementById('rox-price-field');
+  if (!input) return;
+  function fmt(n) { return '€' + (Math.round(n * 100) / 100).toString().replace('.', ','); }
+  function update() {
+    var lang = document.documentElement.getAttribute('data-lang') || 'hr';
+    var code = input.value.trim().toUpperCase();
+    var ok = ROX_LOYALTY_CODES.indexOf(code) !== -1;
+    var price = ok ? ROX_PROGRAM_PRICE * (1 - ROX_LOYALTY_PCT / 100) : ROX_PROGRAM_PRICE;
+    total.innerHTML = ok ? '<s>' + fmt(ROX_PROGRAM_PRICE) + '</s>' + fmt(price) : fmt(price);
+    field.value = price + ' EUR' + (ok ? ' (kod ' + code + ', -' + ROX_LOYALTY_PCT + '%)' : '');
+    status.className = 'rox-code-status' + (code ? (ok ? ' ok' : ' bad') : '');
+    if (!code) status.textContent = '';
+    else if (ok) status.textContent = lang === 'en' ? 'Code applied. 10% off the programme for returning guests.' : 'Kod je primijenjen. 10% popusta na program za postojeće polaznike.';
+    else status.textContent = lang === 'en' ? 'We don\'t recognise this code. Check the email we sent you.' : 'Ne prepoznajemo ovaj kod. Provjerite e-mail koji smo vam poslali.';
+  }
+  input.addEventListener('input', update);
+  window.roxUpdateCode = update;
+  update();
+})();
+
+/* ── Web3Forms: prijava na program ── */
 var form = document.getElementById('rox-enquiry-form');
 if (form) {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
     var btn = form.querySelector('.rox-form-submit');
     btn.disabled = true;
     btn.style.opacity = '0.6';
@@ -1865,6 +2093,7 @@ if (form) {
     }).then(function(res) { return res.json(); })
       .then(function(data) {
         if (data.success) {
+          roxTrack('roxanich_program_signup', { package: form.package.value, loyalty: /kod/.test(document.getElementById('rox-price-field').value) });
           form.style.display = 'none';
           document.getElementById('rox-form-success').classList.add('visible');
         } else {
@@ -1877,7 +2106,6 @@ if (form) {
       });
   });
 }
-
 // ── GALLERY LIGHTBOX & DRAG SCROLL ────────────────────────
 (function() {
   var items = document.querySelectorAll('.rox-strip-item[data-src]');
